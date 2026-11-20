@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 营销助手 · 只填产品 · 选品报告 6 章 10 图 + 33 个细分工具</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9.6v4.6h3l9.2 4.2V5.4L6 9.6Z"/><path d="M7.2 14.9l1.3 5 2.4-.7-1-4.5"/><path d="M18.6 8.6a4.6 4.6 0 0 1 0 6.8"/>
+      </svg>
+    </div>
+    <div class="brand-t">
+      <h1>AI 营销助手</h1>
+      <span>只填产品 · 品类 / 价格带 / 人群 / 卖点自动补全 · <b data-tc>33</b> 个细分工具</span>
+    </div>
+  </div>
+  <div class="top-actions">
+    <button class="netpill" id="netPill" title="联网状态"><i></i><span id="netPillT">检测中</span></button>
+    <button class="btn sm" id="btnDemo">填入示例</button>
+    <button class="btn sm" id="btnClear">清空</button>
+    <button class="btn sm primary" id="btnExportAll">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7.5 10.5 12 15l4.5-4.5"/><path d="M4 20h16"/></svg>
+      导出全案
+    </button>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="side">
+    <div class="proj" id="proj">
+      <button class="proj-h" id="projToggle">项目信息 <span>只填产品 · 其余自动补全</span><b class="cv">▾</b></button>
+      <div class="pg">
+        <label class="wide">产品 <input data-pk="product" placeholder="便携榨汁杯 / portable blender"></label>
+        <label>市场
+          <select data-pk="market"><option>美国</option><option>欧洲</option><option>日本</option><option>东南亚</option><option>中东</option><option>拉美</option></select>
+        </label>
+        <label>平台
+          <select data-pk="platform"><option>Amazon</option><option>TikTok Shop</option><option>Shopify 独立站</option><option>Temu</option><option>Shein</option><option>还没定</option></select>
+        </label>
+      </div>
+      <div class="auto" id="auto"></div>
+      <div class="pg pg-edit" id="autoEdit" hidden>
+        <label>品类 <input data-pk="category" list="catList" placeholder="自动"></label>
+        <datalist id="catList"></datalist>
+        <label>价格 <input data-pk="price" placeholder="自动"></label>
+        <label class="wide">人群 <input data-pk="audience" placeholder="自动"></label>
+      </div>
+      <label class="pg-full pg-edit" id="autoEditPts" hidden>核心卖点 <i>一行一条</i>
+        <textarea data-pk="points" rows="4" placeholder="自动"></textarea>
+      </label>
+    </div>
+
+    <div class="side-h">8 步 · <b data-tc>33</b> 细分</div>
+    <nav class="nav" id="nav"></nav>
+  </aside>
+
+  <main class="main" id="main"></main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="dlg" id="netDlg" hidden>
+  <div class="dlg-mask" data-netclose></div>
+  <div class="dlg-p" id="netDlgBody"></div>
+</div>
+
+  <script src="core.js"></script>
+  <script src="net.js"></script>
+  <script src="infer.js"></script>
+  <script src="subs.js"></script>
+  <script src="viz.js"></script>
+  <script src="reviews-data.js"></script>
+  <script src="review.js"></script>
+  <script src="compete.js"></script>
+  <script src="select.js"></script>
+  <script src="crawler.js"></script>
+  <script src="media.js"></script>
+  <script src="aprompt.js"></script>
+  <script src="doc.js"></script>
+  <script src="tools.js"></script>
+  <script src="emotion.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

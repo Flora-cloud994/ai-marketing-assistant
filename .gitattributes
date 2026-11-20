@@ -1,0 +1,7 @@
+# 统一用 LF，避免 Windows 换行污染 diff
+* text=auto eol=lf
+
+# 二进制
+*.pdf -text
+*.png -text
+*.jpg -text

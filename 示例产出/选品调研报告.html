@@ -1,0 +1,3317 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<title>便携榨汁杯 · 美国市场选品调研报告</title>
+<style>:root{
+  --bg:#f2f5fa;
+  --panel:#fff;
+  --line:#e3e9f2;
+  --line2:#eef2f8;
+  --txt:#0f1a2e;
+  --txt2:#41506b;
+  --txt3:#7688a3;
+  --blue:#1e4fd8;
+  --blue2:#2f6bef;
+  --blue-l:#eef3fe;
+  --green:#0e9f6e;
+  --amber:#d97706;
+  --red:#dc2626;
+  --r:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:var(--bg);color:var(--txt);
+  font:14px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+button,input,select,textarea{font-family:inherit;font-size:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;background:#f0f4fb;color:#1e4fd8;padding:1px 5px;border-radius:4px}
+
+/* ---------- 顶栏 ---------- */
+.topbar{
+  height:58px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 18px;background:#fff;border-bottom:1px solid var(--line);
+  position:sticky;top:0;z-index:30;
+}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{
+  width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(140deg,#2f6bef,#1739b0);box-shadow:0 3px 10px rgba(30,79,216,.28);
+}
+.brand-t h1{font-size:15px;font-weight:800;letter-spacing:.2px;line-height:1.2}
+.brand-t span{font-size:11px;color:var(--txt3)}
+.top-actions{display:flex;gap:8px;align-items:center}
+
+.btn{
+  height:32px;padding:0 12px;border-radius:8px;border:1px solid var(--line);
+  background:#fff;color:var(--txt2);font-size:12.5px;font-weight:600;
+  display:inline-flex;align-items:center;gap:6px;transition:.15s;white-space:nowrap;
+}
+.btn:hover{border-color:#c8d6ec;background:#f8fafd;color:var(--txt)}
+.btn.sm{height:30px;font-size:12px;padding:0 10px}
+.btn.primary{background:linear-gradient(140deg,#2f6bef,#1e4fd8);border-color:#1e4fd8;color:#fff;box-shadow:0 2px 8px rgba(30,79,216,.22)}
+.btn.primary:hover{background:linear-gradient(140deg,#3573f5,#1a45c0);color:#fff}
+
+/* ---------- 布局 ---------- */
+.shell{display:grid;grid-template-columns:276px 1fr;min-height:calc(100vh - 58px)}
+.side{
+  background:#fff;border-right:1px solid var(--line);
+  padding:14px 12px 40px;overflow-y:auto;height:calc(100vh - 58px);
+  position:sticky;top:58px;
+}
+.main{padding:22px 26px 80px;max-width:1560px;width:100%}
+
+/* ---------- 项目信息 ---------- */
+.proj{background:#f7f9fd;border:1px solid var(--line2);border-radius:10px;padding:10px 10px 12px;margin-bottom:16px}
+.proj-h{width:100%;font-size:12px;font-weight:800;color:var(--txt2);margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;gap:6px;text-align:left}
+.proj-h b.cv{font-size:10px;color:#b0bdd0;transition:.2s}
+.proj.fold .proj-h b.cv{transform:rotate(-90deg)}
+.proj.fold .pg,.proj.fold .pg-full,.proj.fold .auto{display:none}
+.proj.fold{padding-bottom:10px}
+.proj-h span{font-weight:500;color:var(--txt3);font-size:10.5px}
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.pg label.wide{grid-column:1/-1}
+.pg label,.pg-full{display:block;font-size:10.5px;color:var(--txt3);font-weight:600}
+.pg input,.pg select{
+  width:100%;height:28px;margin-top:3px;padding:0 7px;border:1px solid var(--line);
+  border-radius:6px;background:#fff;font-size:12px;color:var(--txt);outline:none;
+}
+.pg select{padding-right:2px}
+.pg input:focus,.pg select:focus,.pg-full textarea:focus{border-color:var(--blue2);box-shadow:0 0 0 3px rgba(47,107,239,.1)}
+.pg-full{display:block;margin-top:6px}
+.pg-full i{font-style:normal;color:#b0bdd0;font-weight:400}
+.pg-full textarea{
+  width:100%;margin-top:3px;padding:6px 7px;border:1px solid var(--line);border-radius:6px;
+  font-size:12px;resize:vertical;outline:none;line-height:1.5;min-height:56px;
+}
+
+
+/* ---------- 项目信息：自动补全面板 ---------- */
+.pg[hidden],.pg-full[hidden],.auto[hidden]{display:none!important}
+.auto{margin-top:9px;border-top:1px dashed var(--line);padding-top:9px}
+.auto-empty{font-size:10.5px;line-height:1.65;color:var(--txt3);background:#fff;border:1px dashed var(--line);border-radius:7px;padding:8px 9px}
+.auto-h{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:7px}
+.auto-t{font-size:10.5px;font-weight:800;color:var(--txt2);letter-spacing:.3px}
+.auto-src{font-size:9.5px;color:#6b7a93;background:#eef2f9;border-radius:20px;padding:2px 6px;white-space:nowrap;flex:none}
+.auto-src.net{color:#1c6b46;background:#e7f6ee}
+.auto-r{display:flex;gap:6px;font-size:10.5px;line-height:1.55;margin-bottom:4px}
+.auto-k{flex:none;width:32px;color:#9aa8bd;font-weight:700}
+.auto-v{flex:1;min-width:0;color:var(--txt2);word-break:break-word}
+.auto-x{font-style:normal;color:#9aa8bd;margin-left:4px;font-size:9.5px}
+.auto-m{font-style:normal;font-size:9px;color:#a86400;background:#fff4e2;border-radius:4px;padding:0 4px;margin-left:4px}
+/* 没认出品类时给明确的红标，不要让用户以为已经识别对了 */
+.auto-m.bad{color:#b42318;background:#fdecea}
+.auto-r.pts ul{margin:0;padding:0;list-style:none;flex:1;min-width:0}
+.auto-r.pts li{position:relative;padding-left:9px;color:var(--txt2);line-height:1.5;margin-bottom:2px}
+.auto-r.pts li:before{content:'';position:absolute;left:0;top:6px;width:4px;height:4px;border-radius:50%;background:#9fb6dd}
+.auto-net{font-style:normal;font-size:9px;color:#1c6b46;margin-left:4px;white-space:nowrap}
+.auto-tags{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0 2px}
+.auto-tags span{font-size:9.5px;color:#5b6b85;background:#fff;border:1px solid var(--line);border-radius:10px;padding:1px 6px}
+.auto-f{display:flex;gap:5px;margin-top:9px}
+.auto-f .btn{flex:1;padding-left:2px;padding-right:2px;white-space:nowrap}
+.auto-st{font-size:9.5px;line-height:1.55;color:#8c9ab0;margin-top:6px}
+.auto-st:empty{display:none}
+
+
+/* ---------- 核心卖点卡（03 步共用） ---------- */
+.corept{position:relative;background:#f4f8ff;border:1px solid #cfe0fb;border-left:4px solid var(--blue2);
+  border-radius:10px;padding:12px 14px;margin:6px 0 4px}
+.corept-k{font-size:10.5px;font-weight:800;color:#2f6bef;letter-spacing:.5px}
+.corept-v{font-size:21px;font-weight:800;color:#0f2747;line-height:1.32;margin:5px 0 4px}
+.corept-b{font-size:12.5px;color:#3c4a60;line-height:1.55}
+.corept-e{font-size:11.5px;color:#6b7a93;margin-top:3px;line-height:1.55}
+.corept-m{font-size:10.5px;color:#8a97ab;margin-top:8px;padding-top:7px;border-top:1px dashed #d7e3f5;line-height:1.6}
+.corept-sm{padding:10px 12px}
+.corept-sm .corept-v{font-size:15px;margin:3px 0 2px}
+.corept-s{font-size:10.5px;color:#6b7a93;margin-top:2px;line-height:1.5}
+.coresup{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.coresup-i{background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 10px;
+  display:flex;gap:7px;align-items:flex-start;font-size:11.5px;color:var(--txt2);line-height:1.45}
+.coresup-i b{width:16px;height:16px;border-radius:50%;background:#eef4ff;color:#2f6bef;font-size:9.5px;
+  display:flex;align-items:center;justify-content:center;flex:none;margin-top:1px}
+.coresup-i span{flex:1;min-width:0}
+.coresup-i i{font-style:normal;font-size:10px;color:#9aa8bd;flex:none}
+.tagg .tstar{color:#f0a020;font-size:10px;margin-right:2px}
+/* 标签墙在工具页里留点呼吸 */
+.blk .corept+.tagsum{margin-top:10px}
+
+/* ---------- 导航 ---------- */
+.side-h{font-size:11px;font-weight:800;color:var(--txt3);letter-spacing:.6px;margin:0 4px 8px;text-transform:uppercase}
+.nav{display:flex;flex-direction:column;gap:3px}
+.grp{border-radius:9px;overflow:hidden}
+.grp-h{
+  width:100%;display:flex;align-items:center;gap:8px;padding:7px 8px;border-radius:8px;
+  text-align:left;transition:.15s;
+}
+.grp-h:hover{background:#f4f7fc}
+.grp.on .grp-h{background:var(--blue-l)}
+.grp-n{
+  width:24px;height:22px;border-radius:6px;background:#eef2f8;color:var(--txt3);
+  font-size:10.5px;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none;
+}
+.grp.on .grp-n{background:linear-gradient(140deg,#2f6bef,#1e4fd8);color:#fff}
+.grp-t{flex:1;font-size:12.5px;font-weight:700;color:var(--txt2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.grp.on .grp-t{color:var(--blue)}
+.grp-c{font-size:10px;color:#a8b6ca;font-weight:700;font-variant-numeric:tabular-nums}
+.grp-b{display:none;padding:2px 0 6px 4px;margin-left:12px;border-left:1px solid var(--line2)}
+.grp.on .grp-b{display:block}
+.sub{
+  width:100%;display:flex;align-items:center;gap:7px;padding:5px 8px;border-radius:6px;
+  font-size:12px;color:var(--txt2);text-align:left;transition:.12s;margin-bottom:1px;
+}
+.sub:hover{background:#f4f7fc;color:var(--txt)}
+.sub.on{background:#fff;color:var(--blue);font-weight:700;box-shadow:0 1px 4px rgba(30,79,216,.13)}
+.sub-i{width:14px;font-size:10px;color:#b3c0d4;font-weight:700;flex:none}
+.sub.on .sub-i{color:var(--blue2)}
+.sub.done .sub-i::after{content:"✓";color:var(--green)}
+
+.mstep{display:none}
+.mstep span{font-size:11.5px;font-weight:800;color:var(--txt3);white-space:nowrap}
+.mstep select{flex:1 1 0;min-width:0;width:0;height:36px;border:1px solid var(--line);border-radius:9px;padding:0 10px;background:#fff;font-size:13px;font-weight:700;color:var(--txt)}
+
+/* ---------- 主区头部 ---------- */
+.stepbar{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:16px}
+.crumb{font-size:11.5px;font-weight:700;color:var(--blue2);letter-spacing:.4px;margin-bottom:5px}
+.stepbar h2{font-size:24px;font-weight:800;letter-spacing:-.3px;margin-bottom:5px}
+.desc{font-size:13px;color:var(--txt3);max-width:640px;line-height:1.55}
+.stepbar-r{display:flex;gap:7px;flex:none;padding-top:4px}
+
+/* 细分 tab */
+.subnav{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.subnav-i{
+  height:34px;padding:0 14px;border-radius:8px;border:1px solid var(--line);background:#fff;
+  font-size:12.5px;font-weight:600;color:var(--txt2);display:flex;align-items:center;gap:7px;transition:.15s;
+}
+.subnav-i b{
+  width:17px;height:17px;border-radius:5px;background:#f0f3f9;color:#9aabc2;
+  font-size:10px;display:flex;align-items:center;justify-content:center;font-weight:800;
+}
+.subnav-i:hover{border-color:#c8d6ec;color:var(--txt)}
+.subnav-i.on{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 3px 10px rgba(30,79,216,.24)}
+.subnav-i.on b{background:rgba(255,255,255,.22);color:#fff}
+
+/* ---------- 工作区 ---------- */
+.work{display:grid;grid-template-columns:296px 1fr;gap:16px;align-items:start}
+.panel{
+  background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  position:sticky;top:74px;max-height:calc(100vh - 92px);display:flex;flex-direction:column;overflow:hidden;
+}
+.panel-h{
+  padding:11px 13px;border-bottom:1px solid var(--line2);font-size:12.5px;font-weight:800;color:var(--txt);
+  display:flex;justify-content:space-between;align-items:baseline;flex:none;
+}
+.panel-h span{font-size:10.5px;color:var(--txt3);font-weight:500}
+.fields{padding:12px 13px;display:flex;flex-direction:column;gap:11px;overflow-y:auto;flex:1}
+.fld label{display:block;font-size:11.5px;font-weight:700;color:var(--txt2);margin-bottom:4px;line-height:1.4}
+.fhint{font-size:10px;color:#a9b6ca;margin-top:3px;line-height:1.4}
+.fld input,.fld select,.fld textarea{
+  width:100%;height:32px;padding:0 9px;border:1px solid var(--line);border-radius:7px;
+  background:#fbfcfe;font-size:12.5px;outline:none;transition:.15s;
+}
+.fld textarea{height:auto;padding:7px 9px;resize:vertical;line-height:1.55}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--blue2);background:#fff;box-shadow:0 0 0 3px rgba(47,107,239,.1)}
+.panel-f{padding:9px 13px;border-top:1px solid var(--line2);flex:none;background:#fbfcfe}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{height:26px;padding:0 9px;border-radius:6px;border:1px solid var(--line);background:#fff;font-size:11.5px;color:var(--txt2);font-weight:600}
+.chip.on{background:var(--blue-l);border-color:#b9ccf5;color:var(--blue)}
+
+/* ---------- 结果区 ---------- */
+.result{display:flex;flex-direction:column;gap:12px;min-width:0}
+.blk{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:15px 16px}
+.blk.guide{border-style:dashed;background:#fbfcfe}
+.sbar{
+  background:#fffaef;border:1px solid #f6e2c0;border-radius:9px;padding:8px 11px;
+  font-size:11.8px;color:#8a5208;line-height:1.5;
+}
+.blk.guide .blk-h::before{background:linear-gradient(180deg,#fbbf24,#d97706)}
+.blk-h{font-size:13px;font-weight:800;color:var(--txt);margin-bottom:11px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.blk-h::before{content:"";width:3px;height:13px;border-radius:2px;background:linear-gradient(180deg,#60a5fa,#1e4fd8);flex:none}
+
+/* 大数字 */
+.bigrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:9px}
+.big{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:13px 14px;position:relative;overflow:hidden}
+.big::after{content:"";position:absolute;right:-18px;top:-18px;width:56px;height:56px;border-radius:50%;background:radial-gradient(circle,rgba(47,107,239,.08),transparent 70%)}
+.big-v{font-size:20px;font-weight:800;color:var(--blue);letter-spacing:-.5px;line-height:1.25;word-break:break-word}
+.big-l{font-size:11.5px;color:var(--txt2);font-weight:700;margin-top:2px}
+.big-s{font-size:10.5px;color:var(--txt3);margin-top:2px;line-height:1.4}
+
+/* 表格 */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -4px}
+table{width:100%;border-collapse:collapse;font-size:12.3px;min-width:420px}
+th{
+  text-align:left;font-size:11px;font-weight:800;color:var(--txt3);letter-spacing:.3px;
+  padding:7px 9px;border-bottom:1px solid var(--line);background:#fafbfe;white-space:nowrap;
+}
+td{padding:8px 9px;border-bottom:1px solid var(--line2);color:var(--txt2);vertical-align:top;line-height:1.5}
+tr:last-child td{border-bottom:0}
+tbody tr:hover td{background:#fafcff}
+
+/* KV */
+.kv{display:flex;flex-direction:column;gap:0}
+.kv-r{display:grid;grid-template-columns:132px 1fr;gap:12px;padding:7px 0;border-bottom:1px dashed var(--line2);font-size:12.3px}
+.kv-r:last-child{border-bottom:0}
+.kv-k{color:var(--txt3);font-weight:700;font-size:11.5px}
+.kv-v{color:var(--txt2);line-height:1.55}
+.kv-v b{color:var(--txt)}
+
+/* 列表 */
+.ul,.ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.ul li,.ol li{position:relative;padding-left:16px;font-size:12.5px;color:var(--txt2);line-height:1.6}
+.ul li::before{content:"";position:absolute;left:3px;top:8px;width:4px;height:4px;border-radius:50%;background:#9db8e8}
+.ol{counter-reset:o}
+.ol li{counter-increment:o;padding-left:22px}
+.ol li::before{
+  content:counter(o);position:absolute;left:0;top:1px;width:15px;height:15px;border-radius:4px;
+  background:var(--blue-l);color:var(--blue2);font-size:9.5px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+}
+.ul li b,.ol li b{color:var(--txt)}
+
+/* 标签 */
+.tg{display:inline-block;padding:1px 7px;border-radius:5px;font-size:10.5px;font-weight:800;white-space:nowrap;line-height:1.6}
+.tg-g{background:#e7f7f0;color:#0e9f6e}
+.tg-y{background:#fef4e6;color:#b45309}
+.tg-r{background:#fdecec;color:#c02626}
+.tg-b{background:var(--blue-l);color:var(--blue)}
+.tg-n{background:#f1f4f9;color:#7d8ca6}
+
+/* 说明 / 警示 */
+.note{
+  background:#f7f9fd;border:1px dashed #d3ddec;border-radius:8px;padding:9px 11px;
+  font-size:12.2px;color:var(--txt3);line-height:1.6;
+}
+.note.err{background:#fdecec;border-color:#f5c2c2;color:#b91c1c}
+.fx{font-size:10.5px;color:#a3b1c6;margin-top:2px;line-height:1.45}
+.fx.sc{font-size:9.5px;white-space:nowrap}
+.fx2{font-size:11px;color:var(--txt3);margin-top:7px;line-height:1.55}
+
+/* 进度条 */
+.mbar{display:grid;grid-template-columns:1fr auto;gap:6px;align-items:center;width:100%}
+.mbar-l{font-size:11.5px;color:var(--txt2);font-weight:600;grid-column:1/-1}
+.mbar-t{height:6px;border-radius:4px;background:#eef2f8;overflow:hidden}
+.mbar-t i{display:block;height:100%;border-radius:4px;background:var(--blue2)}
+.mbar-t i.g{background:linear-gradient(90deg,#34d399,#0e9f6e)}
+.mbar-t i.r{background:linear-gradient(90deg,#f87171,#dc2626)}
+.mbar-t i.y{background:linear-gradient(90deg,#fbbf24,#d97706)}
+.mbar-v{font-size:10.5px;color:var(--txt3);font-weight:700;font-variant-numeric:tabular-nums}
+.mgrid{display:grid;grid-template-columns:104px 1fr;gap:12px;padding:8px 0;border-bottom:1px dashed var(--line2)}
+.mgrid:last-child{border-bottom:0}
+.mgrid-l{font-size:11.5px;font-weight:700;color:var(--txt2)}
+.mgrid-r{min-width:0}
+
+/* 结论块 */
+.verdict{
+  padding:10px 13px;border-radius:9px;font-size:13px;line-height:1.55;margin-bottom:11px;
+  border-left:3px solid;
+}
+.verdict.good{background:#f0fbf6;border-color:#0e9f6e;color:#08694a}
+.verdict.mid{background:#fffaef;border-color:#d97706;color:#8a5208}
+.verdict.bad{background:#fef3f3;border-color:#dc2626;color:#9c1c1c}
+.verdict b{font-weight:800}
+
+/* 标题/文案盒 */
+.tbox{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px;background:#fcfdff;position:relative}
+.tbox.bad{border-color:#f3c2c2;background:#fffafa}
+.tbox-h{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:800;color:var(--txt3);margin-bottom:5px}
+.tbox-s{font-size:13px;color:var(--txt);line-height:1.6;word-break:break-word;padding-right:44px}
+.tbox-warn{font-size:11.5px;color:#b91c1c;margin-top:5px;font-weight:600}
+.cc{font-variant-numeric:tabular-nums;font-size:10.5px;padding:1px 6px;border-radius:5px;font-weight:800}
+.cc.g{background:#e7f7f0;color:#0e9f6e}
+.cc.y{background:#fef4e6;color:#b45309}
+.cc.r{background:#fdecec;color:#c02626}
+.mini{
+  position:absolute;right:8px;top:8px;height:22px;padding:0 8px;border-radius:5px;
+  background:var(--blue-l);color:var(--blue);font-size:10.5px;font-weight:800;border:1px solid #d5e2fa;
+}
+.mini:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+.mini[data-dl]{position:static;height:28px;padding:0 11px;font-size:11.5px;display:inline-block}
+
+/* 主图脚本 */
+.hero-card{display:flex;gap:11px;padding:10px 0;border-bottom:1px dashed var(--line2)}
+.hero-card:last-child{border-bottom:0}
+.hero-n{
+  width:26px;height:26px;border-radius:8px;background:linear-gradient(140deg,#2f6bef,#1e4fd8);color:#fff;
+  font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none;
+}
+.hero-body{flex:1;min-width:0}
+.hero-role{font-size:10.5px;font-weight:800;color:var(--blue2);letter-spacing:.3px}
+.hero-text{font-size:13.5px;font-weight:700;color:var(--txt);margin:2px 0 4px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:11px;color:var(--txt3)}
+.hero-rule{font-size:11.5px;color:var(--txt2);margin-top:4px;padding-left:9px;border-left:2px solid #e3e9f2}
+
+/* 定位盒 / 模板盒 */
+.posbox{border:1px solid var(--line);border-radius:10px;padding:11px 12px;margin-bottom:8px;background:#fcfdff;position:relative}
+.pos-t{font-size:11px;font-weight:800;color:var(--txt3);margin-bottom:5px}
+.pos-s{font-size:13px;color:var(--txt);line-height:1.6;padding-right:50px}
+pre.mail{
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.8px;line-height:1.65;
+  color:#334155;background:#f7f9fd;border-radius:7px;padding:10px 11px;white-space:pre-wrap;word-break:break-word;
+  margin-top:4px;max-height:280px;overflow:auto;
+}
+
+/* 漏斗 */
+.funnel{display:grid;grid-template-columns:96px 1fr 84px 60px;gap:9px;align-items:center;padding:7px 0;border-bottom:1px dashed var(--line2);font-size:12px}
+.funnel:last-child{border-bottom:0}
+.fn-l{font-weight:700;color:var(--txt2);font-size:11.5px}
+.fn-bar{height:8px;border-radius:4px;background:#eef2f8;overflow:hidden}
+.fn-bar i{display:block;height:100%;border-radius:4px;background:var(--blue2)}
+.fn-bar i.g{background:linear-gradient(90deg,#34d399,#0e9f6e)}
+.fn-bar i.y{background:linear-gradient(90deg,#fbbf24,#d97706)}
+.fn-bar i.r{background:linear-gradient(90deg,#f87171,#dc2626)}
+.fn-v{font-weight:800;color:var(--txt);font-variant-numeric:tabular-nums;font-size:12px;text-align:right}
+.fn-v span{display:block;font-size:9.5px;color:#a3b1c6;font-weight:600}
+.fn-t{text-align:right}
+
+/* 痛点条 */
+.painrow{display:grid;grid-template-columns:96px 1fr 92px;gap:10px;align-items:center;padding:6px 0;font-size:12px}
+.painname{font-weight:700;color:var(--txt2);font-size:11.5px}
+.paintrack{height:9px;border-radius:5px;background:#eef2f8;overflow:hidden}
+.paintrack i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,#60a5fa,#1e4fd8)}
+.paintrack i.dim{background:linear-gradient(90deg,#dbe3ef,#c3cede)}
+.painnum{text-align:right;font-size:11px;color:var(--txt3);font-weight:700;font-variant-numeric:tabular-nums}
+
+.fixbox{border-left:2px solid #dbe5f6;padding:2px 0 2px 11px;margin-bottom:12px}
+.fixbox:last-child{margin-bottom:0}
+.fix-h{display:flex;justify-content:space-between;align-items:baseline;font-size:12.5px;color:var(--txt);margin-bottom:3px}
+.fix-h span{font-size:10.5px;color:var(--txt3);font-weight:700}
+.fix-q{font-size:11.5px;color:var(--txt3);font-style:italic;margin-bottom:5px;line-height:1.55}
+
+/* 覆盖率 */
+.cover{display:grid;grid-template-columns:64px 1fr;gap:10px;align-items:center;margin-bottom:9px}
+.cover-num{font-size:26px;font-weight:800;color:var(--blue);letter-spacing:-1px}
+.cover-bar{height:9px;border-radius:5px;background:#eef2f8;overflow:hidden;margin-bottom:3px}
+.cover-bar i{display:block;height:100%;border-radius:5px;background:var(--blue2)}
+.cover-bar i.g{background:linear-gradient(90deg,#34d399,#0e9f6e)}
+.cover-bar i.y{background:linear-gradient(90deg,#fbbf24,#d97706)}
+.cover-bar i.r{background:linear-gradient(90deg,#f87171,#dc2626)}
+.cover-txt{font-size:11px;color:var(--txt3);grid-column:2}
+
+/* 层级三级 */
+.lv3{display:flex;flex-direction:column;gap:2px}
+.lv3-a{font-size:11.5px;color:var(--txt3);font-weight:700}
+.lv3-b{font-size:12.3px;color:var(--txt);font-weight:600}
+.lv3-c{font-size:11.8px;color:var(--blue2);line-height:1.5}
+
+.dotc{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.dotc-g{background:#0e9f6e}.dotc-y{background:#d97706}.dotc-r{background:#dc2626}
+.dotc-b{background:#2f6bef}.dotc-n{background:#c3cede}
+
+/* toast */
+.toast{
+  position:fixed;left:50%;bottom:26px;transform:translate(-50%,14px);opacity:0;pointer-events:none;
+  background:#0f1a2e;color:#fff;font-size:12.5px;font-weight:600;padding:9px 16px;border-radius:9px;
+  box-shadow:0 8px 24px rgba(15,26,46,.28);transition:.22s;z-index:99;
+}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- 响应式 ---------- */
+@media (max-width:1180px){
+  .work{grid-template-columns:260px 1fr}
+  .main{padding:18px 18px 70px}
+}
+@media (max-width:960px){
+  .shell{display:block}
+  .main{min-width:0}
+  .side-h,#nav{display:none}
+  .side{padding:10px 12px}
+  .mstep{display:flex;gap:7px;align-items:center;margin-bottom:10px}
+  .side{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);padding-bottom:12px}
+  .pg{grid-template-columns:repeat(3,1fr)}
+  .work{grid-template-columns:1fr}
+  .panel{position:static;max-height:none}
+  .stepbar{flex-direction:column;gap:10px}
+  .stepbar-r{padding-top:0}
+}
+@media (max-width:960px){
+  .proj .pg{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:640px){
+  .topbar{height:auto;padding:9px 12px;flex-wrap:wrap;gap:7px}
+  .brand{width:100%}
+  .top-actions{width:100%;flex-wrap:wrap;gap:6px}
+  .top-actions .btn{flex:1 1 0;justify-content:center;min-width:0;padding:0 8px;font-size:11.5px}
+  .proj .pg{grid-template-columns:1fr 1fr}
+  .grp-h{padding:6px 8px}
+  .grp-t{font-size:12px}
+  .brand-t span{display:none}
+  .main{padding:14px 12px 70px}
+  .pg{grid-template-columns:1fr 1fr}
+  .stepbar h2{font-size:20px}
+  .subnav{overflow-x:auto;flex-wrap:nowrap;padding-bottom:3px}
+  .subnav-i{flex:none}
+  .big-v{font-size:17px}
+  .funnel{grid-template-columns:76px 1fr 66px;gap:7px}
+  .fn-t{display:none}
+  .kv-r{grid-template-columns:1fr;gap:2px}
+  .mgrid{grid-template-columns:1fr;gap:4px}
+  .painrow{grid-template-columns:74px 1fr 76px;gap:7px}
+  table{min-width:380px;font-size:11.8px}
+}
+
+@media print{
+  .topbar,.side,.stepbar-r,.subnav,.panel{display:none!important}
+  .shell{display:block}
+  .main{padding:0}
+  .work{display:block}
+  .blk{break-inside:avoid;border-color:#ddd}
+}
+
+/* =========================================================
+   文档模式（第 01 部分）
+   ========================================================= */
+.docsub{position:sticky;top:58px;z-index:12;background:var(--bg);padding:6px 0 9px;margin-bottom:8px}
+.docwrap{max-width:1000px}
+.paper{
+  background:#fff;border:1px solid var(--line);border-radius:6px;
+  padding:52px 58px 44px;box-shadow:0 2px 18px rgba(15,26,46,.06);
+}
+.phd{border-bottom:2px solid #0f1a2e;padding-bottom:18px;margin-bottom:26px}
+.pkick{font-size:11px;letter-spacing:2.2px;color:#98a6bd;font-weight:700;text-transform:uppercase;margin-bottom:10px}
+.paper h1{font-size:29px;line-height:1.4;letter-spacing:-.4px;font-weight:800;color:#0f1a2e}
+.pmeta{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:14px;font-size:11.5px;color:#7688a3}
+.pmeta b{color:#0f1a2e;font-weight:700}
+
+.ch{margin:32px 0}
+.ch h2{
+  font-size:18px;font-weight:800;color:#0f1a2e;letter-spacing:-.2px;
+  display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+  border-bottom:1px solid #e7ecf4;padding-bottom:9px;margin-bottom:14px;
+}
+.ch h2 i{
+  font-style:normal;font-size:10.5px;font-weight:800;color:var(--blue);letter-spacing:1.4px;
+  text-transform:uppercase;
+}
+.ch h3{font-size:14px;font-weight:800;color:#0f1a2e;margin:22px 0 10px}
+.plead{font-size:12.5px;color:#7688a3;line-height:1.75;margin-bottom:12px}
+
+.vd{padding:13px 16px;border-radius:7px;border-left:3px solid;font-size:13.5px;line-height:1.7;margin:4px 0 14px}
+.vd.good{background:#f1fbf6;border-color:#0e9f6e;color:#075c41}
+.vd.mid{background:#fffaf0;border-color:#d97706;color:#7c4a06}
+.vd.bad{background:#fef4f4;border-color:#dc2626;color:#8f1b1b}
+.vd b{font-size:15px;font-weight:800}
+.vd p{margin-top:6px;color:inherit;opacity:.9;font-size:12.5px}
+
+.plist{margin:6px 0 12px;padding-left:17px;display:flex;flex-direction:column;gap:7px}
+.plist li{font-size:13px;line-height:1.85;color:#374151;position:relative}
+.plist li::marker{color:#9db8e8}
+.plist li b{color:#0f1a2e}
+/* 编号用 .ol 的圆角数字块，关掉原生 marker，否则会出现两个「1」 */
+.plist.ol{list-style:none;padding-left:2px}
+.plist:not(.ol){list-style:none;padding-left:2px}
+.plist:not(.ol) li{padding-left:15px}
+.plist:not(.ol) li::before{content:"";position:absolute;left:2px;top:9px;width:5px;height:5px;border-radius:50%;background:#9db8e8}
+
+.pbignum{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:6px 0 16px}
+.pbignum div{background:#f8fafd;border:1px solid #eef2f8;border-radius:8px;padding:12px 13px}
+.pbignum b{display:block;font-size:21px;font-weight:800;color:var(--blue);letter-spacing:-.5px;line-height:1.2}
+.pbignum span{display:block;font-size:10.5px;color:#7688a3;margin-top:3px}
+
+.slist{display:flex;flex-direction:column;gap:2px;margin:6px 0 12px}
+.srow{display:grid;grid-template-columns:92px 1fr 48px 168px;gap:12px;align-items:center;padding:7px 0;border-bottom:1px dashed #eef2f8}
+.srow:last-child{border-bottom:0}
+.sname{font-size:12px;font-weight:700;color:#374151}
+.strack{height:7px;border-radius:4px;background:#eef2f8;overflow:hidden}
+.strack i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,#60a5fa,#1e4fd8)}
+.sval{font-size:12.5px;font-weight:800;color:var(--blue);text-align:right;font-variant-numeric:tabular-nums}
+.sval span{font-size:9.5px;color:#a3b1c6;font-weight:600}
+.sdesc{font-size:11px;color:#7688a3;text-align:right}
+
+.pconcl{font-size:13px;line-height:1.8;color:#374151;background:#f8fafd;border-radius:7px;padding:11px 14px;margin:10px 0}
+.pnote{font-size:12px;line-height:1.8;color:#7688a3;border-left:2px solid #dbe5f6;padding-left:12px;margin-top:12px}
+
+.ptable{overflow-x:auto;margin:8px 0 6px;border:1px solid #eef2f8;border-radius:7px}
+.ptable table{width:100%;min-width:640px;font-size:12.2px}
+.ptable th{background:#f8fafd;font-size:10.5px;letter-spacing:.3px;padding:8px 9px}
+.ptable td{padding:9px;line-height:1.55}
+.ptable .c{text-align:center}
+.ptable .r{text-align:right;font-variant-numeric:tabular-nums}
+.sub2{font-size:10.8px;color:#8b95a5;margin-top:2px;line-height:1.5}
+.nw{white-space:nowrap}
+.trcur{background:#f6f9ff}
+.trcur td{box-shadow:inset 0 1px 0 #dbe6fb,inset 0 -1px 0 #dbe6fb}
+.tg{display:inline-block;font-style:normal;font-size:10px;font-weight:700;padding:1px 6px;border-radius:5px;margin-left:5px;white-space:nowrap;vertical-align:1px}
+.tg-good{background:#e9f8f1;color:#0b7a55}
+.tg-mid{background:#fff5e5;color:#a25f07}
+.tg-bad{background:#fdeeee;color:#b42318}
+.tg-blue{background:#eef3fe;color:#1e4fd8}
+
+/* 四关放行条 */
+.gbar{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:12px 0 4px}
+.gbar-i{border:1px solid var(--line2);border-left:3px solid #c9d3e3;border-radius:7px;padding:8px 11px;background:#fcfdff;min-width:0}
+.gbar-i.gb-good{border-left-color:#0e9f6e;background:#f7fdfa}
+.gbar-i.gb-mid{border-left-color:#d97706;background:#fffbf4}
+.gbar-i.gb-bad{border-left-color:#dc2626;background:#fef7f7}
+.gbar-t{display:flex;align-items:baseline;justify-content:space-between;gap:6px}
+.gbar-t b{font-size:11.5px;font-weight:800;color:var(--txt)}
+.gbar-t em{font-style:normal;font-size:17px;font-weight:800;letter-spacing:-.5px;color:var(--txt2)}
+.gb-good .gbar-t em{color:#0b7a55}
+.gb-mid .gbar-t em{color:#a25f07}
+.gb-bad .gbar-t em{color:#b42318}
+.gbar-i>span{display:block;font-size:10.2px;line-height:1.55;color:#7b8697;margin-top:3px}
+
+/* 风险闸门四卡 */
+.gates{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:10px 0 4px}
+.gate{border:1px solid var(--line2);border-radius:8px;padding:11px 13px;background:#fcfdff;border-top:3px solid #c9d3e3}
+.gate.gt-good{border-top-color:#0e9f6e}
+.gate.gt-mid{border-top-color:#d97706}
+.gate.gt-bad{border-top-color:#dc2626;background:#fffafa}
+.gate-h{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:5px}
+.gate-h b{font-size:12.5px;font-weight:800;color:var(--txt)}
+.gate-h i{font-style:normal;font-size:10px;font-weight:700;padding:1px 7px;border-radius:5px;background:#eef2f8;color:#5b6779;white-space:nowrap}
+.gt-good .gate-h i{background:#e9f8f1;color:#0b7a55}
+.gt-mid .gate-h i{background:#fff5e5;color:#a25f07}
+.gt-bad .gate-h i{background:#fdeeee;color:#b42318}
+.gate-w{font-size:11.2px;line-height:1.65;color:#4b5769}
+.gate-a{font-size:10.8px;line-height:1.65;color:#7b8697;margin-top:5px;padding-top:5px;border-top:1px dashed #e6ecf5}
+.gate-a em{font-style:normal;font-weight:700;color:#1e4fd8;margin-right:4px}
+.gate-spec{margin:9px 0 0;padding:8px 12px;border-radius:7px;background:#fffaf1;border:1px solid #f6e2bf;font-size:11.5px;line-height:1.7;color:#7c4a06}
+.gate-spec b{font-weight:800;margin-right:6px;color:#a25f07}
+.cstat-4{grid-template-columns:repeat(4,1fr)}
+.cstat-4 b{font-size:16px}
+.lk{color:var(--blue);font-weight:700;font-size:11px;text-decoration:none;border-bottom:1px solid #c9d8f5}
+.lk:hover{color:#1739b0}
+
+.painbox{margin:10px 0 4px}
+.prow{display:grid;grid-template-columns:96px 1fr 60px;gap:12px;align-items:center;padding:5px 0}
+.pname{font-size:12px;font-weight:700;color:#374151}
+.ptrack{height:9px;border-radius:5px;background:#eef2f8;overflow:hidden}
+.ptrack i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,#60a5fa,#1e4fd8)}
+.pnum{font-size:11px;color:#7688a3;font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
+.fix{border-left:2px solid #dbe5f6;padding:2px 0 2px 13px;margin-bottom:14px}
+.fixh{display:flex;justify-content:space-between;align-items:baseline;font-size:12.5px;color:#0f1a2e;margin-bottom:4px}
+.fixh span{font-size:10.5px;color:#a3b1c6;font-weight:700}
+.fix p{font-size:12.5px;color:#4b5563;line-height:1.8}
+.pfoot{margin-top:34px;border-top:1px solid #e7ecf4;padding-top:14px;font-size:11px;color:#8b95a5;line-height:1.9}
+.pfoot b{display:block;color:#41506b;margin-bottom:3px;font-size:11.5px}
+
+/* =========================================================
+   海报 / 详情页预览
+   ========================================================= */
+.pgrid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:13px}
+.pcard2{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;display:flex;flex-direction:column;align-self:start}
+.pcard2-h{display:flex;justify-content:space-between;align-items:baseline;padding:8px 10px;font-size:11.5px;font-weight:800;color:var(--txt2);border-bottom:1px solid var(--line2)}
+.pcard2-h span{font-size:10px;color:var(--txt3);font-weight:600;font-variant-numeric:tabular-nums}
+.pshot{padding:8px;background:#eef2f8;flex:none;display:flex;align-items:flex-start}
+.pshot svg{display:block;width:100%;height:auto;border-radius:5px;box-shadow:0 2px 10px rgba(15,26,46,.12)}
+.puse2{padding:8px 10px 0;font-size:10.8px;color:var(--txt3);line-height:1.5}
+.pbtns{display:flex;gap:5px;padding:8px 10px 10px}
+.mini3{height:26px;padding:0 9px;border-radius:6px;border:1px solid var(--line);background:#fff;font-size:11px;font-weight:700;color:var(--txt2);white-space:nowrap}
+.mini3:hover{border-color:#b9ccf5;color:var(--blue);background:#f8fafd}
+.mini3.p{background:var(--blue);border-color:var(--blue);color:#fff}
+.mini3.p:hover{background:#1a45c0;color:#fff}
+.mini3[disabled]{opacity:.6;cursor:default}
+
+.pvbar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 10px;background:#f7f9fd;border:1px solid var(--line2);border-radius:8px;margin-bottom:10px;flex-wrap:wrap}
+.pvbar-l{font-size:11.5px;color:var(--txt3)}
+.pvbar-r{display:flex;gap:6px;flex-wrap:wrap}
+.pvbox{border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff;position:relative;height:520px}
+.pvframe{width:1200px;height:520px;border:0;display:block;background:#fff;position:absolute;top:0;left:0;transform-origin:top left}
+
+.imgpick{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.imgbtn{display:inline-flex;align-items:center;height:30px;padding:0 11px;border-radius:7px;border:1px dashed #b9ccf5;background:var(--blue-l);color:var(--blue);font-size:11.5px;font-weight:700;cursor:pointer}
+.imgbtn:hover{background:#e2ebfd}
+.imgprev{width:44px;height:44px;object-fit:cover;border-radius:6px;border:1px solid var(--line)}
+.imgnone{font-size:11px;color:#a9b6ca}
+.imgclr{font-size:11px;color:var(--txt3);text-decoration:underline}
+.imgclr:hover{color:var(--red)}
+
+@media (max-width:900px){
+  .paper{padding:26px 20px 24px}
+  .paper h1{font-size:22px}
+  .pbignum{grid-template-columns:1fr 1fr}
+  .srow{grid-template-columns:80px 1fr 44px;gap:8px}
+  .sdesc{display:none}
+  .pmeta{gap:5px 14px}
+  .prow{grid-template-columns:82px 1fr 54px;gap:8px}
+}
+@media print{
+  .docwrap{max-width:none}
+  .paper{border:0;box-shadow:none;padding:0}
+  .paper .ch{break-inside:auto}
+  .paper h2{break-after:avoid}
+  .ptable{overflow:visible;border:0}
+  .ptable table{min-width:0}
+  .pvbar,.pvbox{display:none}
+}
+
+/* ---------- 商品图提示词 ---------- */
+.azmeta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.pcode{
+  font:12.5px/1.75 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  background:#f7f9fd;border:1px solid var(--line);border-left:3px solid var(--blue);
+  border-radius:8px;padding:11px 13px;color:#243044;
+  white-space:pre-wrap;word-break:break-word;margin:6px 0 8px;max-height:230px;overflow:auto;
+}
+.prow-b{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.prow-s{font-size:11px;color:var(--txt3)}
+.azslot{border-top:1px dashed var(--line);padding-top:12px;margin-top:12px}
+.azslot:first-child{border-top:0;padding-top:0;margin-top:0}
+.azslot-h{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;font-size:13px;font-weight:800;color:var(--txt);margin-bottom:6px}
+.azslot-h b{font-size:11px;font-weight:800;color:#fff;background:var(--blue);border-radius:5px;padding:2px 6px;letter-spacing:.4px}
+.azslot-h span{font-size:11.5px;font-weight:600;color:var(--txt3);display:block;flex:1 1 100%}
+.mono{font:11.5px/1.5 ui-monospace,Menlo,Consolas,monospace;color:#3b4a63}
+@media (max-width:900px){
+  .pcode{font-size:11.5px;max-height:200px}
+}
+
+/* =========================================================
+   选品文档新增：数据源条 / 评论挖掘 / 竞品图表 / 爬虫附录
+   ========================================================= */
+.btn.xs{padding:4px 10px;font-size:11.5px;border-radius:7px;line-height:1.5}
+
+.docbar{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  background:#fff;border:1px solid var(--line);border-left:3px solid var(--blue);
+  border-radius:10px;padding:10px 14px;margin:14px 0 18px;
+}
+.docbar-l{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;min-width:0}
+.docbar-l b{font-size:12.5px;color:var(--txt)}
+.docbar-l span{font-size:11.5px;color:var(--txt3);word-break:break-all}
+.docbar-r{display:flex;gap:7px;flex-wrap:wrap}
+
+.rvdock{
+  background:#fafcff;border:1px dashed #bfd0ee;border-radius:10px;
+  padding:14px;margin:-8px 0 18px;
+}
+.rvdock-h{display:flex;flex-direction:column;gap:3px;margin-bottom:9px}
+.rvdock-h b{font-size:12.5px;color:var(--txt)}
+.rvdock-h span{font-size:11.5px;color:var(--txt3);line-height:1.7}
+.rvdock textarea{
+  width:100%;border:1px solid var(--line);border-radius:8px;padding:10px 12px;
+  font:12.5px/1.7 ui-monospace,Menlo,Consolas,monospace;resize:vertical;background:#fff;
+}
+.rvdock textarea:focus{outline:none;border-color:#9fb8ea;box-shadow:0 0 0 3px rgba(30,79,216,.08)}
+.rvdock-f{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px}
+.rvdock-f .sub2{flex:1;min-width:120px}
+
+/* 联网抓取 */
+.netb{display:flex;align-items:center;gap:8px;padding:8px 11px;border-radius:9px;
+  background:#f7f9fd;border:1px solid var(--line);font-size:12px;color:var(--txt2);margin-bottom:9px;line-height:1.6}
+.netb i{width:7px;height:7px;border-radius:50%;background:#c3ccdb;flex:none}
+.netb span{white-space:pre-line}
+.netb.on{background:#f1faf4;border-color:#c9ecd6;color:#177a43}
+.netb.on i{background:#22b573;box-shadow:0 0 0 3px rgba(34,181,115,.16)}
+.netb.off{background:#fdf7ee;border-color:#f0dfc2;color:#94620f}
+.netb.off i{background:#dfa22e}
+.netf{display:flex;gap:8px;margin-bottom:8px}
+.netf input,.netf select{border:1px solid var(--line);border-radius:8px;padding:8px 10px;
+  font:12.5px/1.5 inherit;background:#fff;color:var(--txt)}
+.netf input{flex:1;min-width:0}
+.netf select{flex:none;width:168px}
+.netf input:focus,.netf select:focus{outline:none;border-color:#9fb8ea;box-shadow:0 0 0 3px rgba(30,79,216,.08)}
+.netf2{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--txt3);margin-bottom:8px}
+.netf2 label{display:flex;align-items:center;gap:6px;color:var(--txt2)}
+.netf2 input{width:54px;border:1px solid var(--line);border-radius:6px;padding:4px 6px;
+  font:12px inherit;background:#fff;color:var(--txt)}
+.netcmd{display:flex;align-items:center;gap:8px;padding:7px 10px;background:#101a2e;
+  border-radius:9px;margin-bottom:8px;overflow-x:auto}
+.netcmd[hidden]{display:none}
+.netcmd code{background:none;padding:0;color:#c9d8f7;
+  font:11.5px/1.6 ui-monospace,Menlo,Consolas,monospace;white-space:nowrap}
+.netcmd .btn{flex:none;background:#26334d;border-color:#33415c;color:#dbe6fb}
+.rvdrop{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  border:1px dashed #c8d6ee;border-radius:9px;padding:16px;background:#fff;
+}
+.rvdrop.on{border-color:var(--blue);background:#f2f6ff}
+
+.rvinfo{display:flex;flex-direction:column;gap:4px;margin:4px 0 14px}
+.rvsrc{font-size:12.5px;color:var(--txt2);display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.rvhint{font-size:11.5px;color:var(--txt3);line-height:1.7}
+.rvtg{
+  display:inline-block;padding:1px 7px;border-radius:20px;font-size:10.5px;font-weight:700;
+  background:#eef1f6;color:#5b6675;letter-spacing:.2px;
+}
+.rvtg.ok{background:#e8f7f0;color:#0b7d56}
+
+.sbars{margin:6px 0 10px}
+.sbar{display:flex;align-items:center;gap:10px;margin:6px 0;font-size:12px}
+.sbar b{width:40px;flex:none;font-weight:600;color:var(--txt2)}
+.sbar .strack{flex:1}
+.sbar span{width:112px;flex:none;text-align:right;font-size:11px;color:var(--txt3)}
+.strack.neg i{background:linear-gradient(90deg,#f59e0b,#dc2626)}
+.strack.mid i{background:linear-gradient(90deg,#fbbf24,#d97706)}
+
+.msvg{width:100%;height:auto;display:block;margin:6px 0 8px}
+
+.revq{max-width:330px;font-size:11.5px;line-height:1.65;color:#3d4450}
+.revq i{display:block;font-style:italic;color:#3a4354}
+.revq span{display:block;margin-top:3px;font-size:10.5px;color:#8b95a5;font-style:normal}
+
+.rvpill{display:inline-block;padding:1px 7px;border-radius:20px;font-size:10.5px;font-weight:700}
+.rvpill.good{background:#e8f7f0;color:#0b7d56}
+.rvpill.mid{background:#fdf3e3;color:#a8630a}
+.rvpill.bad{background:#fdecea;color:#b03427}
+
+.wcloud{display:flex;flex-wrap:wrap;gap:7px;margin:6px 0 4px}
+.wtag{
+  display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:20px;
+  background:#eef3fe;color:#1e4fd8;font-size:11.5px;
+}
+.wtag b{font-size:9.5px;font-weight:700;background:#1e4fd8;color:#fff;border-radius:20px;padding:1px 5px}
+
+.tbar{display:inline-block;width:70px;height:6px;border-radius:4px;background:#eef2f8;overflow:hidden;vertical-align:middle}
+.tbar i{display:block;height:100%;background:linear-gradient(90deg,#60a5fa,#1e4fd8)}
+.tbar.warn i{background:linear-gradient(90deg,#fbbf24,#dc2626)}
+.tbar+.sub2{margin-left:6px}
+
+.steps4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0 16px;align-items:start}
+.steps4>div{background:#f7f9fd;border:1px solid var(--line);border-radius:10px;padding:10px 12px;overflow:hidden}
+.steps4 b{
+  display:inline-block;width:18px;height:18px;line-height:18px;text-align:center;
+  border-radius:5px;background:var(--blue);color:#fff;font-size:11px;margin-right:6px;
+}
+.steps4 span{font-size:12px;font-weight:700;color:var(--txt)}
+.steps4 code{
+  display:block;margin-top:7px;background:#fff;border:1px solid var(--line);
+  padding:6px 8px;border-radius:6px;font-size:10.5px;line-height:1.65;color:#334155;
+  white-space:pre-wrap;word-break:break-all;
+}
+
+.pywrap{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:8px 0 16px;background:#fff}
+.pybar{display:flex;align-items:center;gap:8px;background:#f7f9fd;border-bottom:1px solid var(--line);padding:7px 10px}
+.pyfile{font:11.5px/1 ui-monospace,Menlo,monospace;color:#1e4fd8;font-weight:700}
+.pyline{font-size:10.5px;color:var(--txt3)}
+.pysp{flex:1}
+.pydet summary{
+  cursor:pointer;padding:8px 12px;font-size:12px;color:var(--txt2);
+  background:#fff;list-style:none;
+}
+.pydet summary::-webkit-details-marker{display:none}
+.pydet summary:before{content:'▸ ';color:var(--txt3)}
+.pydet[open] summary:before{content:'▾ '}
+.pydet summary:hover{background:#fafcff}
+.pcode.py{margin:0;border:0;border-radius:0;max-height:420px;border-top:1px solid var(--line2);font-size:11.5px}
+
+.warn{background:#fff8ee;border:1px solid #f6dfbc;border-left:3px solid #d97706;border-radius:9px;padding:11px 14px;margin:10px 0 18px}
+.warn b{font-size:12.5px;color:#8a4b06}
+.warn p{font-size:12.5px;color:#6b4a1e;margin-top:5px;line-height:1.8}
+
+.apx{border-top:2px solid var(--line);margin-top:32px;padding-top:24px}
+
+@media (max-width:900px){
+  .steps4{grid-template-columns:1fr 1fr}
+  .revq{max-width:none}
+  .sbar span{width:96px}
+  .docbar{padding:9px 11px}
+}
+@media print{
+  .docbar,.rvdock,.pybar,.rvdock-f,.apx{display:none}
+  .msvg{break-inside:avoid}
+  .pydet{break-inside:avoid}
+}
+
+/* =========================================================
+   情绪层：三问 / 标签集合 / 视觉卡 / 日历 / 日报
+   ========================================================= */
+.mk{color:var(--blue)}
+.okc{color:var(--green)}
+.warnc{color:var(--amber)}
+.badc{color:var(--red)}
+
+/* 三问卡片 */
+.q3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0 18px}
+.qcard{
+  position:relative;background:#fff;border:1px solid var(--line);border-top:3px solid var(--blue);
+  border-radius:10px;padding:13px 15px 14px;
+}
+.qcard.good{border-top-color:var(--green)}
+.qcard.mid{border-top-color:var(--amber)}
+.qcard.blue{border-top-color:var(--blue)}
+.qcard-t{font-size:11px;color:var(--txt3);font-weight:700;letter-spacing:.3px}
+.qcard-t span{display:inline-block;background:#f1f4f9;border-radius:5px;padding:1px 5px;margin-right:6px;font-size:10px;color:var(--txt3);letter-spacing:0}
+.qcard-v{font-size:18px;font-weight:800;letter-spacing:-.4px;line-height:1.3;margin:7px 0 3px;word-break:break-word}
+.qcard-l{font-size:11px;color:var(--blue);font-weight:700;margin-bottom:9px}
+.qcard p{font-size:12px;line-height:1.78;color:var(--txt2)}
+
+/* 标签集合 */
+.tagsum{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  background:#f7f9fd;border:1px solid var(--line2);border-radius:9px;padding:9px 12px;margin-bottom:12px;
+}
+.tagsum-l{font-size:12px;color:var(--txt2)}
+.tagsum-l b{color:var(--blue);font-size:16px;font-weight:800;margin:0 2px}
+.tagsum-r{display:flex;gap:6px;flex-wrap:wrap}
+.taggrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.tgrp{border:1px solid var(--line2);border-radius:10px;padding:11px 12px 12px;background:#fcfdff}
+.tgrp-h{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:9px}
+.tgrp-h b{font-size:12.5px;font-weight:800}
+.tgrp-h span{font-size:10.5px;color:var(--txt3)}
+.tgwrap{display:flex;flex-wrap:wrap;gap:6px}
+.tagg{
+  display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);background:#fff;
+  border-radius:20px;padding:4px 9px 4px 10px;font-size:11.5px;color:var(--txt2);
+  transition:.14s;line-height:1.35;max-width:100%;
+}
+.tagg.w1{font-size:12.5px;font-weight:700;color:var(--txt)}
+.tagg.w3{font-size:11px;color:var(--txt3)}
+.tagg i{font-style:normal;font-size:9.5px;font-weight:700;color:#a9b7cb;background:#f2f6fc;border-radius:10px;padding:0 4px}
+.tagg:hover{border-color:#bcd0f0;color:var(--txt)}
+.tagg.on{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 2px 8px rgba(30,79,216,.22)}
+.tagg.on i{background:rgba(255,255,255,.22);color:#fff}
+
+.tagout{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tagout-empty{
+  grid-column:1/-1;border:1px dashed var(--line);border-radius:9px;padding:14px;
+  text-align:center;font-size:12px;color:var(--txt3);background:#fcfdff;
+}
+.tagout-b{border:1px solid var(--line2);border-radius:9px;background:#fcfdff;overflow:hidden}
+.tagout .tagout-b:last-of-type{grid-column:1/-1}
+.tagout-h{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  font-size:11.5px;font-weight:700;color:var(--txt2);
+  padding:8px 11px;background:#f7f9fd;border-bottom:1px solid var(--line2);
+}
+.tagcode{
+  margin:0;padding:10px 12px;font:11.5px/1.78 ui-monospace,SFMono-Regular,Menlo,monospace;
+  color:#334155;white-space:pre-wrap;word-break:break-word;max-height:230px;overflow:auto;
+}
+.tagcode.big{max-height:none;background:#fcfdff;border:1px solid var(--line2);border-radius:9px;font-size:12px;margin:10px 0 0}
+.tagout-f{grid-column:1/-1;font-size:11px;color:var(--txt3);line-height:1.7}
+.pfoot2{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+
+/* 文档里的标签墙 */
+.dtags{
+  display:flex;flex-direction:column;gap:7px;margin:10px 0 4px;
+  border:1px solid var(--line2);border-radius:10px;padding:12px 14px;background:#fcfdff;
+}
+.dtag{display:grid;grid-template-columns:58px 1fr;gap:10px;align-items:start}
+.dtag-k{font-size:11px;font-weight:800;color:var(--txt3);padding-top:3px;letter-spacing:.3px}
+.dtag-v{display:flex;flex-wrap:wrap;gap:6px}
+.dtag-i{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;background:#eef3fe;color:#1e4fd8;border-radius:20px;padding:2px 8px;line-height:1.6}
+.dtag-i i{font-style:normal;font-size:9px;opacity:.5}
+
+/* 内容日历 */
+.calbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.calw{margin-bottom:14px}
+.calw-h{display:flex;align-items:baseline;gap:10px;margin-bottom:5px}
+.calw-h b{font-size:12.5px}
+.calw-h span{font-size:11px;color:var(--txt3)}
+
+/* 日报卡片预览 */
+.pushwrap{display:grid;grid-template-columns:1.4fr 1fr;gap:14px;margin-bottom:16px}
+.pushcard{
+  background:#fff;border:1px solid var(--line);border-left:3px solid var(--blue);
+  border-radius:10px;padding:14px 16px;box-shadow:0 2px 12px rgba(15,26,46,.05);
+}
+.pushcard.red{border-left-color:var(--red)}
+.pushhd{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:1px solid var(--line2);padding-bottom:9px;margin-bottom:11px}
+.pushhd b{font-size:13px}
+.pushhd span{font-size:10.5px;color:var(--txt3);white-space:nowrap}
+.pushrow{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 10px;margin-bottom:9px}
+.pushrow>div{min-width:0}
+.pushrow em{font-style:normal;font-size:10.5px;color:var(--txt3);display:block;margin-bottom:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pushrow b{font-size:15px;font-weight:800;letter-spacing:-.3px;display:block}
+.pushrow b.up{color:var(--green)}
+.pushrow b.bad{color:var(--red)}
+.pushact{background:#f8fafd;border-radius:8px;padding:10px 12px;margin-top:6px}
+.pushact-h{font-size:11px;font-weight:800;color:var(--txt3);margin-bottom:6px;letter-spacing:.3px}
+.pushli{font-size:12px;line-height:1.75;color:var(--txt2)}
+.pushli.r{color:var(--red);font-weight:600}
+.pushside{background:#f7f9fd;border:1px solid var(--line2);border-radius:10px;padding:13px 15px}
+.pushside b{font-size:12.5px}
+.pushside .ul{margin-top:8px}
+
+/* 侧栏分隔 */
+.sub-i.new{background:#e7f7f0;color:#0e9f6e}
+.sub.sub-a{opacity:.86}
+.sub.sub-a .sub-i{background:#f4f7fc;color:#9aabc2}
+.sub-sep{font-size:10px;color:#b3c0d2;font-weight:700;letter-spacing:.5px;padding:10px 0 3px 2px}
+.subnav.docsub{margin-top:-8px}
+.subnav.docsub .subnav-i{font-size:11px}
+
+@media (max-width:1100px){
+  .taggrid,.tagout{grid-template-columns:1fr}
+  .pushwrap{grid-template-columns:1fr}
+}
+@media (max-width:900px){
+  .q3{grid-template-columns:1fr}
+  .pushrow{grid-template-columns:repeat(3,1fr)}
+  .dtag{grid-template-columns:1fr;gap:4px}
+}
+@media print{
+  .tagsum,.calbar,.pfoot2,.tagout-h .btn{display:none}
+  .tagout{grid-template-columns:1fr}
+  .q3{grid-template-columns:repeat(3,1fr)}
+  .pushwrap{grid-template-columns:1fr}
+}
+
+/* =========================================================
+   v9：删减后的图表化版式（摘要仪表盘 / 两列图区 / 条形榜）
+   ========================================================= */
+.verdict2{
+  display:grid;grid-template-columns:252px 1fr;gap:16px;align-items:center;
+  border:1px solid var(--line);border-radius:12px;padding:8px 18px 8px 6px;
+  background:linear-gradient(100deg,#f7faff,#fff 60%);
+}
+.verdict2.good{border-color:#c7ebdb;background:linear-gradient(100deg,#f2fdf8,#fff 60%)}
+.verdict2.mid{border-color:#f6e2bf;background:linear-gradient(100deg,#fffaf1,#fff 60%)}
+.verdict2.bad{border-color:#f6cfcf;background:linear-gradient(100deg,#fff6f6,#fff 60%)}
+.verdict2-g svg{width:252px;display:block}
+.vlead{font-size:13.5px;line-height:1.85;color:#22304a;margin-bottom:12px}
+.vfacts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.vfacts>div{border-left:2px solid #dfe7f5;padding-left:10px;min-width:0}
+.vfacts em{display:block;font-size:10.5px;color:var(--txt3);font-style:normal;font-weight:700;letter-spacing:.2px}
+.vfacts b{display:block;font-size:17px;font-weight:800;letter-spacing:-.4px;margin:2px 0 1px;color:var(--txt)}
+.vfacts span{font-size:10.5px;color:var(--txt3);line-height:1.5;display:block}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0 16px}
+.gcell{border:1px solid var(--line2);border-radius:10px;background:#fcfdff;padding:12px 14px}
+.gcell-h{font-size:11.5px;font-weight:700;color:var(--txt3);margin-bottom:2px}
+.gcell-f{font-size:11.5px;line-height:1.72;color:#5b6779}
+/* 卡片内的补充说明：与上方列表拉开，不贴着 */
+.blk>p.gcell-f{margin:10px 0 0;padding-top:9px;border-top:1px dashed var(--line)}
+.vz-radar{max-width:300px;margin:0 auto;display:block}
+.vz-gauge,.vz-donut,.vz-stack,.vz-hbar{display:block;height:auto;margin:2px 0}
+.vz-gauge{width:250px;max-width:100%}
+.vz-donut{width:168px;max-width:100%}
+.vz-stack,.vz-hbar{width:100%}
+
+.cstat{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:6px 0 9px}
+.cstat b{display:block;font-size:19px;font-weight:800;color:var(--blue);letter-spacing:-.5px;line-height:1.25}
+.cstat span{font-size:10.5px;color:var(--txt3)}
+
+.clist{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 4px}
+.clist-i{
+  display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line2);
+  background:#fcfdff;border-radius:20px;padding:3px 10px;font-size:11px;color:var(--txt2);
+}
+.clist-i i{font-style:normal;color:var(--blue);font-weight:700;font-size:10.5px}
+.clist-i a{font-size:10px}
+
+.kwlist{display:flex;flex-direction:column;gap:7px;margin:10px 0}
+.kwrow{display:grid;grid-template-columns:1fr 176px;gap:12px;align-items:center}
+.kw-t{min-width:0}
+.kw-t b{font-size:11.8px;display:block;line-height:1.4}
+.kw-t span{font-size:10.3px;color:var(--txt3)}
+.kw-b{height:8px;background:#eef2f8;border-radius:4px;overflow:hidden}
+.kw-b i{display:block;height:100%;background:linear-gradient(90deg,#7aa7f0,#1e4fd8);border-radius:4px}
+
+.stopbox{
+  display:flex;gap:10px;align-items:baseline;background:#fff8f0;border:1px solid #f5dcbb;
+  border-radius:9px;padding:9px 13px;margin-top:12px;
+}
+.stopbox b{font-size:11.5px;color:#b45309;white-space:nowrap}
+.stopbox span{font-size:11.5px;color:#7c5a2e;line-height:1.7}
+
+/* 评论章节 */
+.revtop{display:grid;grid-template-columns:206px 1fr;gap:16px;align-items:center;margin:8px 0 14px}
+.revtop-g{text-align:center}
+.revleg{display:flex;flex-wrap:wrap;justify-content:center;gap:3px 9px;margin-top:2px}
+.revleg span{font-size:9.8px;color:var(--txt3);display:inline-flex;align-items:center;gap:4px}
+.revleg i{width:7px;height:7px;border-radius:2px;display:inline-block}
+.qbox{
+  margin:8px 0 6px;padding:9px 14px;border-left:3px solid #dfe7f5;
+  background:#fafcff;border-radius:0 8px 8px 0;
+}
+.qbox i{font-size:12.2px;line-height:1.72;color:#334155;font-style:italic;display:block}
+.qbox span{font-size:10.3px;color:var(--txt3);margin-top:4px;display:block}
+.fix3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
+.fix3-i{border:1px solid var(--line2);border-radius:9px;padding:10px 12px;background:#fcfdff;min-width:0}
+.fix3-h{display:flex;justify-content:space-between;align-items:baseline;gap:6px;margin-bottom:5px}
+.fix3-h b{font-size:11.8px}
+.fix3-h span{font-size:9.8px;color:var(--txt3);white-space:nowrap}
+.fix3-i p{font-size:11.3px;line-height:1.7;color:#4b5a72}
+
+/* 情绪章节 */
+.emtop{display:grid;grid-template-columns:252px 1fr;gap:14px;align-items:center;margin:6px 0 12px}
+.emtop-l svg{width:250px;display:block}
+.mtt{display:flex;flex-direction:column;gap:8px;margin:8px 0 6px}
+.mtt-i{display:grid;grid-template-columns:1fr 132px 24px;gap:10px;align-items:center}
+.mtt-t{min-width:0}
+.mtt-t b{font-size:12.2px;display:inline-block;margin-right:6px}
+.mtt-t span{font-size:10.8px;color:var(--txt3)}
+.mtt-b{height:7px;background:#eef2f8;border-radius:4px;overflow:hidden}
+.mtt-b i{display:block;height:100%;background:linear-gradient(90deg,#8fb4f5,#1e4fd8)}
+.mtt-v{font-size:10.5px;font-weight:700;color:var(--txt3);text-align:right}
+
+.vchip{display:inline-block;width:48px;height:6px;background:#eef2f8;border-radius:3px;overflow:hidden;vertical-align:middle;margin-right:5px}
+.vchip i{display:block;height:100%;background:var(--blue)}
+
+@media (max-width:1000px){
+  .gbar{grid-template-columns:repeat(2,1fr)}
+  .gates{grid-template-columns:1fr}
+  .verdict2{grid-template-columns:1fr;padding:10px 14px}
+  .verdict2-g svg{width:210px;margin:0 auto}
+  .revtop,.emtop{grid-template-columns:1fr}
+  .revtop-g{display:flex;align-items:center;justify-content:center;gap:14px}
+  .revtop-g svg{width:150px}
+  .emtop-l svg{width:210px;margin:0 auto}
+  .fix3{grid-template-columns:1fr}
+  .kwrow{grid-template-columns:1fr;gap:3px}
+  .kw-b{height:6px}
+}
+@media (max-width:640px){
+  .grid2{grid-template-columns:1fr}
+  .coresup{grid-template-columns:1fr}
+  .corept-v{font-size:18px}
+  .vfacts{grid-template-columns:1fr;gap:8px}
+  .cstat{grid-template-columns:repeat(3,1fr)}
+  .mtt-i{grid-template-columns:1fr 90px 22px}
+  .netf{flex-direction:column}
+  .netf select{width:100%}
+  .gbar{grid-template-columns:1fr}
+  .cstat-4{grid-template-columns:repeat(2,1fr)}
+}
+@media print{
+  .grid2{grid-template-columns:1fr 1fr}
+  .verdict2{grid-template-columns:210px 1fr}
+  .fix3{grid-template-columns:repeat(3,1fr)}
+  .kwrow{grid-template-columns:1fr 130px}
+  .verdict2,.grid2,.gcell,.revtop,.fix3,.emtop,.kwlist,.gbar,.gate{break-inside:avoid}
+}
+
+/* 窄屏（真机 390–480） */
+@media (max-width:640px){
+  /* 4 个指标在窄屏排成 2×2，别出现「3 + 1」的孤行 */
+  .bigrow{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:480px){
+  .cstat{gap:6px}
+  .cstat b{font-size:16px}
+  .cstat span{font-size:9.8px}
+  .verdict2-g svg{width:176px}
+  .emtop-l svg{width:168px}
+  .revtop-g svg{width:128px}
+  .clist-i{font-size:10.2px;padding:2px 8px}
+  .vfacts b{font-size:15px}
+  .q3 .qcard-v{font-size:16px}
+}
+
+/* 打印：A4 宽约 794px，避免被 1000px 断点压成单列 */
+@page{margin:13mm 11mm}
+@media print{
+  .revtop{grid-template-columns:172px 1fr}
+  .emtop{grid-template-columns:206px 1fr}
+  .revtop-g{display:block;text-align:center}
+  .revtop-g svg{width:148px;margin:0 auto}
+  .emtop-l svg{width:190px;margin:0 auto}
+  .mtt-i{grid-template-columns:1fr 110px 22px}
+  .verdict2-g svg{width:196px}
+  .kwrow{grid-template-columns:1fr 120px}
+}
+
+body{background:#fff}
+@media print{body{background:#fff}}
+</style></head><body>
+<div class="main" style="max-width:1020px;margin:0 auto;padding:34px 26px 60px">
+
+<div class="docwrap">
+  <article class="paper" id="paper">
+    <header class="phd">
+      <div class="pkick">选品调研报告 · 2026年11月19日</div>
+      <h1>便携榨汁杯 · 厨房小家电<br>美国市场进入评估</h1>
+      <div class="pmeta">
+        <span>品类 <b>厨房小家电</b></span>
+        <span>市场 <b>美国</b></span>
+        <span>平台 <b>Amazon</b></span>
+        <span>价格带 <b>$32</b></span>
+        <span>样本 <b>6 款头部产品</b></span>
+      </div>
+    </header>
+
+    <div class="docbar">
+      <div class="docbar-l">
+        <b>评论数据源</b>
+        <span>内置样本 24 条 · 厨房小家电 · 头部 6 款</span>
+      </div>
+      <div class="docbar-r">
+        <button class="btn xs primary" data-rv="net">联网抓取</button>
+        <button class="btn xs" data-rv="paste">粘贴评论</button>
+        <button class="btn xs" data-rv="file">上传 CSV</button>
+        
+        <a class="btn xs" href="#apx" data-anchor="apx">采集说明</a>
+      </div>
+    </div>
+    <div class="rvdock" id="rvdock" hidden></div>
+
+    <section class="ch" id="ch1">
+      <h2><i>摘要</i>结论先行</h2>
+      
+      <div class="verdict2 mid">
+        <div class="verdict2-g"><svg class="msvg vz-gauge" viewBox="0 0 250 138" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="机会分 7.3"><path d="M61.0 106.0 A64 64 0 0 1 189.0 106.0" fill="none" stroke="#eef2f8" stroke-width="20" stroke-linecap="round"/><path d="M61.0 106.0 A64 64 0 0 1 167.3 58.0" fill="none" stroke="#d97706" stroke-width="20" stroke-linecap="round"/><text x="125" y="88" text-anchor="middle" font-size="32" font-weight="800" fill="#d97706" letter-spacing="-1">7.3</text><text x="125" y="107" text-anchor="middle" font-size="9.5" fill="#7688a3">机会分 · 满分 10</text><text x="61" y="121" text-anchor="middle" font-size="8.5" fill="#a9b6c9">0</text><text x="189" y="121" text-anchor="middle" font-size="8.5" fill="#a9b6c9">10</text><text x="125" y="133" text-anchor="middle" font-size="10" fill="#d97706" font-weight="700">谨慎进 · 只打差异化</text></svg></div>
+        <div class="verdict2-t">
+          <p class="vlead">需求与利润都成立，但首屏被锁：第一名占 63.5% 的评论存量，正面拼量与比价没有胜算。只能靠形态差异或一个一眼能看懂的改良绕开。</p>
+          <div class="vfacts">
+            <div><em>钱在哪</em><b>$18.99–$59.99</b><span>头部月销约 117k 件，中位价 $34.99</span></div>
+            <div><em>谁挡路</em><b>63.5%</b><span>BlendJet 独占评论存量，拼量没有胜算</span></div>
+            <div><em>打哪里</em><b>45.5%</b><span>差评集中在「漏水 / 密封」</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="gbar">
+    <div class="gbar-i gb-good">
+      <div class="gbar-t"><b>需求真实</b><em>8.7</em></div>
+      <span>双峰 · Q2 健身季 + Q4 礼品季，两次高峰之间要靠内容维持排名</span>
+    </div><div class="gbar-i gb-bad">
+      <div class="gbar-t"><b>竞争可插</b><em>2</em></div>
+      <span>第一名占 63.5% 的评论存量，首屏位基本被锁</span>
+    </div><div class="gbar-i gb-good">
+      <div class="gbar-t"><b>利润够撑</b><em>10</em></div>
+      <span>按 $32 算，毛利 49.4%，保本 ROAS 2.02</span>
+    </div><div class="gbar-i gb-good">
+      <div class="gbar-t"><b>风险可解</b><em>8</em></div>
+      <span>四道闸都是「需要注意」，单关能过但叠加起来成本高</span>
+    </div>
+  </div>
+      <p class="pnote">建议动作：定价 $29–$37（低于中位、高于白牌），毛利 49.4%、保本 ROAS 2.02，广告花过这条线就是亏；主打「漏水 / 密封」的反向卖点，情绪走 省时间 / 自我照顾 / Clean Girl 审美；首月不追销量追评分。</p>
+    </section>
+
+    
+  <section class="ch" id="ch2">
+    <h2><i>第一章</i>产品地图与竞争</h2>
+    <p class="plead">先把货归到格子里（形态），再看格子里的对手（五维、价格带、四象限）——顺序反了，看的就是别人的战场。</p>
+
+    
+    <h3>先归类：厨房小家电里有 8 种形态</h3>
+    <p class="plead">同一个小类目下，「形态」比「品类」更能决定竞争：用法不同＝搜索词不同＝对手不同。先把货归到格子里，再看格子里的对手。</p>
+    <div class="ptable">
+      <table>
+        <thead><tr><th>形态</th><th>怎么用（结构）</th><th class="c">主流价位</th><th>核心人群</th><th>核心搜索词</th><th class="c">与本品关系</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>电水壶 / 养生壶</b></td>
+            <td class="sub2">台面 · 通电烧水，壶身取放</td>
+            <td class="c nw">$19–$45</td>
+            <td class="sub2">25–40 岁上班族与租房人群</td>
+            <td class="sub2">electric kettle</td>
+            <td class="c"><i class="tg tg-bad">价格重叠 · 直接抢位</i></td>
+          </tr><tr>
+            <td><b>电煮锅 / 多功能锅</b></td>
+            <td class="sub2">台面 · 插电加热，锅体可分离</td>
+            <td class="c nw">$29–$79</td>
+            <td class="sub2">20–32 岁独居与合租人群</td>
+            <td class="sub2">electric multicooker</td>
+            <td class="c"><i class="tg tg-bad">价格重叠 · 直接抢位</i></td>
+          </tr><tr>
+            <td><b>三明治机 / 早餐机</b></td>
+            <td class="sub2">台面 · 双面压烤，通电加热</td>
+            <td class="c nw">$25–$55</td>
+            <td class="sub2">22–35 岁有孩子的家庭与上班族</td>
+            <td class="sub2">sandwich maker</td>
+            <td class="c"><i class="tg tg-bad">价格重叠 · 直接抢位</i></td>
+          </tr><tr>
+            <td><b>厨房秤 / 烘焙秤</b></td>
+            <td class="sub2">台面 · 放置称量，数显读数</td>
+            <td class="c nw">$12–$29</td>
+            <td class="sub2">25–40 岁烘焙入门与控糖人群</td>
+            <td class="sub2">kitchen scale</td>
+            <td class="c"><i class="tg tg-mid">向下替代</i></td>
+          </tr><tr class="trcur">
+            <td><b>便携榨汁杯</b><i class="tg tg-good">本品</i></td>
+            <td class="sub2">手持 · 单杯一体，打完直接带走</td>
+            <td class="c nw">$26–$39</td>
+            <td class="sub2">25–35 岁健身族 / 通勤上班族 / 宿舍学生</td>
+            <td class="sub2">portable blender</td>
+            <td class="c"><i class="tg tg-good">本品</i></td>
+          </tr><tr>
+            <td><b>手冲咖啡套装</b></td>
+            <td class="sub2">台面 · 器具套组，手工冲煮</td>
+            <td class="c nw">$22–$48</td>
+            <td class="sub2">28–40 岁城市白领与咖啡爱好者</td>
+            <td class="sub2">pour over coffee set</td>
+            <td class="c"><i class="tg tg-bad">价格重叠 · 直接抢位</i></td>
+          </tr><tr>
+            <td><b>空气炸锅</b></td>
+            <td class="sub2">台面 · 抽屉式，通电加热</td>
+            <td class="c nw">$49–$109</td>
+            <td class="sub2">30–45 岁家庭主厨 / 租房青年</td>
+            <td class="sub2">air fryer</td>
+            <td class="c"><i class="tg tg-mid">向上替代</i></td>
+          </tr><tr>
+            <td><b>保温杯 / 随行杯</b></td>
+            <td class="sub2">随身 · 杯体加杯盖，保温保冷</td>
+            <td class="c nw">$16–$34</td>
+            <td class="sub2">20–38 岁上班族、学生与健身人群</td>
+            <td class="sub2">insulated water bottle</td>
+            <td class="c"><i class="tg tg-bad">价格重叠 · 直接抢位</i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pnote">本品落在一「<b>便携榨汁杯</b>」（$26–$39），价格重叠的形态有 5 个——它们才是真对手，其它形态只是「替代品」。 
+      归类只做三件事：搜索意图（买家搜什么词）、功能用途（解决什么动作）、目标人群（谁在用）。三者都不同，就是两个类目；只差一个，就是同一战场里的两个位置。</p>
+
+    <div class="grid2">
+      <div class="gcell">
+        <div class="gcell-h">五维评分 · 短板决定成败</div>
+        <svg class="msvg vz-radar" viewBox="-36 2 372 296" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="各维度得分"><polygon points="150.0,131.0 170.0,145.5 162.3,169.0 137.7,169.0 130.0,145.5" fill="none" stroke="#eef2f8"/><polygon points="150.0,110.0 189.9,139.0 174.7,186.0 125.3,186.0 110.1,139.0" fill="none" stroke="#eef2f8"/><polygon points="150.0,89.0 209.9,132.5 187.0,203.0 113.0,203.0 90.1,132.5" fill="none" stroke="#eef2f8"/><polygon points="150.0,68.0 229.9,126.0 199.4,220.0 100.6,220.0 70.1,126.0" fill="#fafcff" stroke="#dde5f2"/><line x1="150" y1="152" x2="150.0" y2="68.0" stroke="#eef2f8"/><line x1="150" y1="152" x2="229.9" y2="126.0" stroke="#eef2f8"/><line x1="150" y1="152" x2="199.4" y2="220.0" stroke="#eef2f8"/><line x1="150" y1="152" x2="100.6" y2="220.0" stroke="#eef2f8"/><line x1="150" y1="152" x2="70.1" y2="126.0" stroke="#eef2f8"/><polygon points="150.0,76.4 166.0,146.8 189.5,206.4 100.6,220.0 78.1,128.6" fill="#1e4fd8" fill-opacity=".16" stroke="#1e4fd8" stroke-width="1.6"/><circle cx="150.0" cy="76.4" r="2.8" fill="#1e4fd8"/><text x="150.0" y="45.1" text-anchor="middle" font-size="10.2" font-weight="700" fill="#41506b">需求强度<tspan dx="3" font-size="9.2" font-weight="600" fill="#9aa5b5">9</tspan></text><circle cx="166.0" cy="146.8" r="4" fill="#dc2626"/><text x="255.5" y="121.7" text-anchor="start" font-size="10.2" font-weight="700" fill="#dc2626">竞争友好<tspan dx="3" font-size="9.2" font-weight="600" fill="#9aa5b5">2</tspan></text><circle cx="189.5" cy="206.4" r="2.8" fill="#1e4fd8"/><text x="215.2" y="245.7" text-anchor="start" font-size="10.2" font-weight="700" fill="#41506b">利润空间<tspan dx="3" font-size="9.2" font-weight="600" fill="#9aa5b5">8</tspan></text><circle cx="100.6" cy="220.0" r="2.8" fill="#1e4fd8"/><text x="84.8" y="245.7" text-anchor="end" font-size="10.2" font-weight="700" fill="#41506b">差异空间<tspan dx="3" font-size="9.2" font-weight="600" fill="#9aa5b5">10</tspan></text><circle cx="78.1" cy="128.6" r="2.8" fill="#1e4fd8"/><text x="44.5" y="121.7" text-anchor="end" font-size="10.2" font-weight="700" fill="#41506b">内容可拍<tspan dx="3" font-size="9.2" font-weight="600" fill="#9aa5b5">9</tspan></text></svg>
+        <p class="gcell-f">最低项是<b>竞争友好</b>（2/10），它决定这一单能不能成，平均分好看没有意义。</p>
+      </div>
+      <div class="gcell">
+        <div class="gcell-h">集中度 · 首屏锁得多死</div>
+        <div class="cstat">
+          <div><b>4341</b><span>HHI · 高度集中</span></div>
+          <div><b>84%</b><span>CR3 前三份额</span></div>
+          <div><b>63.5%</b><span>第一名独占</span></div>
+        </div>
+        <p class="gcell-f">第一名用 68k 条评论换来的首屏，等于新店 12–18 个月的自然积累，正面拼量没有胜算。</p>
+        <div class="gcell-h" style="margin-top:10px">评价体量分层 · 壁垒有多厚</div>
+        
+      <div class="cstat cstat-4">
+        <div><b>1</b><span>评价 &gt; 2 万（重壁垒）</span></div>
+        <div><b>4</b><span>5 千–2 万（可追平）</span></div>
+        <div><b>1</b><span>&lt; 5 千（新品位）</span></div>
+        <div><b>21×</b><span>头尾评价差</span></div>
+      </div>
+      <p class="gcell-f">评价存量分层看的是「壁垒厚度」：样本里只有 1 款低于 5 千条，首屏几乎全被评价量锁死，新品只能靠<b>站外流量或差异化词</b>绕开正面比价。</p>
+      </div>
+    </div>
+
+    <h3>价格带：钱挤在哪，空在哪</h3>
+    <svg class="msvg" viewBox="0 0 640 232" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="价格带分布"><line x1="10" y1="178" x2="630" y2="178" stroke="#dfe5ef"/><rect x="43.5" y="18.0" width="57.0" height="160.0" rx="4" fill="#1e4fd8"/><text x="72.0" y="11.0" text-anchor="middle" font-size="12" font-weight="700" fill="#1e4fd8">2</text><text x="72.0" y="195" text-anchor="middle" font-size="10" fill="#5b6675">$18</text><text x="72.0" y="208" text-anchor="middle" font-size="9" fill="#98a2b3">–$26</text><rect x="167.5" y="98.0" width="57.0" height="80.0" rx="4" fill="#b9c8e8"/><text x="196.0" y="91.0" text-anchor="middle" font-size="12" font-weight="700" fill="#1e4fd8">1</text><text x="196.0" y="195" text-anchor="middle" font-size="10" fill="#5b6675">$26</text><text x="196.0" y="208" text-anchor="middle" font-size="9" fill="#98a2b3">–$35</text><rect x="291.5" y="98.0" width="57.0" height="80.0" rx="4" fill="#b9c8e8"/><text x="320.0" y="91.0" text-anchor="middle" font-size="12" font-weight="700" fill="#1e4fd8">1</text><text x="320.0" y="195" text-anchor="middle" font-size="10" fill="#5b6675">$35</text><text x="320.0" y="208" text-anchor="middle" font-size="9" fill="#98a2b3">–$43</text><rect x="415.5" y="98.0" width="57.0" height="80.0" rx="4" fill="#b9c8e8"/><text x="444.0" y="91.0" text-anchor="middle" font-size="12" font-weight="700" fill="#1e4fd8">1</text><text x="444.0" y="195" text-anchor="middle" font-size="10" fill="#5b6675">$43</text><text x="444.0" y="208" text-anchor="middle" font-size="9" fill="#98a2b3">–$52</text><rect x="539.5" y="98.0" width="57.0" height="80.0" rx="4" fill="#b9c8e8"/><text x="568.0" y="91.0" text-anchor="middle" font-size="12" font-weight="700" fill="#1e4fd8">1</text><text x="568.0" y="195" text-anchor="middle" font-size="10" fill="#5b6675">$52</text><text x="568.0" y="208" text-anchor="middle" font-size="9" fill="#98a2b3">–$60</text><line x1="320.0" y1="14" x2="320.0" y2="178.0" stroke="#f0a020" stroke-width="1.4" stroke-dasharray="5 4"/><text x="320.0" y="10" text-anchor="middle" font-size="9.5" font-weight="700" fill="#b8730a">中位 $34.99</text><text x="10" y="225" font-size="9.5" fill="#8b95a3">横轴为价格带，柱高为该价位在售款数；红色虚线框为无人占据的空档</text></svg>
+    <p class="pnote">最密档位 $18–$26（2 款在售）；没有完全空档，每个价位都有人卡位，只能靠差异点切入。</p>
+
+    <h3>评论存量 × 评分：谁在漏人</h3>
+    <svg class="msvg" viewBox="0 0 640 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="评论存量与评分四象限"><rect x="46" y="26" width="566" height="260" rx="6" fill="#fafbfe"/><line x1="329" y1="26" x2="329" y2="286" stroke="#d5dded" stroke-dasharray="4 4"/><line x1="46" y1="156" x2="612" y2="156" stroke="#d5dded" stroke-dasharray="4 4"/><text x="54.0" y="41.0" text-anchor="start" font-size="10" font-weight="700" fill="#9aa5b5">守擂区</text><text x="604.0" y="41.0" text-anchor="end" font-size="10" font-weight="700" fill="#9aa5b5">潜力区</text><text x="54.0" y="277.0" text-anchor="start" font-size="10" font-weight="700" fill="#9aa5b5">可攻击区</text><text x="604.0" y="277.0" text-anchor="end" font-size="10" font-weight="700" fill="#9aa5b5">淘汰区</text><line x1="46" y1="265.2" x2="612" y2="265.2" stroke="#edf1f8"/><text x="39" y="268.6" text-anchor="end" font-size="9" fill="#98a2b3">3.92</text><line x1="46" y1="156.0" x2="612" y2="156.0" stroke="#edf1f8"/><text x="39" y="159.4" text-anchor="end" font-size="9" fill="#98a2b3">4.25</text><line x1="46" y1="46.8" x2="612" y2="46.8" stroke="#edf1f8"/><text x="39" y="50.2" text-anchor="end" font-size="9" fill="#98a2b3">4.58</text><circle cx="561.1" cy="73.3" r="19.0" fill="#1e4fd8" fill-opacity=".14" stroke="#1e4fd8" stroke-width="1.3"/><circle cx="307.1" cy="106.4" r="13.8" fill="#1e4fd8" fill-opacity=".14" stroke="#1e4fd8" stroke-width="1.3"/><circle cx="260.3" cy="139.5" r="12.4" fill="#d94a3d" fill-opacity=".14" stroke="#d94a3d" stroke-width="1.3"/><circle cx="246.8" cy="106.4" r="14.2" fill="#1e4fd8" fill-opacity=".14" stroke="#1e4fd8" stroke-width="1.3"/><circle cx="96.9" cy="172.5" r="10.8" fill="#d94a3d" fill-opacity=".14" stroke="#d94a3d" stroke-width="1.3"/><circle cx="176.2" cy="238.7" r="14.9" fill="#d94a3d" fill-opacity=".14" stroke="#d94a3d" stroke-width="1.3"/><text x="561.1" y="75.9" text-anchor="middle" font-size="7.8" font-weight="700" fill="#173a9c">BlendJet</text><text x="307.1" y="88.6" text-anchor="middle" font-size="7.8" font-weight="700" fill="#173a9c">Ninja</text><text x="276.7" y="129.0" text-anchor="start" font-size="7.8" font-weight="700" fill="#a83226">NutriBulle</text><text x="246.8" y="88.1" text-anchor="middle" font-size="7.8" font-weight="700" fill="#173a9c">KOIOS</text><text x="96.9" y="157.7" text-anchor="middle" font-size="7.8" font-weight="700" fill="#a83226">Zulay Kitc</text><text x="176.2" y="219.8" text-anchor="middle" font-size="7.8" font-weight="700" fill="#a83226">Generic</text><line x1="46" y1="286" x2="612" y2="286" stroke="#c9d3e3"/><line x1="46" y1="26" x2="46" y2="286" stroke="#c9d3e3"/><text x="329" y="320" text-anchor="middle" font-size="9.5" fill="#8b95a3">评论存量（对数刻度）→</text><text x="10" y="18" font-size="9.5" fill="#8b95a3">评分 ↑</text><text x="612" y="18" text-anchor="end" font-size="9" fill="#aab4c2">圆面积 = 月销</text></svg>
+    <p class="pnote">左下「可攻击区」＝有量但体验差，是首选切入点。样本里最典型的是「白牌 16oz 便携杯」：4.0 分、5.4k 条评论——它的差评就是你的广告文案。</p>
+
+    <h3>威胁榜：先绕开谁</h3>
+    <svg class="msvg vz-hbar" viewBox="0 0 640 156" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="条形榜"><text x="0" y="15" font-size="11" font-weight="600" fill="#374151">BlendJet</text><rect x="158" y="6" width="443" height="9" rx="4.5" fill="#eef2f8"/><rect x="158" y="6" width="292.4" height="9" rx="4.5" fill="#dc2626"/><text x="640" y="14" text-anchor="end" font-size="10.5" font-weight="700" fill="#dc2626">66 分</text><text x="158" y="26" font-size="9" fill="#a3b0c4">$49.95 · 68.4k 评论 · 护城河 100</text><text x="0" y="45" font-size="11" font-weight="600" fill="#374151">KOIOS</text><rect x="158" y="36" width="443" height="9" rx="4.5" fill="#eef2f8"/><rect x="158" y="36" width="181.6" height="9" rx="4.5" fill="#1e4fd8"/><text x="640" y="44" text-anchor="end" font-size="10.5" font-weight="700" fill="#1e4fd8">41 分</text><text x="158" y="56" font-size="9" fill="#a3b0c4">$25.99 · 8.6k 评论 · 护城河 13</text><text x="0" y="75" font-size="11" font-weight="600" fill="#374151">Generic</text><rect x="158" y="66" width="443" height="9" rx="4.5" fill="#eef2f8"/><rect x="158" y="66" width="137.3" height="9" rx="4.5" fill="#1e4fd8"/><text x="640" y="74" text-anchor="end" font-size="10.5" font-weight="700" fill="#1e4fd8">31 分</text><text x="158" y="86" font-size="9" fill="#a3b0c4">$18.99 · 5.4k 评论 · 护城河 8</text><text x="0" y="105" font-size="11" font-weight="600" fill="#374151">NutriBullet</text><rect x="158" y="96" width="443" height="9" rx="4.5" fill="#eef2f8"/><rect x="158" y="96" width="132.9" height="9" rx="4.5" fill="#1e4fd8"/><text x="640" y="104" text-anchor="end" font-size="10.5" font-weight="700" fill="#1e4fd8">30 分</text><text x="158" y="116" font-size="9" fill="#a3b0c4">$39.99 · 9.4k 评论 · 护城河 14</text><text x="0" y="135" font-size="11" font-weight="600" fill="#374151">Zulay Kitchen</text><rect x="158" y="126" width="443" height="9" rx="4.5" fill="#eef2f8"/><rect x="158" y="126" width="128.5" height="9" rx="4.5" fill="#1e4fd8"/><text x="640" y="134" text-anchor="end" font-size="10.5" font-weight="700" fill="#1e4fd8">29 分</text><text x="158" y="146" font-size="9" fill="#a3b0c4">$29.99 · 3.2k 评论 · 护城河 5</text></svg>
+    <p class="pnote">威胁 = 评论护城河 42% + 评分健康 33% + 价格杀伤 25%。看的是「追平它要多久」，不是「它现在多强」。</p>
+
+    <div class="clist"><span class="clist-i">BlendJet<i>$49.95</i><a class="lk" href="https://www.amazon.com/s?k=BlendJet%20portable%20blender" target="_blank" rel="noopener">核实</a></span><span class="clist-i">Ninja<i>$59.99</i><a class="lk" href="https://www.amazon.com/s?k=Ninja%20portable%20blender" target="_blank" rel="noopener">核实</a></span><span class="clist-i">NutriBullet<i>$39.99</i><a class="lk" href="https://www.amazon.com/s?k=NutriBullet%20portable%20blender" target="_blank" rel="noopener">核实</a></span><span class="clist-i">KOIOS<i>$25.99</i><a class="lk" href="https://www.amazon.com/s?k=KOIOS%20portable%20blender" target="_blank" rel="noopener">核实</a></span><span class="clist-i">Zulay Kitchen<i>$29.99</i><a class="lk" href="https://www.amazon.com/s?k=Zulay%20Kitchen%20portable%20blender" target="_blank" rel="noopener">核实</a></span><span class="clist-i">Generic<i>$18.99</i><a class="lk" href="https://www.amazon.com/s?k=Generic%20portable%20blender" target="_blank" rel="noopener">核实</a></span></div>
+    <p class="pconcl">站位的结论只有一句：绕开「BlendJet 2 便携榨汁杯」，对标「白牌 16oz 便携杯」，价格落在 $29–$37——低于中位形成价差，高于白牌保住毛利。</p>
+  </section>
+    
+    <section class="ch" id="ch3">
+      <h2><i>第二章</i>评论与需求缺口</h2>
+      <div class="rvinfo">
+        <div class="rvsrc"><span class="rvtg">内置样本</span>24 条 · 厨房小家电 · 头部 6 款 · 覆盖 2026.05 – 2026.09</div>
+        <div class="rvhint">样本按该品类头部产品分布重写，用于跑通分析链路；导入真实评论后整章替换。样本刻意放大了差评密度（真实头部通常 4.2–4.5 分、差评率 8–15%），不要拿这里星级的绝对值下结论。</div>
+      </div>
+
+      <div class="revtop">
+        <div class="revtop-g">
+          <svg class="msvg vz-donut" viewBox="0 0 186 186" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="占比环形图"><path d="M93.0 31.0 A62 62 0 0 1 152.9 77.0" fill="none" stroke="#0e9f6e" stroke-width="24"/><path d="M152.9 77.0 A62 62 0 0 1 146.7 124.0" fill="none" stroke="#0e9f6e" stroke-width="24"/><path d="M146.7 124.0 A62 62 0 0 1 77.0 152.9" fill="none" stroke="#f0b429" stroke-width="24"/><path d="M77.0 152.9 A62 62 0 0 1 33.1 77.0" fill="none" stroke="#ef8a3c" stroke-width="24"/><path d="M33.1 77.0 A62 62 0 0 1 93.0 31.0" fill="none" stroke="#dc2626" stroke-width="24"/><text x="93" y="91" text-anchor="middle" font-size="24" font-weight="800" fill="#dc2626">45.8%</text><text x="93" y="108" text-anchor="middle" font-size="9.5" fill="#7688a3">差评率（≤2 星）</text></svg>
+          <div class="revleg"><span><i style="background:#0e9f6e"></i>5 星 20.8%</span><span><i style="background:#0e9f6e"></i>4 星 12.5%</span><span><i style="background:#f0b429"></i>3 星 20.8%</span><span><i style="background:#ef8a3c"></i>2 星 25%</span><span><i style="background:#dc2626"></i>1 星 20.8%</span></div>
+        </div>
+        <div class="revtop-t">
+          <div class="cstat">
+            <div><b>24</b><span>评论条数</span></div>
+            <div><b>2.88</b><span>平均星级</span></div>
+            <div><b>11</b><span>差评条数</span></div>
+          </div>
+          <p class="gcell-f">差评率是选品第一道过滤器：高于 30% 说明现有玩家普遍做不好，是机会；低于 8% 说明体验已被做满，只能拼价格与内容。（此处为样本值。）</p>
+          <svg class="msvg" viewBox="0 0 640 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="按月评论量趋势"><line x1="34" y1="160" x2="632" y2="160" stroke="#dfe5ef" stroke-width="1"/><line x1="34" y1="160.0" x2="632" y2="160.0" stroke="#eef2f8" stroke-width="1"/><text x="26" y="163.5" text-anchor="end" font-size="10" fill="#8b95a3">0</text><line x1="34" y1="87.0" x2="632" y2="87.0" stroke="#eef2f8" stroke-width="1"/><text x="26" y="90.5" text-anchor="end" font-size="10" fill="#8b95a3">3</text><line x1="34" y1="14.0" x2="632" y2="14.0" stroke="#eef2f8" stroke-width="1"/><text x="26" y="17.5" text-anchor="end" font-size="10" fill="#8b95a3">6</text><rect x="62.7" y="135.7" width="62.2" height="24.3" rx="3" fill="#b9c8e8"/><text x="93.8" y="174" text-anchor="middle" font-size="9.5" fill="#8b95a3">05</text><rect x="182.3" y="38.3" width="62.2" height="121.7" rx="3" fill="#b9c8e8"/><text x="213.4" y="174" text-anchor="middle" font-size="9.5" fill="#8b95a3">06</text><rect x="301.9" y="14.0" width="62.2" height="146.0" rx="3" fill="#1e4fd8"/><text x="333.0" y="174" text-anchor="middle" font-size="9.5" fill="#8b95a3">07</text><rect x="421.5" y="14.0" width="62.2" height="146.0" rx="3" fill="#1e4fd8"/><text x="452.6" y="174" text-anchor="middle" font-size="9.5" fill="#8b95a3">08</text><rect x="541.1" y="14.0" width="62.2" height="146.0" rx="3" fill="#1e4fd8"/><text x="572.2" y="174" text-anchor="middle" font-size="9.5" fill="#8b95a3">09</text><text x="34" y="186" font-size="9.5" fill="#8b95a3">按月评论量（2026-05 起，最近 5 个月）</text></svg>
+        </div>
+      </div>
+
+      <h3>差评痛点：11 条差评拆出 8 类问题（列前 6 类）</h3>
+      <svg class="msvg vz-hbar" viewBox="0 0 640 168" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="条形榜"><text x="0" y="15" font-size="11" font-weight="600" fill="#374151">漏水 / 密封</text><rect x="126" y="6" width="475" height="9" rx="4.5" fill="#eef2f8"/><rect x="126" y="6" width="475.0" height="9" rx="4.5" fill="#dc2626"/><text x="640" y="14" text-anchor="end" font-size="10.5" font-weight="700" fill="#dc2626">5 条 · 45.5%</text><text x="0" y="42" font-size="11" font-weight="600" fill="#374151">质量 / 耐用</text><rect x="126" y="33" width="475" height="9" rx="4.5" fill="#eef2f8"/><rect x="126" y="33" width="380.0" height="9" rx="4.5" fill="#1e4fd8"/><text x="640" y="41" text-anchor="end" font-size="10.5" font-weight="700" fill="#1e4fd8">4 条 · 36.4%</text><text x="0" y="69" font-size="11" font-weight="600" fill="#374151">效果不达标</text><rect x="126" y="60" width="475" height="9" rx="4.5" fill="#eef2f8"/><rect x="126" y="60" width="285.0" height="9" rx="4.5" fill="#1e4fd8"/><text x="640" y="68" text-anchor="end" font-size="10.5" font-weight="700" fill="#1e4fd8">3 条 · 27.3%</text><text x="0" y="96" font-size="11" font-weight="600" fill="#374151">续航 / 充电</text><rect x="126" y="87" width="475" height="9" rx="4.5" fill="#eef2f8"/><rect x="126" y="87" width="285.0" height="9" rx="4.5" fill="#1e4fd8"/><text x="640" y="95" text-anchor="end" font-size="10.5" font-weight="700" fill="#1e4fd8">3 条 · 27.3%</text><text x="0" y="123" font-size="11" font-weight="600" fill="#374151">尺寸 / 容量</text><rect x="126" y="114" width="475" height="9" rx="4.5" fill="#eef2f8"/><rect x="126" y="114" width="190.0" height="9" rx="4.5" fill="#1e4fd8"/><text x="640" y="122" text-anchor="end" font-size="10.5" font-weight="700" fill="#1e4fd8">2 条 · 18.2%</text><text x="0" y="150" font-size="11" font-weight="600" fill="#374151">清洗麻烦</text><rect x="126" y="141" width="475" height="9" rx="4.5" fill="#eef2f8"/><rect x="126" y="141" width="190.0" height="9" rx="4.5" fill="#1e4fd8"/><text x="640" y="149" text-anchor="end" font-size="10.5" font-weight="700" fill="#1e4fd8">2 条 · 18.2%</text></svg>
+      <div class="qbox"><i>“The plastic jar cracked near the base after two months. It leaked all over my backpack and ruined a notebook.”</i><span>BlendJet 2 便携榨汁杯 · 1 星</span></div>
+      <p class="pnote">一条评论可命中多类（「杯子裂了还漏水」＝ 质量 + 密封），占比之和会大于 100%。</p>
+
+      <h3>Top 3 缺口 → 怎么改成卖点</h3>
+      <div class="fix3">
+    <div class="fix3-i">
+      <div class="fix3-h"><b>1. 漏水 / 密封</b><span>5 条 · 45.5%</span></div>
+      <p>密封是最容易做差异化的点：做倒置 24 小时不漏的实拍，并在五点第一条承诺「包内倒放不漏」。</p>
+    </div>
+    <div class="fix3-i">
+      <div class="fix3-h"><b>2. 质量 / 耐用</b><span>4 条 · 36.4%</span></div>
+      <p>把「耐用」做成可验证的承诺：公开电机/结构测试次数、给出 12 个月只换不修，并在第 4 张主图放内部结构实拍。</p>
+    </div>
+    <div class="fix3-i">
+      <div class="fix3-h"><b>3. 效果不达标</b><span>3 条 · 27.3%</span></div>
+      <p>把效果做成对比：同角度「用前/用后」+ 冰块、冻果、坚果三组硬测试，胜过任何形容词。</p>
+    </div></div>
+      <p class="pconcl">最该被接走的是「白牌 16oz 便携杯」的用户：3 条差评、占其评论 75%，把他们的原话逐条做成对比素材，比凭空讲卖点有效。</p>
+
+      <h3>差评高频词</h3>
+      <div class="wcloud"><span class="wtag">week<b>5</b></span><span class="wtag">leak<b>5</b></span><span class="wtag">month<b>4</b></span><span class="wtag">work<b>4</b></span><span class="wtag">first<b>4</b></span><span class="wtag">stopp<b>4</b></span><span class="wtag">seal<b>4</b></span><span class="wtag">fine<b>3</b></span><span class="wtag">plastic<b>3</b></span><span class="wtag">charge<b>3</b></span><span class="wtag">smoothie<b>3</b></span><span class="wtag">like<b>3</b></span><span class="wtag">three<b>2</b></span><span class="wtag">barely<b>2</b></span><span class="wtag">crack<b>2</b></span><span class="wtag">near<b>2</b></span><span class="wtag">hand<b>2</b></span><span class="wtag">stuck<b>2</b></span></div>
+      <p class="pnote">只统计 ≤3 星评论并剔除停用词。这些词是用户的原生语言，可直接搬进广告痛点段与 FAQ 标题。</p>
+    </section>
+    
+    <section class="ch" id="ch4">
+      <h2><i>第三章</i>情绪价值定位（选品三问）</h2>
+      <p class="plead">同款货在不同人手里能差出三倍价格，差的不是产品，是「它让人变成什么样」。这一章把情绪拆成三个能算的答案：卖多少钱、有没有定制、产品还是情绪。</p>
+
+      <div class="q3">
+        <div class="qcard good">
+    <div class="qcard-t"><span>问题一</span>卖多少钱</div>
+    <div class="qcard-v">$33</div>
+    <div class="qcard-l">中位价 + 微溢价</div>
+    <p>同类头部中位价 $32，落在 $30–$36 之间；扣掉货成本、佣金与履约后毛利 50.5%，保本 ROAS 1.98。</p>
+  </div>
+        <div class="qcard mid">
+    <div class="qcard-t"><span>问题二</span>有没有定制</div>
+    <div class="qcard-v">可改配色 / 配件 / 套装</div>
+    <div class="qcard-l">定制换差异，不改结构</div>
+    <p>换一个货架上没有的颜色，再加一件配件（收纳袋 / 量杯 / 替换头），感知差异最大、开模费为零。</p>
+  </div>
+        <div class="qcard blue">
+    <div class="qcard-t"><span>问题三</span>产品还是情绪</div>
+    <div class="qcard-v">50 : 50</div>
+    <div class="qcard-l">产品为主</div>
+    <p>一半讲效果、一半讲感受：先让人相信有用，再让人想要。</p>
+  </div>
+      </div>
+
+      <div class="emtop">
+        <div class="emtop-l"><svg class="msvg vz-gauge" viewBox="0 0 250 138" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="情绪占比 62"><path d="M61.0 106.0 A64 64 0 0 1 189.0 106.0" fill="none" stroke="#eef2f8" stroke-width="20" stroke-linecap="round"/><path d="M61.0 106.0 A64 64 0 0 1 148.6 46.5" fill="none" stroke="#d97706" stroke-width="20" stroke-linecap="round"/><text x="125" y="88" text-anchor="middle" font-size="32" font-weight="800" fill="#d97706" letter-spacing="-1">62</text><text x="125" y="107" text-anchor="middle" font-size="9.5" fill="#7688a3">情绪占比 · 满分 100</text><text x="61" y="121" text-anchor="middle" font-size="8.5" fill="#a9b6c9">0</text><text x="189" y="121" text-anchor="middle" font-size="8.5" fill="#a9b6c9">100</text><text x="125" y="133" text-anchor="middle" font-size="10" fill="#d97706" font-weight="700">半定制腰部品牌</text></svg></div>
+        <div class="emtop-r">
+          <div class="cstat">
+            <div><b>$33</b><span>建议售价</span></div>
+            <div><b>50.5%</b><span>该价位毛利率</span></div>
+            <div><b>1.98</b><span>保本 ROAS</span></div>
+          </div>
+          <p class="pconcl">路径是<b>半定制腰部品牌</b>：功能要硬、情绪要浅：用一套统一视觉 + 一句话定位，把同款货卖出差别。定价不看同行，看用户愿意为「变成什么样」多付多少。</p>
+        </div>
+      </div>
+
+      <h3>这个价格怎么拆开</h3>
+      <svg class="msvg vz-stack" viewBox="0 0 640 86" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="成本结构"><text x="0" y="12" font-size="10" font-weight="700" fill="#41506b">按售价 $33 拆解，单位 $</text><rect x="0.0" y="24" width="139.3" height="30" fill="#94a3b8" rx="5"/><text x="69.7" y="39" text-anchor="middle" font-size="9.5" font-weight="700" fill="#fff">$7.2</text><text x="69.7" y="50" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,.85)">21.8%</text><rect x="139.3" y="24" width="96.0" height="30" fill="#f0b429"/><text x="187.3" y="39" text-anchor="middle" font-size="9.5" font-weight="700" fill="#fff">$5.0</text><text x="187.3" y="50" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,.85)">15%</text><rect x="235.3" y="24" width="81.5" height="30" fill="#ef8a3c"/><text x="276.0" y="39" text-anchor="middle" font-size="9.5" font-weight="700" fill="#fff">$4.2</text><text x="276.0" y="50" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,.85)">12.7%</text><rect x="316.8" y="24" width="323.2" height="30" fill="#0e9f6e" rx="5"/><text x="478.4" y="39" text-anchor="middle" font-size="9.5" font-weight="700" fill="#fff">$16.7</text><text x="478.4" y="50" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,.85)">50.5%</text><rect x="0" y="62" width="8" height="8" rx="2" fill="#94a3b8"/><text x="12" y="69" font-size="9" fill="#7688a3">货成本+头程 $7.2</text><rect x="106.20000000000002" y="62" width="8" height="8" rx="2" fill="#f0b429"/><text x="118.20000000000002" y="69" font-size="9" fill="#7688a3">平台佣金 $5.0</text><rect x="197.80000000000004" y="62" width="8" height="8" rx="2" fill="#ef8a3c"/><text x="209.80000000000004" y="69" font-size="9" fill="#7688a3">履约 $4.2</text><rect x="270.6" y="62" width="8" height="8" rx="2" fill="#0e9f6e"/><text x="282.6" y="69" font-size="9" fill="#7688a3">毛利 $16.7</text></svg>
+      <p class="pnote">毛利率 50.5%，保本 ROAS 1.98 —— 广告花到这一条线就是在亏货，不是亏钱。</p>
+
+      <h3>美国市场的人在为什么付钱</h3>
+      <div class="mtt">
+        
+        <div class="mtt-i">
+          <div class="mtt-t"><b>省时间</b><span>不是懒，是不想把周末交给家务</span></div>
+          <div class="mtt-b"><i style="width:92%"></i></div>
+          <div class="mtt-v">92</div>
+        </div>
+        <div class="mtt-i">
+          <div class="mtt-t"><b>自我照顾</b><span>把日常动作升级成一个小仪式</span></div>
+          <div class="mtt-b"><i style="width:88%"></i></div>
+          <div class="mtt-v">88</div>
+        </div>
+        <div class="mtt-i">
+          <div class="mtt-t"><b>Clean Girl 审美</b><span>干净、无痕、不用力</span></div>
+          <div class="mtt-b"><i style="width:82%"></i></div>
+          <div class="mtt-v">82</div>
+        </div>
+        <div class="mtt-i">
+          <div class="mtt-t"><b>小空间体面</b><span>租房也要像自己的家</span></div>
+          <div class="mtt-b"><i style="width:74%"></i></div>
+          <div class="mtt-v">74</div>
+        </div>
+      </div>
+      <p class="pnote">说话方式：直白口语、先说结果、敢自嘲；少用形容词，多用对比　最大阻力：被收智商税 / 退货麻烦 / 用两次就闲置　凭什么信你：真实 UGC、评论数、30 天退货、开箱实测</p>
+
+      <p class="pnote">标签墙与内容选题已并入第 03 步「标签集合 · 内容选题」，这里只保留定价与情绪比例——同一件事不写两遍。</p>
+    </section>
+
+    <section class="ch" id="ch5">
+      <h2><i>第四章</i>关键词簇</h2>
+      <p class="plead">由品类核心词、卖点、场景自动组合，条长表示投放优先级。核心词必须出现在标题前 80 字符内。</p>
+      <div class="kwlist">
+        
+        <div class="kwrow">
+          <div class="kw-t"><b>portable blender</b><span>核心词 · 标题首位 + 精准广告</span></div>
+          <div class="kw-b"><i style="width:100%"></i></div>
+        </div>
+        <div class="kwrow">
+          <div class="kw-t"><b>personal blender</b><span>核心词 · 标题/五点</span></div>
+          <div class="kw-b"><i style="width:92%"></i></div>
+        </div>
+        <div class="kwrow">
+          <div class="kw-t"><b>usb rechargeable blender</b><span>核心词 · 标题/五点</span></div>
+          <div class="kw-b"><i style="width:84%"></i></div>
+        </div>
+        <div class="kwrow">
+          <div class="kw-t"><b>cordless portable</b><span>卖点词 · 五点 + 详情页</span></div>
+          <div class="kw-b"><i style="width:72%"></i></div>
+        </div>
+        <div class="kwrow">
+          <div class="kw-t"><b>stainless steel blades</b><span>卖点词 · 五点 + 详情页</span></div>
+          <div class="kw-b"><i style="width:67%"></i></div>
+        </div>
+        <div class="kwrow">
+          <div class="kw-t"><b>self-cleaning</b><span>卖点词 · 五点 + 详情页</span></div>
+          <div class="kw-b"><i style="width:62%"></i></div>
+        </div>
+        <div class="kwrow">
+          <div class="kw-t"><b>USB-C fast charging</b><span>卖点词 · 五点 + 详情页</span></div>
+          <div class="kw-b"><i style="width:57%"></i></div>
+        </div>
+        <div class="kwrow">
+          <div class="kw-t"><b>portable blender for travel</b><span>场景词 · 短视频标题 + 素材文案</span></div>
+          <div class="kw-b"><i style="width:64%"></i></div>
+        </div>
+        <div class="kwrow">
+          <div class="kw-t"><b>portable blender for gym</b><span>场景词 · 短视频标题 + 素材文案</span></div>
+          <div class="kw-b"><i style="width:60%"></i></div>
+        </div>
+        <div class="kwrow">
+          <div class="kw-t"><b>portable blender for office</b><span>场景词 · 短视频标题 + 素材文案</span></div>
+          <div class="kw-b"><i style="width:56%"></i></div>
+        </div>
+      </div>
+      <p class="pconcl">标题公式：<b>核心词 + 卖点词 + 场景词 + 规格</b>。Amazon 只收录前 200 字符，堆词不加权，重复词只会浪费位置。</p>
+    </section>
+
+    <section class="ch" id="ch6">
+      <h2><i>第五章</i>风险闸门与本周动作</h2>
+      
+    <h3>风险闸门：这四关过不了，后面的钱都别投</h3>
+    <p class="plead">合规与专利是「一票否决」，不是评分项——被下架一次，前面的排名与评论全部清零。</p>
+    <div class="gates">
+      
+      <div class="gate gt-mid">
+        <div class="gate-h"><b>认证准入</b><i>需认证</i></div>
+        <p class="gate-w">FDA 食品接触 + FCC + UL/ETL 电气安全</p>
+        <p class="gate-a"><em>怎么过</em>把认证清单发给工厂要证书编号与检测报告，缺一项就不上架</p>
+      </div>
+      <div class="gate gt-mid">
+        <div class="gate-h"><b>专利 / 结构</b><i>中等</i></div>
+        <p class="gate-w">这个类目的结构专利与外观专利重叠度高，开模前必须检索</p>
+        <p class="gate-a"><em>怎么过</em>用 Google Patents 按结构特征检索 3 个关键词，再让工厂出「规避设计」版本</p>
+      </div>
+      <div class="gate gt-good">
+        <div class="gate-h"><b>侵权 / 品牌</b><i>低</i></div>
+        <p class="gate-w">侵权主要来自图片与文案，控制好素材来源即可</p>
+        <p class="gate-a"><em>怎么过</em>素材自制或购买商用授权，保留授权凭证</p>
+      </div>
+      <div class="gate gt-good">
+        <div class="gate-h"><b>退货 / 质量</b><i>约 6%</i></div>
+        <p class="gate-w">退货可控，重点在首次使用的体验</p>
+        <p class="gate-a"><em>怎么过</em>主图标注真实尺寸/克重，参数表逐项对应实物</p>
+      </div>
+    </div>
+    <p class="gate-spec"><b>类目特有红线</b>必须 110V/60Hz 美规插头；带锂电池另需 UN38.3 + MSDS</p>
+    <p class="pnote">四关里最该先动的是「认证准入」（需认证）。合规成本是可以算进定价的，专利与侵权成本不能。</p>
+      <h3>本周就做的四件事</h3>
+      <ol class="plist ol">
+        <li><b>先过闸：</b>按上面四盏灯逐条确认——认证准入这一关没解决之前，不付开模费、不订大货。</li>
+        <li><b>抓真实评论：</b>用附录脚本抓 3 个竞品各 50 条，导回本页 —— 痛点排序若变化，以真实数据为准。</li>
+        <li><b>验证缺口并留素材：</b>买回「KOIOS 6 叶便携榨汁杯」「白牌 16oz 便携杯」实测差评是否真实存在，同时用真实样品拍「用前/用后」三组，这是后面所有投放的弹药。</li>
+        <li><b>小批测款：</b>100–200 件空运，目标不是赚钱，是拿到真实转化率、退货率与 ACOS——三项同时达标才放量。</li>
+      </ol>
+      <div class="stopbox">
+        <b>什么时候该停</b>
+        <span>改良成本涨幅 &gt; 15% · 300 次点击 0 单且主图换过 3 版 · 30 天内同价位冒出 3 个以上新链接 · 认证或专利出现红字。</span>
+      </div>
+    </section>
+
+    
+  <section class="ch apx" id="apx">
+    <h2><i>附录</i>联网抓评论：页面里点一下，数据自己回来</h2>
+    <p class="plead">这一章的评论默认用内置样本。要真实数据不用手工导出——起一个本地抓取桥，回到报告顶部点「联网抓取」，页面会把亚马逊的评论抓回来、填进本页、重算全部图表。</p>
+
+    <div class="steps4">
+      <div><b>1</b><span>起桥</span><code>python scripts/<br>amazon_bridge.py --serve</code></div>
+      <div><b>2</b><span>回页面</span><code>评论数据源<br>→ 联网抓取</code></div>
+      <div><b>3</b><span>填词选站</span><code>portable blender<br>amazon.com</code></div>
+      <div><b>4</b><span>自动重算</span><code>约 120 条评论<br>图表全部刷新</code></div>
+    </div>
+
+    <div class="note">
+      <b>为什么不是页面自己直接连亚马逊</b>
+      <p>本页是用 <code>file://</code> 打开的本地 HTML。浏览器同源策略禁止它读取 amazon.com 的响应，亚马逊也不会给跨域头——这不是少写了几行代码，是浏览器的硬限制。所以联网这件事必须有一个页面之外的进程来做，下面这个桥就是它：本机起服务、带 CORS 头、页面直接 fetch，抓取结果原样回传。</p>
+    </div>
+
+    <h3>① 抓取引擎：直接用 GitHub 上现成的</h3>
+    <p class="plead">不重复造轮子。<b>Scrapling</b>（github.com/D4Vinci/Scrapling，BSD-3）负责反爬：TLS 指纹伪装、浏览器指纹、Cloudflare 过盾。装了就用它，没装退回 Python 标准库 <code>urllib</code>，被拦再考虑 Playwright 真浏览器。三个引擎共用同一套解析逻辑。</p>
+    <ul class="ul">
+      <li><b>Scrapling</b><span class="fx"> — <code>pip install "scrapling[fetchers]"</code>，首选，抗封最好</span></li>
+      <li><b>urllib</b><span class="fx"> — 标准库，零依赖，能用就最快</span></li>
+      <li><b>Playwright</b><span class="fx"> — <code>pip install playwright &amp;&amp; playwright install chromium</code>，真浏览器兜底</span></li>
+    </ul>
+
+    <h3>② 抓取桥源码：一个文件，两种用法</h3>
+    <p class="plead"><code>--serve</code> 起服务给页面用（默认 8765 端口）；不带参数直接当命令行工具，产出的 <code>reviews.csv</code> 和页面抓的是同一套列。</p>
+    <div class="pywrap">
+    <div class="pybar">
+      <span class="pyfile">amazon_bridge.py</span>
+      <span class="pyline">591 行</span>
+      <span class="pysp"></span>
+      <button class="btn xs" data-copy="#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+&quot;&quot;&quot;amazon_bridge.py — 本地抓取桥：让「AI 营销助手」网页自己联网抓评论
+
+两种用法
+--------
+1) 起桥，然后在网页里点「联网抓取」（推荐）
+       python amazon_bridge.py --serve
+   浏览器打开 dist/AI营销助手.html，勾选站点、填关键词，点开始即可。
+   页面会实时显示进度，抓完自动导入并重算全篇图表。
+
+2) 命令行直接出 CSV
+       python amazon_bridge.py &quot;portable blender&quot; --limit 6
+
+抓取引擎（自动择优，装了哪个用哪个）
+------------------------------------
+    Scrapling  https://github.com/D4Vinci/Scrapling   ← 首选，TLS 指纹伪装，抗封最好
+        pip install &quot;scrapling[fetchers]&quot;
+    Playwright https://github.com/microsoft/playwright ← 兜底，真浏览器渲染
+        pip install playwright &amp;&amp; playwright install chromium
+    标准库 urllib                                      ← 零依赖，能用就最快
+
+三个都不装也能跑：默认走 urllib，被拦了才提示你装上面两个。
+&quot;&quot;&quot;
+import argparse
+import csv
+import json
+import os
+import random
+import re
+import sys
+import threading
+import time
+import uuid
+from html.parser import HTMLParser
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from urllib.parse import parse_qs, quote_plus, urlparse
+from urllib.request import Request, urlopen
+
+UA = (&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 &quot;
+      &quot;(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36&quot;)
+
+MARKETS = {
+    &quot;com&quot;: (&quot;amazon.com&quot;, &quot;en-US&quot;), &quot;co.uk&quot;: (&quot;amazon.co.uk&quot;, &quot;en-GB&quot;),
+    &quot;de&quot;: (&quot;amazon.de&quot;, &quot;de-DE&quot;), &quot;fr&quot;: (&quot;amazon.fr&quot;, &quot;fr-FR&quot;),
+    &quot;it&quot;: (&quot;amazon.it&quot;, &quot;it-IT&quot;), &quot;es&quot;: (&quot;amazon.es&quot;, &quot;es-ES&quot;),
+    &quot;nl&quot;: (&quot;amazon.nl&quot;, &quot;nl-NL&quot;), &quot;se&quot;: (&quot;amazon.se&quot;, &quot;sv-SE&quot;),
+    &quot;pl&quot;: (&quot;amazon.pl&quot;, &quot;pl-PL&quot;), &quot;ca&quot;: (&quot;amazon.ca&quot;, &quot;en-CA&quot;),
+    &quot;com.mx&quot;: (&quot;amazon.com.mx&quot;, &quot;es-MX&quot;), &quot;com.br&quot;: (&quot;amazon.com.br&quot;, &quot;pt-BR&quot;),
+    &quot;ae&quot;: (&quot;amazon.ae&quot;, &quot;en-AE&quot;), &quot;sa&quot;: (&quot;amazon.sa&quot;, &quot;ar-SA&quot;),
+    &quot;com.au&quot;: (&quot;amazon.com.au&quot;, &quot;en-AU&quot;), &quot;in&quot;: (&quot;amazon.in&quot;, &quot;en-IN&quot;),
+    &quot;sg&quot;: (&quot;amazon.sg&quot;, &quot;en-SG&quot;),
+}
+FIELDS = [&quot;asin&quot;, &quot;rating&quot;, &quot;title&quot;, &quot;body&quot;, &quot;date&quot;, &quot;verified&quot;, &quot;helpful&quot;]
+SITE_FIELDS = [&quot;asin&quot;, &quot;title&quot;, &quot;price&quot;, &quot;rating&quot;, &quot;reviews&quot;, &quot;sponsored&quot;, &quot;url&quot;]
+BLOCK_KEYS = (&quot;Enter the characters you see below&quot;, &quot;api-services-support@amazon.com&quot;,
+              &quot;Type the characters you see in this image&quot;, &quot;Robot Check&quot;,
+              &quot;Sorry, we just need to make sure you&quot;, &quot;automated access to Amazon data&quot;,
+              &quot;Service Unavailable&quot;)
+
+
+# ---------------------------------------------------------------- 迷你 DOM
+VOID = {&quot;br&quot;, &quot;img&quot;, &quot;input&quot;, &quot;meta&quot;, &quot;link&quot;, &quot;hr&quot;, &quot;source&quot;, &quot;col&quot;, &quot;area&quot;, &quot;base&quot;, &quot;wbr&quot;}
+
+
+class Node:
+    __slots__ = (&quot;tag&quot;, &quot;attrs&quot;, &quot;kids&quot;)
+
+    def __init__(self, tag, attrs):
+        self.tag, self.attrs, self.kids = tag, attrs, []
+
+
+class Dom(HTMLParser):
+    &quot;&quot;&quot;够用的 DOM：只为了按 data-hook 取节点，不追求规范兼容。&quot;&quot;&quot;
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.root = Node(&quot;#root&quot;, {})
+        self.stack = [self.root]
+
+    def handle_starttag(self, tag, attrs):
+        n = Node(tag, dict(attrs))
+        self.stack[-1].kids.append(n)
+        if tag not in VOID:
+            self.stack.append(n)
+
+    def handle_startendtag(self, tag, attrs):
+        self.stack[-1].kids.append(Node(tag, dict(attrs)))
+
+    def handle_endtag(self, tag):
+        for i in range(len(self.stack) - 1, 0, -1):
+            if self.stack[i].tag == tag:
+                del self.stack[i:]
+                return
+
+    def handle_data(self, data):
+        if data.strip():
+            self.stack[-1].kids.append(data)
+
+
+def tree(html):
+    d = Dom()
+    d.feed(html or &quot;&quot;)
+    d.close()
+    return d.root
+
+
+def kids_of(n):
+    return [k for k in n.kids if isinstance(k, Node)]
+
+
+def text(n):
+    &quot;&quot;&quot;按文档顺序取纯文本（BFS 会把嵌套片段拼错，必须用 DFS）&quot;&quot;&quot;
+    if n is None:
+        return &quot;&quot;
+    out, stack = [], [n]
+    while stack:
+        x = stack.pop()
+        if isinstance(x, str):
+            out.append(x)
+        elif x.tag in (&quot;script&quot;, &quot;style&quot;):
+            continue
+        elif x.tag == &quot;br&quot;:
+            out.append(&quot; &quot;)
+        else:
+            stack.extend(reversed(x.kids))
+    return &quot; &quot;.join(&quot;&quot;.join(out).split())
+
+
+def pick(root, want):
+    &quot;&quot;&quot;返回第一个属性全部匹配的节点&quot;&quot;&quot;
+    stack = [root]
+    while stack:
+        n = stack.pop()
+        if isinstance(n, Node):
+            if all(n.attrs.get(k) == v for k, v in want.items()):
+                return n
+            stack.extend(reversed(n.kids))
+    return None
+
+
+def picks(root, want):
+    out, stack = [], [root]
+    while stack:
+        n = stack.pop()
+        if isinstance(n, Node):
+            if all(n.attrs.get(k) == v for k, v in want.items()):
+                out.append(n)
+            stack.extend(reversed(n.kids))
+    return out
+
+
+def first_tag(root, tag):
+    stack = [root]
+    while stack:
+        n = stack.pop()
+        if isinstance(n, Node):
+            if n.tag == tag:
+                return n
+            stack.extend(reversed(n.kids))
+    return None
+
+
+def has_class(root, cls):
+    stack = [root]
+    while stack:
+        n = stack.pop()
+        if isinstance(n, Node):
+            if cls in (n.attrs.get(&quot;class&quot;) or &quot;&quot;):
+                return True
+            stack.extend(reversed(n.kids))
+    return False
+
+
+def num(s, d=0.0):
+    m = re.search(r&quot;\d[\d,]*\.?\d*&quot;, str(s or &quot;&quot;).replace(&quot;,&quot;, &quot;&quot;))
+    return float(m.group()) if m else d
+
+
+# ---------------------------------------------------------------- 解析
+def parse_search(html, site):
+    rows, seen = [], set()
+    for card in picks(tree(html), {&quot;data-component-type&quot;: &quot;s-search-result&quot;}):
+        asin = (card.attrs.get(&quot;data-asin&quot;) or &quot;&quot;).strip()
+        if not asin or asin in seen:
+            continue
+        seen.add(asin)
+        h2 = first_tag(card, &quot;h2&quot;)
+        price = stars = 0.0
+        cnt = 0
+        stack = [card]
+        while stack:
+            n = stack.pop(0)
+            if not isinstance(n, Node):
+                continue
+            cls = n.attrs.get(&quot;class&quot;) or &quot;&quot;
+            if not price and &quot;a-offscreen&quot; in cls:
+                price = num(text(n))
+            if not stars and &quot;a-icon-alt&quot; in cls:
+                stars = num(text(n))
+            if not cnt and n.tag == &quot;a&quot; and &quot;customerReviews&quot; in (n.attrs.get(&quot;href&quot;) or &quot;&quot;):
+                cnt = int(num(text(n), 0))
+            stack = n.kids + stack
+        rows.append({
+            &quot;asin&quot;: asin, &quot;title&quot;: text(h2), &quot;price&quot;: price, &quot;rating&quot;: stars,
+            &quot;reviews&quot;: cnt, &quot;sponsored&quot;: &quot;Yes&quot; if has_class(card, &quot;puis-sponsored-label-text&quot;) else &quot;No&quot;,
+            &quot;url&quot;: f&quot;{site}/dp/{asin}&quot;,
+        })
+    return rows
+
+
+MONTHS = {}
+for _names in (
+    &quot;january february march april may june july august september october november december&quot;,
+    &quot;januar februar märz april mai juni juli august september oktober november dezember&quot;,
+    &quot;janvier février mars avril mai juin juillet août septembre octobre novembre décembre&quot;,
+    &quot;gennaio febbraio marzo aprile maggio giugno luglio agosto settembre ottobre novembre dicembre&quot;,
+    &quot;enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre&quot;,
+    &quot;janeiro fevereiro março abril maio junho julho agosto setembro outubro novembro dezembro&quot;,
+    &quot;januari februari maart april mei juni juli augustus september oktober november december&quot;,
+    &quot;januari februari mars april maj juni juli augusti september oktober november december&quot;,
+    &quot;styczeń luty marzec kwiecień maj czerwiec lipiec sierpień wrzesień październik listopad grudzień&quot;,
+):
+    for _i, _m in enumerate(_names.split(), 1):
+        MONTHS[_m] = _i
+for _m, _i in ((&quot;jan&quot;, 1), (&quot;feb&quot;, 2), (&quot;mar&quot;, 3), (&quot;apr&quot;, 4), (&quot;jun&quot;, 6), (&quot;jul&quot;, 7),
+               (&quot;aug&quot;, 8), (&quot;sep&quot;, 9), (&quot;sept&quot;, 9), (&quot;oct&quot;, 10), (&quot;nov&quot;, 11), (&quot;dec&quot;, 12),
+               (&quot;mai&quot;, 5), (&quot;okt&quot;, 10), (&quot;dez&quot;, 12), (&quot;aoû&quot;, 8), (&quot;mär&quot;, 3), (&quot;fév&quot;, 2)):
+    MONTHS.setdefault(_m, _i)
+
+
+def norm_date(raw):
+    &quot;&quot;&quot;&quot;Reviewed in the United States on August 14, 2026&quot; → 2026-08-14
+    兼容 DD Month YYYY / Month DD, YYYY，月份名覆盖英德法意西葡荷瑞波 9 种语言。&quot;&quot;&quot;
+    s = (raw or &quot;&quot;).strip()
+    if not s:
+        return &quot;&quot;
+    m = re.search(r&quot;(\d{1,2})\.?\s+([^\W\d_]{3,})\.?,?\s+(\d{4})&quot;, s)
+    if m:
+        d, mon, y = int(m.group(1)), m.group(2), int(m.group(3))
+    else:
+        m = re.search(r&quot;([^\W\d_]{3,})\.?\s+(\d{1,2}),?\s+(\d{4})&quot;, s)
+        if m:
+            mon, d, y = m.group(1), int(m.group(2)), int(m.group(3))
+        else:
+            m2 = re.search(r&quot;\d{4}-\d{2}-\d{2}&quot;, s)
+            return m2.group() if m2 else s[-24:]
+    mo = MONTHS.get(mon.lower().strip(&quot;.&quot;))
+    if not mo or not (1 &lt;= d &lt;= 31):
+        m2 = re.search(r&quot;\d{4}-\d{2}-\d{2}&quot;, s)
+        return m2.group() if m2 else s[-24:]
+    return f&quot;{y:04d}-{mo:02d}-{d:02d}&quot;
+
+
+def parse_reviews(html, asin):
+    out = []
+    for el in picks(tree(html), {&quot;data-hook&quot;: &quot;review&quot;}):
+        body = pick(el, {&quot;data-hook&quot;: &quot;review-body&quot;})
+        star = (pick(el, {&quot;data-hook&quot;: &quot;review-star-rating&quot;})
+                or pick(el, {&quot;data-hook&quot;: &quot;cmps-review-star-rating&quot;}))
+        title = pick(el, {&quot;data-hook&quot;: &quot;review-title&quot;})
+        date = pick(el, {&quot;data-hook&quot;: &quot;review-date&quot;})
+        help_ = pick(el, {&quot;data-hook&quot;: &quot;helpful-vote-statement&quot;})
+        b = re.sub(r&quot;\s*(Read more|Read less|Mehr anzeigen)\s*$&quot;, &quot;&quot;, text(body)).strip()
+        raw_title = text(title)
+        t = re.sub(r&quot;^[\d.]+\s+out of 5 stars\s*&quot;, &quot;&quot;, raw_title).strip()
+        # 评分有两种落点：独立的 star 节点，或塞在标题里的 a-icon-alt
+        s = re.search(r&quot;([1-5](?:\.\d)?)\s+out of 5&quot;, text(star) or raw_title)
+        out.append({
+            &quot;asin&quot;: asin,
+            &quot;rating&quot;: s.group(1) if s else &quot;&quot;,
+            &quot;title&quot;: t,
+            &quot;body&quot;: b,
+            &quot;date&quot;: norm_date(text(date)),
+            &quot;verified&quot;: &quot;Yes&quot; if pick(el, {&quot;data-hook&quot;: &quot;avp-badge&quot;}) else &quot;No&quot;,
+            &quot;helpful&quot;: int(num(text(help_), 0)),
+            &quot;_rid&quot;: el.attrs.get(&quot;id&quot;) or &quot;&quot;,
+        })
+    return out
+
+
+# ---------------------------------------------------------------- 抓取引擎
+class Getter:
+    def __init__(self, market=&quot;com&quot;, engine=&quot;auto&quot;, timeout=30):
+        base = os.environ.get(&quot;AMAZON_BASE&quot;, &quot;&quot;).rstrip(&quot;/&quot;)
+        self.site = base or &quot;https://www.&quot; + MARKETS.get(market, MARKETS[&quot;com&quot;])[0]
+        self.lang = MARKETS.get(market, MARKETS[&quot;com&quot;])[1]
+        self.timeout = timeout
+        self.used = &quot;urllib&quot;
+        self.engines = []
+        self._pw = None
+        order = []
+        if engine in (&quot;auto&quot;, &quot;scrapling&quot;):
+            try:
+                import scrapling.fetchers  # noqa: F401
+                order.append((&quot;scrapling&quot;, self._scrapling))
+            except ImportError:
+                if engine == &quot;scrapling&quot;:
+                    sys.exit('没装 Scrapling：pip install &quot;scrapling[fetchers]&quot;')
+        if engine in (&quot;auto&quot;, &quot;urllib&quot;):
+            order.append((&quot;urllib&quot;, self._urllib))
+        if engine in (&quot;auto&quot;, &quot;playwright&quot;):
+            try:
+                import playwright.sync_api  # noqa: F401
+                order.append((&quot;playwright&quot;, self._playwright))
+            except ImportError:
+                if engine == &quot;playwright&quot;:
+                    sys.exit(&quot;没装 Playwright：pip install playwright &amp;&amp; playwright install chromium&quot;)
+        self.engines = order or [(&quot;urllib&quot;, self._urllib)]
+
+    def get(self, url, need=None):
+        &quot;&quot;&quot;need：页面里必须出现的关键片段。亚马逊现在会给非浏览器请求返回 JS 空壳，
+        只判断「没被 503」不够，得确认目标区块真的在，否则升级到下一个引擎。&quot;&quot;&quot;
+        last = &quot;&quot;
+        for name, fn in self.engines:
+            try:
+                html = fn(url)
+            except Exception as e:
+                last = f&quot;{name}: {e or type(e).__name__}&quot;
+                continue
+            if not html or any(k in html for k in BLOCK_KEYS):
+                last = f&quot;{name}: 拿到的是反爬页（验证码 / 503）&quot;
+                continue
+            if need and need not in html:
+                last = f&quot;{name}: 页面里没有目标区块（被拦，或这一页真的是空的）&quot;
+                continue
+            self.used = name
+            return html
+        raise RuntimeError(last or &quot;抓取失败&quot;)
+
+    def _scrapling(self, url):
+        from scrapling.fetchers import Fetcher
+        r = Fetcher.get(url, impersonate=&quot;chrome&quot;, stealthy_headers=True, timeout=self.timeout)
+        return r.body.decode(r.encoding or &quot;utf-8&quot;, &quot;ignore&quot;)
+
+    def _urllib(self, url):
+        req = Request(url, headers={
+            &quot;User-Agent&quot;: UA, &quot;Accept-Language&quot;: f&quot;{self.lang},en;q=0.8&quot;,
+            &quot;Accept&quot;: &quot;text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&quot;,
+            &quot;Upgrade-Insecure-Requests&quot;: &quot;1&quot;,
+        })
+        with urlopen(req, timeout=self.timeout) as r:
+            return r.read().decode(r.headers.get_content_charset() or &quot;utf-8&quot;, &quot;ignore&quot;)
+
+    def _playwright(self, url):
+        from playwright.sync_api import sync_playwright
+        if self._pw is None:
+            self._ctx = sync_playwright().start()
+            self._br = self._ctx.chromium.launch(headless=True)
+            self._pg = self._br.new_context(locale=self.lang).new_page()
+            self._pg.set_extra_http_headers({&quot;Accept-Language&quot;: f&quot;{self.lang},en;q=0.8&quot;})
+        self._pg.goto(url, wait_until=&quot;domcontentloaded&quot;, timeout=60000)
+        time.sleep(random.uniform(1.2, 2.2))
+        return self._pg.content()
+
+    def close(self):
+        try:
+            if self._pw:
+                self._br.close()
+                self._pw.stop()
+        except Exception:
+            pass
+
+
+# ---------------------------------------------------------------- 主流程
+def crawl(kw=None, asins=None, market=&quot;com&quot;, pages=1, limit=6, review_pages=2,
+          sort=&quot;recent&quot;, min_reviews=0, engine=&quot;auto&quot;, log=print):
+    g = Getter(market, engine)
+    comps, rows, seen = [], [], set()
+    try:
+        if asins:
+            log(f&quot;指定 ASIN：{len(asins)} 个&quot;)
+            comps = [{&quot;asin&quot;: a, &quot;title&quot;: &quot;&quot;, &quot;price&quot;: 0, &quot;rating&quot;: 0, &quot;reviews&quot;: 0,
+                      &quot;sponsored&quot;: &quot;No&quot;, &quot;url&quot;: f&quot;{g.site}/dp/{a}&quot;} for a in asins]
+        else:
+            for p in range(1, pages + 1):
+                log(f&quot;搜索第 {p}/{pages} 页…&quot;)
+                got = parse_search(g.get(f&quot;{g.site}/s?k={quote_plus(kw)}&amp;page={p}&quot;,
+                                          need='data-component-type=&quot;s-search-result&quot;'), g.site)
+                have = {c[&quot;asin&quot;] for c in comps}
+                comps += [r for r in got if r[&quot;asin&quot;] not in have]
+                if not got:
+                    break
+                time.sleep(random.uniform(1.5, 3.0))
+            comps.sort(key=lambda r: r[&quot;reviews&quot;], reverse=True)
+            if not comps:
+                raise RuntimeError(&quot;搜索页能打开但解析不出商品，可能被反爬页挡住。&quot;
+                                   '装 Scrapling 更稳：pip install &quot;scrapling[fetchers]&quot;')
+            log(f&quot;找到 {len(comps)} 个竞品&quot;)
+            comps = [c for c in comps if c[&quot;reviews&quot;] &gt;= min_reviews][:limit]
+
+        if review_pages &lt;= 0:
+            log(f&quot;只取商品信息：{len(comps)} 个 · 引擎 {g.used}&quot;)
+            return comps, []
+
+        last_err = &quot;&quot;
+        for i, c in enumerate(comps, 1):
+            asin = c[&quot;asin&quot;]
+            log(f&quot;抓评论 {i}/{len(comps)} · {asin} {(c['title'] or '')[:28]}&quot;)
+            for p in range(1, review_pages + 1):
+                url = (f&quot;{g.site}/product-reviews/{asin}/?reviewerType=all_reviews&quot;
+                       f&quot;&amp;sortBy={sort}&amp;pageNumber={p}&quot;)
+                try:
+                    items = parse_reviews(g.get(url, need='data-hook=&quot;review&quot;'), asin)
+                except RuntimeError as e:
+                    last_err = str(e)
+                    log(f&quot;  {asin} 停在第 {p} 页：{e}&quot;)
+                    break
+                if not items:
+                    break
+                new = 0
+                for it in items:
+                    rid = asin + &quot;|&quot; + (it.pop(&quot;_rid&quot;) or it[&quot;body&quot;][:40])
+                    if rid in seen:
+                        continue
+                    seen.add(rid)
+                    rows.append(it)
+                    new += 1
+                if new == 0:
+                    break
+                time.sleep(random.uniform(1.5, 3.0))
+    finally:
+        g.close()
+    if not rows:
+        raise RuntimeError(f&quot;一条都没抓到。{last_err}\n&quot;
+                           &quot;亚马逊会给非浏览器请求回一个 JS 空壳，评论区渲染不出来。装真浏览器再跑：\n&quot;
+                           &quot;    pip install playwright &amp;&amp; playwright install chromium\n&quot;
+                           '  或者装 Scrapling：pip install &quot;scrapling[fetchers]&quot;')
+    log(f&quot;完成：{len(rows)} 条评论 · 引擎 {g.used}&quot;)
+    return comps, rows
+
+
+def fail_tip(msg):
+    &quot;&quot;&quot;把常见失败翻译成能照做的下一步&quot;&quot;&quot;
+    s = str(msg)
+    if any(k in s for k in (&quot;503&quot;, &quot;反爬&quot;, &quot;目标区块&quot;, &quot;空壳&quot;, &quot;HTTP Error&quot;)):
+        return (s + &quot;\n出口 IP 多半被亚马逊限流了（机房 IP 很常见）。按顺序试：\n&quot;
+                &quot;  1. pip install playwright &amp;&amp; playwright install chromium   ← 真浏览器，成功率最高\n&quot;
+                '  2. pip install &quot;scrapling[fetchers]&quot;                       ← TLS 指纹伪装\n'
+                &quot;  3. 换家用宽带 / 换 --market 站点再试&quot;)
+    return s
+
+
+# ---------------------------------------------------------------- 服务模式
+JOBS = {}
+LOCK = threading.Lock()
+
+
+def job_worker(jid, p):
+    def log(m):
+        with LOCK:
+            J = JOBS.get(jid)
+            if J:
+                J[&quot;log&quot;].append(m)
+                J[&quot;log&quot;] = J[&quot;log&quot;][-6:]
+
+    try:
+        comps, rows = crawl(kw=p.get(&quot;kw&quot;) or None, asins=p.get(&quot;asins&quot;) or None,
+                            market=p.get(&quot;market&quot;, &quot;com&quot;), pages=int(p.get(&quot;pages&quot;, 1)),
+                            limit=int(p.get(&quot;limit&quot;, 6)),
+                            review_pages=int(p.get(&quot;review_pages&quot;, 2)), log=log)
+        with LOCK:
+            if not rows and int(p.get(&quot;review_pages&quot;, 2)) &gt; 0:
+                JOBS[jid].update(state=&quot;empty&quot;, msg=&quot;抓完了但一条评论都没有：换 --engine playwright 或增大 --review-pages&quot;)
+            elif not rows:
+                JOBS[jid].update(state=&quot;done&quot;, rows=[],
+                                 products=[{k: c.get(k, 0 if k != &quot;title&quot; else &quot;&quot;) for k in
+                                            (&quot;asin&quot;, &quot;title&quot;, &quot;price&quot;, &quot;rating&quot;, &quot;reviews&quot;, &quot;sponsored&quot;)}
+                                           for c in comps])
+            else:
+                keep = (&quot;asin&quot;, &quot;title&quot;, &quot;price&quot;, &quot;rating&quot;, &quot;reviews&quot;, &quot;sponsored&quot;)
+                JOBS[jid].update(state=&quot;done&quot;, rows=rows[:1000],
+                                 products=[{k: c.get(k, 0 if k != &quot;title&quot; else &quot;&quot;) for k in keep}
+                                           for c in comps])
+    except Exception as e:
+        with LOCK:
+            JOBS[jid].update(state=&quot;error&quot;, msg=fail_tip(e))
+
+
+class Handler(BaseHTTPRequestHandler):
+    protocol_version = &quot;HTTP/1.1&quot;
+
+    def log_message(self, *a):
+        pass
+
+    def cors(self):
+        self.send_header(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;)
+        self.send_header(&quot;Access-Control-Allow-Headers&quot;, &quot;*&quot;)
+        self.send_header(&quot;Access-Control-Allow-Methods&quot;, &quot;GET,OPTIONS&quot;)
+        self.send_header(&quot;Cache-Control&quot;, &quot;no-store&quot;)
+
+    def reply(self, obj, code=200):
+        body = json.dumps(obj, ensure_ascii=False).encode()
+        self.send_response(code)
+        self.send_header(&quot;Content-Type&quot;, &quot;application/json; charset=utf-8&quot;)
+        self.send_header(&quot;Content-Length&quot;, str(len(body)))
+        self.cors()
+        self.end_headers()
+        self.wfile.write(body)
+
+    def do_OPTIONS(self):
+        self.send_response(204)
+        self.cors()
+        self.send_header(&quot;Content-Length&quot;, &quot;0&quot;)
+        self.end_headers()
+
+    def do_GET(self):
+        u = urlparse(self.path)
+        q = {k: v[0] for k, v in parse_qs(u.query).items()}
+        if u.path == &quot;/health&quot;:
+            return self.reply({&quot;ok&quot;: True, &quot;app&quot;: &quot;amazon_bridge&quot;, &quot;markets&quot;: sorted(MARKETS)})
+        if u.path == &quot;/start&quot;:
+            if not q.get(&quot;kw&quot;) and not q.get(&quot;asin&quot;):
+                return self.reply({&quot;ok&quot;: False, &quot;msg&quot;: &quot;缺关键词或 ASIN&quot;}, 400)
+            jid = uuid.uuid4().hex[:10]
+            p = {&quot;kw&quot;: q.get(&quot;kw&quot;, &quot;&quot;), &quot;market&quot;: q.get(&quot;market&quot;, &quot;com&quot;),
+                 &quot;pages&quot;: q.get(&quot;pages&quot;, 1), &quot;limit&quot;: q.get(&quot;limit&quot;, 6),
+                 &quot;review_pages&quot;: q.get(&quot;review_pages&quot;, 2),
+                 &quot;asins&quot;: [a.strip() for a in q.get(&quot;asin&quot;, &quot;&quot;).split(&quot;,&quot;) if a.strip()]}
+            if p[&quot;asins&quot;]:
+                p[&quot;limit&quot;] = str(len(p[&quot;asins&quot;]))
+            with LOCK:
+                JOBS[jid] = {&quot;state&quot;: &quot;running&quot;, &quot;log&quot;: [&quot;已排入队列&quot;], &quot;rows&quot;: []}
+            threading.Thread(target=job_worker, args=(jid, p), daemon=True).start()
+            return self.reply({&quot;ok&quot;: True, &quot;id&quot;: jid})
+        if u.path == &quot;/poll&quot;:
+            J = JOBS.get(q.get(&quot;id&quot;, &quot;&quot;))
+            if not J:
+                return self.reply({&quot;ok&quot;: False, &quot;msg&quot;: &quot;任务不存在&quot;}, 404)
+            return self.reply({&quot;ok&quot;: True, &quot;state&quot;: J[&quot;state&quot;], &quot;log&quot;: J[&quot;log&quot;][-3:],
+                               &quot;n&quot;: len(J.get(&quot;rows&quot;) or []),
+                               &quot;msg&quot;: J.get(&quot;msg&quot;, &quot;&quot;), &quot;rows&quot;: J.get(&quot;rows&quot;) if J[&quot;state&quot;] == &quot;done&quot; else [],
+                               &quot;products&quot;: J.get(&quot;products&quot;, [])})
+        self.reply({&quot;ok&quot;: False, &quot;msg&quot;: &quot;unknown path&quot;}, 404)
+
+
+def serve(port):
+    srv = ThreadingHTTPServer((&quot;127.0.0.1&quot;, port), Handler)
+    print(f&quot;\n  抓取桥已启动 ·  http://127.0.0.1:{port}/health&quot;)
+    print(&quot;  回到页面，在「评论数据源 → 联网抓取」里点开始。Ctrl+C 结束。\n&quot;)
+    try:
+        srv.serve_forever()
+    except KeyboardInterrupt:
+        print(&quot;已停止&quot;)
+
+
+def main():
+    ap = argparse.ArgumentParser(description=&quot;Amazon 竞品 / 评论抓取桥&quot;)
+    ap.add_argument(&quot;keyword&quot;, nargs=&quot;?&quot;)
+    ap.add_argument(&quot;--asin&quot;, default=&quot;&quot;, help=&quot;逗号分隔的 ASIN，跳过搜索&quot;)
+    ap.add_argument(&quot;--market&quot;, default=&quot;com&quot;, choices=sorted(MARKETS))
+    ap.add_argument(&quot;--pages&quot;, type=int, default=1, help=&quot;搜索结果页数&quot;)
+    ap.add_argument(&quot;--limit&quot;, type=int, default=6, help=&quot;抓评论的商品数&quot;)
+    ap.add_argument(&quot;--review-pages&quot;, type=int, default=2, help=&quot;每个商品抓几页评论（每页 10 条）&quot;)
+    ap.add_argument(&quot;--min-reviews&quot;, type=int, default=0)
+    ap.add_argument(&quot;--engine&quot;, default=&quot;auto&quot;, choices=[&quot;auto&quot;, &quot;scrapling&quot;, &quot;urllib&quot;, &quot;playwright&quot;])
+    ap.add_argument(&quot;--out-dir&quot;, default=&quot;.&quot;)
+    ap.add_argument(&quot;--serve&quot;, action=&quot;store_true&quot;, help=&quot;起本地服务给网页用&quot;)
+    ap.add_argument(&quot;--port&quot;, type=int, default=8765)
+    a = ap.parse_args()
+
+    if a.serve:
+        return serve(a.port)
+    if not a.keyword and not a.asin:
+        ap.print_help()
+        return
+
+    asins = [x.strip() for x in a.asin.split(&quot;,&quot;) if x.strip()]
+    t0 = time.time()
+    try:
+        comps, rows = crawl(a.keyword, asins, a.market, a.pages, a.limit,
+                            a.review_pages, min_reviews=a.min_reviews, engine=a.engine)
+    except RuntimeError as e:
+        sys.exit(&quot;\n抓取失败：&quot; + fail_tip(e))
+    os.makedirs(a.out_dir, exist_ok=True)
+    if not asins:
+        with open(os.path.join(a.out_dir, &quot;competitors.csv&quot;), &quot;w&quot;, newline=&quot;&quot;, encoding=&quot;utf-8-sig&quot;) as f:
+            w = csv.DictWriter(f, fieldnames=SITE_FIELDS)
+            w.writeheader()
+            w.writerows(comps)
+    with open(os.path.join(a.out_dir, &quot;reviews.csv&quot;), &quot;w&quot;, newline=&quot;&quot;, encoding=&quot;utf-8-sig&quot;) as f:
+        w = csv.DictWriter(f, fieldnames=FIELDS)
+        w.writeheader()
+        w.writerows(rows)
+    print(f&quot;\n{len(rows)} 条 → reviews.csv　耗时 {time.time() - t0:.0f}s&quot;)
+    print(&quot;把 reviews.csv 拖回网页，或下次直接用 --serve 让页面自己抓。&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+">复制</button>
+      <button class="btn xs" data-txtname="amazon_bridge.py" data-txt="#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+&quot;&quot;&quot;amazon_bridge.py — 本地抓取桥：让「AI 营销助手」网页自己联网抓评论
+
+两种用法
+--------
+1) 起桥，然后在网页里点「联网抓取」（推荐）
+       python amazon_bridge.py --serve
+   浏览器打开 dist/AI营销助手.html，勾选站点、填关键词，点开始即可。
+   页面会实时显示进度，抓完自动导入并重算全篇图表。
+
+2) 命令行直接出 CSV
+       python amazon_bridge.py &quot;portable blender&quot; --limit 6
+
+抓取引擎（自动择优，装了哪个用哪个）
+------------------------------------
+    Scrapling  https://github.com/D4Vinci/Scrapling   ← 首选，TLS 指纹伪装，抗封最好
+        pip install &quot;scrapling[fetchers]&quot;
+    Playwright https://github.com/microsoft/playwright ← 兜底，真浏览器渲染
+        pip install playwright &amp;&amp; playwright install chromium
+    标准库 urllib                                      ← 零依赖，能用就最快
+
+三个都不装也能跑：默认走 urllib，被拦了才提示你装上面两个。
+&quot;&quot;&quot;
+import argparse
+import csv
+import json
+import os
+import random
+import re
+import sys
+import threading
+import time
+import uuid
+from html.parser import HTMLParser
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from urllib.parse import parse_qs, quote_plus, urlparse
+from urllib.request import Request, urlopen
+
+UA = (&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 &quot;
+      &quot;(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36&quot;)
+
+MARKETS = {
+    &quot;com&quot;: (&quot;amazon.com&quot;, &quot;en-US&quot;), &quot;co.uk&quot;: (&quot;amazon.co.uk&quot;, &quot;en-GB&quot;),
+    &quot;de&quot;: (&quot;amazon.de&quot;, &quot;de-DE&quot;), &quot;fr&quot;: (&quot;amazon.fr&quot;, &quot;fr-FR&quot;),
+    &quot;it&quot;: (&quot;amazon.it&quot;, &quot;it-IT&quot;), &quot;es&quot;: (&quot;amazon.es&quot;, &quot;es-ES&quot;),
+    &quot;nl&quot;: (&quot;amazon.nl&quot;, &quot;nl-NL&quot;), &quot;se&quot;: (&quot;amazon.se&quot;, &quot;sv-SE&quot;),
+    &quot;pl&quot;: (&quot;amazon.pl&quot;, &quot;pl-PL&quot;), &quot;ca&quot;: (&quot;amazon.ca&quot;, &quot;en-CA&quot;),
+    &quot;com.mx&quot;: (&quot;amazon.com.mx&quot;, &quot;es-MX&quot;), &quot;com.br&quot;: (&quot;amazon.com.br&quot;, &quot;pt-BR&quot;),
+    &quot;ae&quot;: (&quot;amazon.ae&quot;, &quot;en-AE&quot;), &quot;sa&quot;: (&quot;amazon.sa&quot;, &quot;ar-SA&quot;),
+    &quot;com.au&quot;: (&quot;amazon.com.au&quot;, &quot;en-AU&quot;), &quot;in&quot;: (&quot;amazon.in&quot;, &quot;en-IN&quot;),
+    &quot;sg&quot;: (&quot;amazon.sg&quot;, &quot;en-SG&quot;),
+}
+FIELDS = [&quot;asin&quot;, &quot;rating&quot;, &quot;title&quot;, &quot;body&quot;, &quot;date&quot;, &quot;verified&quot;, &quot;helpful&quot;]
+SITE_FIELDS = [&quot;asin&quot;, &quot;title&quot;, &quot;price&quot;, &quot;rating&quot;, &quot;reviews&quot;, &quot;sponsored&quot;, &quot;url&quot;]
+BLOCK_KEYS = (&quot;Enter the characters you see below&quot;, &quot;api-services-support@amazon.com&quot;,
+              &quot;Type the characters you see in this image&quot;, &quot;Robot Check&quot;,
+              &quot;Sorry, we just need to make sure you&quot;, &quot;automated access to Amazon data&quot;,
+              &quot;Service Unavailable&quot;)
+
+
+# ---------------------------------------------------------------- 迷你 DOM
+VOID = {&quot;br&quot;, &quot;img&quot;, &quot;input&quot;, &quot;meta&quot;, &quot;link&quot;, &quot;hr&quot;, &quot;source&quot;, &quot;col&quot;, &quot;area&quot;, &quot;base&quot;, &quot;wbr&quot;}
+
+
+class Node:
+    __slots__ = (&quot;tag&quot;, &quot;attrs&quot;, &quot;kids&quot;)
+
+    def __init__(self, tag, attrs):
+        self.tag, self.attrs, self.kids = tag, attrs, []
+
+
+class Dom(HTMLParser):
+    &quot;&quot;&quot;够用的 DOM：只为了按 data-hook 取节点，不追求规范兼容。&quot;&quot;&quot;
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.root = Node(&quot;#root&quot;, {})
+        self.stack = [self.root]
+
+    def handle_starttag(self, tag, attrs):
+        n = Node(tag, dict(attrs))
+        self.stack[-1].kids.append(n)
+        if tag not in VOID:
+            self.stack.append(n)
+
+    def handle_startendtag(self, tag, attrs):
+        self.stack[-1].kids.append(Node(tag, dict(attrs)))
+
+    def handle_endtag(self, tag):
+        for i in range(len(self.stack) - 1, 0, -1):
+            if self.stack[i].tag == tag:
+                del self.stack[i:]
+                return
+
+    def handle_data(self, data):
+        if data.strip():
+            self.stack[-1].kids.append(data)
+
+
+def tree(html):
+    d = Dom()
+    d.feed(html or &quot;&quot;)
+    d.close()
+    return d.root
+
+
+def kids_of(n):
+    return [k for k in n.kids if isinstance(k, Node)]
+
+
+def text(n):
+    &quot;&quot;&quot;按文档顺序取纯文本（BFS 会把嵌套片段拼错，必须用 DFS）&quot;&quot;&quot;
+    if n is None:
+        return &quot;&quot;
+    out, stack = [], [n]
+    while stack:
+        x = stack.pop()
+        if isinstance(x, str):
+            out.append(x)
+        elif x.tag in (&quot;script&quot;, &quot;style&quot;):
+            continue
+        elif x.tag == &quot;br&quot;:
+            out.append(&quot; &quot;)
+        else:
+            stack.extend(reversed(x.kids))
+    return &quot; &quot;.join(&quot;&quot;.join(out).split())
+
+
+def pick(root, want):
+    &quot;&quot;&quot;返回第一个属性全部匹配的节点&quot;&quot;&quot;
+    stack = [root]
+    while stack:
+        n = stack.pop()
+        if isinstance(n, Node):
+            if all(n.attrs.get(k) == v for k, v in want.items()):
+                return n
+            stack.extend(reversed(n.kids))
+    return None
+
+
+def picks(root, want):
+    out, stack = [], [root]
+    while stack:
+        n = stack.pop()
+        if isinstance(n, Node):
+            if all(n.attrs.get(k) == v for k, v in want.items()):
+                out.append(n)
+            stack.extend(reversed(n.kids))
+    return out
+
+
+def first_tag(root, tag):
+    stack = [root]
+    while stack:
+        n = stack.pop()
+        if isinstance(n, Node):
+            if n.tag == tag:
+                return n
+            stack.extend(reversed(n.kids))
+    return None
+
+
+def has_class(root, cls):
+    stack = [root]
+    while stack:
+        n = stack.pop()
+        if isinstance(n, Node):
+            if cls in (n.attrs.get(&quot;class&quot;) or &quot;&quot;):
+                return True
+            stack.extend(reversed(n.kids))
+    return False
+
+
+def num(s, d=0.0):
+    m = re.search(r&quot;\d[\d,]*\.?\d*&quot;, str(s or &quot;&quot;).replace(&quot;,&quot;, &quot;&quot;))
+    return float(m.group()) if m else d
+
+
+# ---------------------------------------------------------------- 解析
+def parse_search(html, site):
+    rows, seen = [], set()
+    for card in picks(tree(html), {&quot;data-component-type&quot;: &quot;s-search-result&quot;}):
+        asin = (card.attrs.get(&quot;data-asin&quot;) or &quot;&quot;).strip()
+        if not asin or asin in seen:
+            continue
+        seen.add(asin)
+        h2 = first_tag(card, &quot;h2&quot;)
+        price = stars = 0.0
+        cnt = 0
+        stack = [card]
+        while stack:
+            n = stack.pop(0)
+            if not isinstance(n, Node):
+                continue
+            cls = n.attrs.get(&quot;class&quot;) or &quot;&quot;
+            if not price and &quot;a-offscreen&quot; in cls:
+                price = num(text(n))
+            if not stars and &quot;a-icon-alt&quot; in cls:
+                stars = num(text(n))
+            if not cnt and n.tag == &quot;a&quot; and &quot;customerReviews&quot; in (n.attrs.get(&quot;href&quot;) or &quot;&quot;):
+                cnt = int(num(text(n), 0))
+            stack = n.kids + stack
+        rows.append({
+            &quot;asin&quot;: asin, &quot;title&quot;: text(h2), &quot;price&quot;: price, &quot;rating&quot;: stars,
+            &quot;reviews&quot;: cnt, &quot;sponsored&quot;: &quot;Yes&quot; if has_class(card, &quot;puis-sponsored-label-text&quot;) else &quot;No&quot;,
+            &quot;url&quot;: f&quot;{site}/dp/{asin}&quot;,
+        })
+    return rows
+
+
+MONTHS = {}
+for _names in (
+    &quot;january february march april may june july august september october november december&quot;,
+    &quot;januar februar märz april mai juni juli august september oktober november dezember&quot;,
+    &quot;janvier février mars avril mai juin juillet août septembre octobre novembre décembre&quot;,
+    &quot;gennaio febbraio marzo aprile maggio giugno luglio agosto settembre ottobre novembre dicembre&quot;,
+    &quot;enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre&quot;,
+    &quot;janeiro fevereiro março abril maio junho julho agosto setembro outubro novembro dezembro&quot;,
+    &quot;januari februari maart april mei juni juli augustus september oktober november december&quot;,
+    &quot;januari februari mars april maj juni juli augusti september oktober november december&quot;,
+    &quot;styczeń luty marzec kwiecień maj czerwiec lipiec sierpień wrzesień październik listopad grudzień&quot;,
+):
+    for _i, _m in enumerate(_names.split(), 1):
+        MONTHS[_m] = _i
+for _m, _i in ((&quot;jan&quot;, 1), (&quot;feb&quot;, 2), (&quot;mar&quot;, 3), (&quot;apr&quot;, 4), (&quot;jun&quot;, 6), (&quot;jul&quot;, 7),
+               (&quot;aug&quot;, 8), (&quot;sep&quot;, 9), (&quot;sept&quot;, 9), (&quot;oct&quot;, 10), (&quot;nov&quot;, 11), (&quot;dec&quot;, 12),
+               (&quot;mai&quot;, 5), (&quot;okt&quot;, 10), (&quot;dez&quot;, 12), (&quot;aoû&quot;, 8), (&quot;mär&quot;, 3), (&quot;fév&quot;, 2)):
+    MONTHS.setdefault(_m, _i)
+
+
+def norm_date(raw):
+    &quot;&quot;&quot;&quot;Reviewed in the United States on August 14, 2026&quot; → 2026-08-14
+    兼容 DD Month YYYY / Month DD, YYYY，月份名覆盖英德法意西葡荷瑞波 9 种语言。&quot;&quot;&quot;
+    s = (raw or &quot;&quot;).strip()
+    if not s:
+        return &quot;&quot;
+    m = re.search(r&quot;(\d{1,2})\.?\s+([^\W\d_]{3,})\.?,?\s+(\d{4})&quot;, s)
+    if m:
+        d, mon, y = int(m.group(1)), m.group(2), int(m.group(3))
+    else:
+        m = re.search(r&quot;([^\W\d_]{3,})\.?\s+(\d{1,2}),?\s+(\d{4})&quot;, s)
+        if m:
+            mon, d, y = m.group(1), int(m.group(2)), int(m.group(3))
+        else:
+            m2 = re.search(r&quot;\d{4}-\d{2}-\d{2}&quot;, s)
+            return m2.group() if m2 else s[-24:]
+    mo = MONTHS.get(mon.lower().strip(&quot;.&quot;))
+    if not mo or not (1 &lt;= d &lt;= 31):
+        m2 = re.search(r&quot;\d{4}-\d{2}-\d{2}&quot;, s)
+        return m2.group() if m2 else s[-24:]
+    return f&quot;{y:04d}-{mo:02d}-{d:02d}&quot;
+
+
+def parse_reviews(html, asin):
+    out = []
+    for el in picks(tree(html), {&quot;data-hook&quot;: &quot;review&quot;}):
+        body = pick(el, {&quot;data-hook&quot;: &quot;review-body&quot;})
+        star = (pick(el, {&quot;data-hook&quot;: &quot;review-star-rating&quot;})
+                or pick(el, {&quot;data-hook&quot;: &quot;cmps-review-star-rating&quot;}))
+        title = pick(el, {&quot;data-hook&quot;: &quot;review-title&quot;})
+        date = pick(el, {&quot;data-hook&quot;: &quot;review-date&quot;})
+        help_ = pick(el, {&quot;data-hook&quot;: &quot;helpful-vote-statement&quot;})
+        b = re.sub(r&quot;\s*(Read more|Read less|Mehr anzeigen)\s*$&quot;, &quot;&quot;, text(body)).strip()
+        raw_title = text(title)
+        t = re.sub(r&quot;^[\d.]+\s+out of 5 stars\s*&quot;, &quot;&quot;, raw_title).strip()
+        # 评分有两种落点：独立的 star 节点，或塞在标题里的 a-icon-alt
+        s = re.search(r&quot;([1-5](?:\.\d)?)\s+out of 5&quot;, text(star) or raw_title)
+        out.append({
+            &quot;asin&quot;: asin,
+            &quot;rating&quot;: s.group(1) if s else &quot;&quot;,
+            &quot;title&quot;: t,
+            &quot;body&quot;: b,
+            &quot;date&quot;: norm_date(text(date)),
+            &quot;verified&quot;: &quot;Yes&quot; if pick(el, {&quot;data-hook&quot;: &quot;avp-badge&quot;}) else &quot;No&quot;,
+            &quot;helpful&quot;: int(num(text(help_), 0)),
+            &quot;_rid&quot;: el.attrs.get(&quot;id&quot;) or &quot;&quot;,
+        })
+    return out
+
+
+# ---------------------------------------------------------------- 抓取引擎
+class Getter:
+    def __init__(self, market=&quot;com&quot;, engine=&quot;auto&quot;, timeout=30):
+        base = os.environ.get(&quot;AMAZON_BASE&quot;, &quot;&quot;).rstrip(&quot;/&quot;)
+        self.site = base or &quot;https://www.&quot; + MARKETS.get(market, MARKETS[&quot;com&quot;])[0]
+        self.lang = MARKETS.get(market, MARKETS[&quot;com&quot;])[1]
+        self.timeout = timeout
+        self.used = &quot;urllib&quot;
+        self.engines = []
+        self._pw = None
+        order = []
+        if engine in (&quot;auto&quot;, &quot;scrapling&quot;):
+            try:
+                import scrapling.fetchers  # noqa: F401
+                order.append((&quot;scrapling&quot;, self._scrapling))
+            except ImportError:
+                if engine == &quot;scrapling&quot;:
+                    sys.exit('没装 Scrapling：pip install &quot;scrapling[fetchers]&quot;')
+        if engine in (&quot;auto&quot;, &quot;urllib&quot;):
+            order.append((&quot;urllib&quot;, self._urllib))
+        if engine in (&quot;auto&quot;, &quot;playwright&quot;):
+            try:
+                import playwright.sync_api  # noqa: F401
+                order.append((&quot;playwright&quot;, self._playwright))
+            except ImportError:
+                if engine == &quot;playwright&quot;:
+                    sys.exit(&quot;没装 Playwright：pip install playwright &amp;&amp; playwright install chromium&quot;)
+        self.engines = order or [(&quot;urllib&quot;, self._urllib)]
+
+    def get(self, url, need=None):
+        &quot;&quot;&quot;need：页面里必须出现的关键片段。亚马逊现在会给非浏览器请求返回 JS 空壳，
+        只判断「没被 503」不够，得确认目标区块真的在，否则升级到下一个引擎。&quot;&quot;&quot;
+        last = &quot;&quot;
+        for name, fn in self.engines:
+            try:
+                html = fn(url)
+            except Exception as e:
+                last = f&quot;{name}: {e or type(e).__name__}&quot;
+                continue
+            if not html or any(k in html for k in BLOCK_KEYS):
+                last = f&quot;{name}: 拿到的是反爬页（验证码 / 503）&quot;
+                continue
+            if need and need not in html:
+                last = f&quot;{name}: 页面里没有目标区块（被拦，或这一页真的是空的）&quot;
+                continue
+            self.used = name
+            return html
+        raise RuntimeError(last or &quot;抓取失败&quot;)
+
+    def _scrapling(self, url):
+        from scrapling.fetchers import Fetcher
+        r = Fetcher.get(url, impersonate=&quot;chrome&quot;, stealthy_headers=True, timeout=self.timeout)
+        return r.body.decode(r.encoding or &quot;utf-8&quot;, &quot;ignore&quot;)
+
+    def _urllib(self, url):
+        req = Request(url, headers={
+            &quot;User-Agent&quot;: UA, &quot;Accept-Language&quot;: f&quot;{self.lang},en;q=0.8&quot;,
+            &quot;Accept&quot;: &quot;text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&quot;,
+            &quot;Upgrade-Insecure-Requests&quot;: &quot;1&quot;,
+        })
+        with urlopen(req, timeout=self.timeout) as r:
+            return r.read().decode(r.headers.get_content_charset() or &quot;utf-8&quot;, &quot;ignore&quot;)
+
+    def _playwright(self, url):
+        from playwright.sync_api import sync_playwright
+        if self._pw is None:
+            self._ctx = sync_playwright().start()
+            self._br = self._ctx.chromium.launch(headless=True)
+            self._pg = self._br.new_context(locale=self.lang).new_page()
+            self._pg.set_extra_http_headers({&quot;Accept-Language&quot;: f&quot;{self.lang},en;q=0.8&quot;})
+        self._pg.goto(url, wait_until=&quot;domcontentloaded&quot;, timeout=60000)
+        time.sleep(random.uniform(1.2, 2.2))
+        return self._pg.content()
+
+    def close(self):
+        try:
+            if self._pw:
+                self._br.close()
+                self._pw.stop()
+        except Exception:
+            pass
+
+
+# ---------------------------------------------------------------- 主流程
+def crawl(kw=None, asins=None, market=&quot;com&quot;, pages=1, limit=6, review_pages=2,
+          sort=&quot;recent&quot;, min_reviews=0, engine=&quot;auto&quot;, log=print):
+    g = Getter(market, engine)
+    comps, rows, seen = [], [], set()
+    try:
+        if asins:
+            log(f&quot;指定 ASIN：{len(asins)} 个&quot;)
+            comps = [{&quot;asin&quot;: a, &quot;title&quot;: &quot;&quot;, &quot;price&quot;: 0, &quot;rating&quot;: 0, &quot;reviews&quot;: 0,
+                      &quot;sponsored&quot;: &quot;No&quot;, &quot;url&quot;: f&quot;{g.site}/dp/{a}&quot;} for a in asins]
+        else:
+            for p in range(1, pages + 1):
+                log(f&quot;搜索第 {p}/{pages} 页…&quot;)
+                got = parse_search(g.get(f&quot;{g.site}/s?k={quote_plus(kw)}&amp;page={p}&quot;,
+                                          need='data-component-type=&quot;s-search-result&quot;'), g.site)
+                have = {c[&quot;asin&quot;] for c in comps}
+                comps += [r for r in got if r[&quot;asin&quot;] not in have]
+                if not got:
+                    break
+                time.sleep(random.uniform(1.5, 3.0))
+            comps.sort(key=lambda r: r[&quot;reviews&quot;], reverse=True)
+            if not comps:
+                raise RuntimeError(&quot;搜索页能打开但解析不出商品，可能被反爬页挡住。&quot;
+                                   '装 Scrapling 更稳：pip install &quot;scrapling[fetchers]&quot;')
+            log(f&quot;找到 {len(comps)} 个竞品&quot;)
+            comps = [c for c in comps if c[&quot;reviews&quot;] &gt;= min_reviews][:limit]
+
+        if review_pages &lt;= 0:
+            log(f&quot;只取商品信息：{len(comps)} 个 · 引擎 {g.used}&quot;)
+            return comps, []
+
+        last_err = &quot;&quot;
+        for i, c in enumerate(comps, 1):
+            asin = c[&quot;asin&quot;]
+            log(f&quot;抓评论 {i}/{len(comps)} · {asin} {(c['title'] or '')[:28]}&quot;)
+            for p in range(1, review_pages + 1):
+                url = (f&quot;{g.site}/product-reviews/{asin}/?reviewerType=all_reviews&quot;
+                       f&quot;&amp;sortBy={sort}&amp;pageNumber={p}&quot;)
+                try:
+                    items = parse_reviews(g.get(url, need='data-hook=&quot;review&quot;'), asin)
+                except RuntimeError as e:
+                    last_err = str(e)
+                    log(f&quot;  {asin} 停在第 {p} 页：{e}&quot;)
+                    break
+                if not items:
+                    break
+                new = 0
+                for it in items:
+                    rid = asin + &quot;|&quot; + (it.pop(&quot;_rid&quot;) or it[&quot;body&quot;][:40])
+                    if rid in seen:
+                        continue
+                    seen.add(rid)
+                    rows.append(it)
+                    new += 1
+                if new == 0:
+                    break
+                time.sleep(random.uniform(1.5, 3.0))
+    finally:
+        g.close()
+    if not rows:
+        raise RuntimeError(f&quot;一条都没抓到。{last_err}\n&quot;
+                           &quot;亚马逊会给非浏览器请求回一个 JS 空壳，评论区渲染不出来。装真浏览器再跑：\n&quot;
+                           &quot;    pip install playwright &amp;&amp; playwright install chromium\n&quot;
+                           '  或者装 Scrapling：pip install &quot;scrapling[fetchers]&quot;')
+    log(f&quot;完成：{len(rows)} 条评论 · 引擎 {g.used}&quot;)
+    return comps, rows
+
+
+def fail_tip(msg):
+    &quot;&quot;&quot;把常见失败翻译成能照做的下一步&quot;&quot;&quot;
+    s = str(msg)
+    if any(k in s for k in (&quot;503&quot;, &quot;反爬&quot;, &quot;目标区块&quot;, &quot;空壳&quot;, &quot;HTTP Error&quot;)):
+        return (s + &quot;\n出口 IP 多半被亚马逊限流了（机房 IP 很常见）。按顺序试：\n&quot;
+                &quot;  1. pip install playwright &amp;&amp; playwright install chromium   ← 真浏览器，成功率最高\n&quot;
+                '  2. pip install &quot;scrapling[fetchers]&quot;                       ← TLS 指纹伪装\n'
+                &quot;  3. 换家用宽带 / 换 --market 站点再试&quot;)
+    return s
+
+
+# ---------------------------------------------------------------- 服务模式
+JOBS = {}
+LOCK = threading.Lock()
+
+
+def job_worker(jid, p):
+    def log(m):
+        with LOCK:
+            J = JOBS.get(jid)
+            if J:
+                J[&quot;log&quot;].append(m)
+                J[&quot;log&quot;] = J[&quot;log&quot;][-6:]
+
+    try:
+        comps, rows = crawl(kw=p.get(&quot;kw&quot;) or None, asins=p.get(&quot;asins&quot;) or None,
+                            market=p.get(&quot;market&quot;, &quot;com&quot;), pages=int(p.get(&quot;pages&quot;, 1)),
+                            limit=int(p.get(&quot;limit&quot;, 6)),
+                            review_pages=int(p.get(&quot;review_pages&quot;, 2)), log=log)
+        with LOCK:
+            if not rows and int(p.get(&quot;review_pages&quot;, 2)) &gt; 0:
+                JOBS[jid].update(state=&quot;empty&quot;, msg=&quot;抓完了但一条评论都没有：换 --engine playwright 或增大 --review-pages&quot;)
+            elif not rows:
+                JOBS[jid].update(state=&quot;done&quot;, rows=[],
+                                 products=[{k: c.get(k, 0 if k != &quot;title&quot; else &quot;&quot;) for k in
+                                            (&quot;asin&quot;, &quot;title&quot;, &quot;price&quot;, &quot;rating&quot;, &quot;reviews&quot;, &quot;sponsored&quot;)}
+                                           for c in comps])
+            else:
+                keep = (&quot;asin&quot;, &quot;title&quot;, &quot;price&quot;, &quot;rating&quot;, &quot;reviews&quot;, &quot;sponsored&quot;)
+                JOBS[jid].update(state=&quot;done&quot;, rows=rows[:1000],
+                                 products=[{k: c.get(k, 0 if k != &quot;title&quot; else &quot;&quot;) for k in keep}
+                                           for c in comps])
+    except Exception as e:
+        with LOCK:
+            JOBS[jid].update(state=&quot;error&quot;, msg=fail_tip(e))
+
+
+class Handler(BaseHTTPRequestHandler):
+    protocol_version = &quot;HTTP/1.1&quot;
+
+    def log_message(self, *a):
+        pass
+
+    def cors(self):
+        self.send_header(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;)
+        self.send_header(&quot;Access-Control-Allow-Headers&quot;, &quot;*&quot;)
+        self.send_header(&quot;Access-Control-Allow-Methods&quot;, &quot;GET,OPTIONS&quot;)
+        self.send_header(&quot;Cache-Control&quot;, &quot;no-store&quot;)
+
+    def reply(self, obj, code=200):
+        body = json.dumps(obj, ensure_ascii=False).encode()
+        self.send_response(code)
+        self.send_header(&quot;Content-Type&quot;, &quot;application/json; charset=utf-8&quot;)
+        self.send_header(&quot;Content-Length&quot;, str(len(body)))
+        self.cors()
+        self.end_headers()
+        self.wfile.write(body)
+
+    def do_OPTIONS(self):
+        self.send_response(204)
+        self.cors()
+        self.send_header(&quot;Content-Length&quot;, &quot;0&quot;)
+        self.end_headers()
+
+    def do_GET(self):
+        u = urlparse(self.path)
+        q = {k: v[0] for k, v in parse_qs(u.query).items()}
+        if u.path == &quot;/health&quot;:
+            return self.reply({&quot;ok&quot;: True, &quot;app&quot;: &quot;amazon_bridge&quot;, &quot;markets&quot;: sorted(MARKETS)})
+        if u.path == &quot;/start&quot;:
+            if not q.get(&quot;kw&quot;) and not q.get(&quot;asin&quot;):
+                return self.reply({&quot;ok&quot;: False, &quot;msg&quot;: &quot;缺关键词或 ASIN&quot;}, 400)
+            jid = uuid.uuid4().hex[:10]
+            p = {&quot;kw&quot;: q.get(&quot;kw&quot;, &quot;&quot;), &quot;market&quot;: q.get(&quot;market&quot;, &quot;com&quot;),
+                 &quot;pages&quot;: q.get(&quot;pages&quot;, 1), &quot;limit&quot;: q.get(&quot;limit&quot;, 6),
+                 &quot;review_pages&quot;: q.get(&quot;review_pages&quot;, 2),
+                 &quot;asins&quot;: [a.strip() for a in q.get(&quot;asin&quot;, &quot;&quot;).split(&quot;,&quot;) if a.strip()]}
+            if p[&quot;asins&quot;]:
+                p[&quot;limit&quot;] = str(len(p[&quot;asins&quot;]))
+            with LOCK:
+                JOBS[jid] = {&quot;state&quot;: &quot;running&quot;, &quot;log&quot;: [&quot;已排入队列&quot;], &quot;rows&quot;: []}
+            threading.Thread(target=job_worker, args=(jid, p), daemon=True).start()
+            return self.reply({&quot;ok&quot;: True, &quot;id&quot;: jid})
+        if u.path == &quot;/poll&quot;:
+            J = JOBS.get(q.get(&quot;id&quot;, &quot;&quot;))
+            if not J:
+                return self.reply({&quot;ok&quot;: False, &quot;msg&quot;: &quot;任务不存在&quot;}, 404)
+            return self.reply({&quot;ok&quot;: True, &quot;state&quot;: J[&quot;state&quot;], &quot;log&quot;: J[&quot;log&quot;][-3:],
+                               &quot;n&quot;: len(J.get(&quot;rows&quot;) or []),
+                               &quot;msg&quot;: J.get(&quot;msg&quot;, &quot;&quot;), &quot;rows&quot;: J.get(&quot;rows&quot;) if J[&quot;state&quot;] == &quot;done&quot; else [],
+                               &quot;products&quot;: J.get(&quot;products&quot;, [])})
+        self.reply({&quot;ok&quot;: False, &quot;msg&quot;: &quot;unknown path&quot;}, 404)
+
+
+def serve(port):
+    srv = ThreadingHTTPServer((&quot;127.0.0.1&quot;, port), Handler)
+    print(f&quot;\n  抓取桥已启动 ·  http://127.0.0.1:{port}/health&quot;)
+    print(&quot;  回到页面，在「评论数据源 → 联网抓取」里点开始。Ctrl+C 结束。\n&quot;)
+    try:
+        srv.serve_forever()
+    except KeyboardInterrupt:
+        print(&quot;已停止&quot;)
+
+
+def main():
+    ap = argparse.ArgumentParser(description=&quot;Amazon 竞品 / 评论抓取桥&quot;)
+    ap.add_argument(&quot;keyword&quot;, nargs=&quot;?&quot;)
+    ap.add_argument(&quot;--asin&quot;, default=&quot;&quot;, help=&quot;逗号分隔的 ASIN，跳过搜索&quot;)
+    ap.add_argument(&quot;--market&quot;, default=&quot;com&quot;, choices=sorted(MARKETS))
+    ap.add_argument(&quot;--pages&quot;, type=int, default=1, help=&quot;搜索结果页数&quot;)
+    ap.add_argument(&quot;--limit&quot;, type=int, default=6, help=&quot;抓评论的商品数&quot;)
+    ap.add_argument(&quot;--review-pages&quot;, type=int, default=2, help=&quot;每个商品抓几页评论（每页 10 条）&quot;)
+    ap.add_argument(&quot;--min-reviews&quot;, type=int, default=0)
+    ap.add_argument(&quot;--engine&quot;, default=&quot;auto&quot;, choices=[&quot;auto&quot;, &quot;scrapling&quot;, &quot;urllib&quot;, &quot;playwright&quot;])
+    ap.add_argument(&quot;--out-dir&quot;, default=&quot;.&quot;)
+    ap.add_argument(&quot;--serve&quot;, action=&quot;store_true&quot;, help=&quot;起本地服务给网页用&quot;)
+    ap.add_argument(&quot;--port&quot;, type=int, default=8765)
+    a = ap.parse_args()
+
+    if a.serve:
+        return serve(a.port)
+    if not a.keyword and not a.asin:
+        ap.print_help()
+        return
+
+    asins = [x.strip() for x in a.asin.split(&quot;,&quot;) if x.strip()]
+    t0 = time.time()
+    try:
+        comps, rows = crawl(a.keyword, asins, a.market, a.pages, a.limit,
+                            a.review_pages, min_reviews=a.min_reviews, engine=a.engine)
+    except RuntimeError as e:
+        sys.exit(&quot;\n抓取失败：&quot; + fail_tip(e))
+    os.makedirs(a.out_dir, exist_ok=True)
+    if not asins:
+        with open(os.path.join(a.out_dir, &quot;competitors.csv&quot;), &quot;w&quot;, newline=&quot;&quot;, encoding=&quot;utf-8-sig&quot;) as f:
+            w = csv.DictWriter(f, fieldnames=SITE_FIELDS)
+            w.writeheader()
+            w.writerows(comps)
+    with open(os.path.join(a.out_dir, &quot;reviews.csv&quot;), &quot;w&quot;, newline=&quot;&quot;, encoding=&quot;utf-8-sig&quot;) as f:
+        w = csv.DictWriter(f, fieldnames=FIELDS)
+        w.writeheader()
+        w.writerows(rows)
+    print(f&quot;\n{len(rows)} 条 → reviews.csv　耗时 {time.time() - t0:.0f}s&quot;)
+    print(&quot;把 reviews.csv 拖回网页，或下次直接用 --serve 让页面自己抓。&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+">下载</button>
+    </div>
+    <details class="pydet"><summary>展开源码</summary>
+      <pre class="pcode py">#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+&quot;&quot;&quot;amazon_bridge.py — 本地抓取桥：让「AI 营销助手」网页自己联网抓评论
+
+两种用法
+--------
+1) 起桥，然后在网页里点「联网抓取」（推荐）
+       python amazon_bridge.py --serve
+   浏览器打开 dist/AI营销助手.html，勾选站点、填关键词，点开始即可。
+   页面会实时显示进度，抓完自动导入并重算全篇图表。
+
+2) 命令行直接出 CSV
+       python amazon_bridge.py &quot;portable blender&quot; --limit 6
+
+抓取引擎（自动择优，装了哪个用哪个）
+------------------------------------
+    Scrapling  https://github.com/D4Vinci/Scrapling   ← 首选，TLS 指纹伪装，抗封最好
+        pip install &quot;scrapling[fetchers]&quot;
+    Playwright https://github.com/microsoft/playwright ← 兜底，真浏览器渲染
+        pip install playwright &amp;&amp; playwright install chromium
+    标准库 urllib                                      ← 零依赖，能用就最快
+
+三个都不装也能跑：默认走 urllib，被拦了才提示你装上面两个。
+&quot;&quot;&quot;
+import argparse
+import csv
+import json
+import os
+import random
+import re
+import sys
+import threading
+import time
+import uuid
+from html.parser import HTMLParser
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from urllib.parse import parse_qs, quote_plus, urlparse
+from urllib.request import Request, urlopen
+
+UA = (&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 &quot;
+      &quot;(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36&quot;)
+
+MARKETS = {
+    &quot;com&quot;: (&quot;amazon.com&quot;, &quot;en-US&quot;), &quot;co.uk&quot;: (&quot;amazon.co.uk&quot;, &quot;en-GB&quot;),
+    &quot;de&quot;: (&quot;amazon.de&quot;, &quot;de-DE&quot;), &quot;fr&quot;: (&quot;amazon.fr&quot;, &quot;fr-FR&quot;),
+    &quot;it&quot;: (&quot;amazon.it&quot;, &quot;it-IT&quot;), &quot;es&quot;: (&quot;amazon.es&quot;, &quot;es-ES&quot;),
+    &quot;nl&quot;: (&quot;amazon.nl&quot;, &quot;nl-NL&quot;), &quot;se&quot;: (&quot;amazon.se&quot;, &quot;sv-SE&quot;),
+    &quot;pl&quot;: (&quot;amazon.pl&quot;, &quot;pl-PL&quot;), &quot;ca&quot;: (&quot;amazon.ca&quot;, &quot;en-CA&quot;),
+    &quot;com.mx&quot;: (&quot;amazon.com.mx&quot;, &quot;es-MX&quot;), &quot;com.br&quot;: (&quot;amazon.com.br&quot;, &quot;pt-BR&quot;),
+    &quot;ae&quot;: (&quot;amazon.ae&quot;, &quot;en-AE&quot;), &quot;sa&quot;: (&quot;amazon.sa&quot;, &quot;ar-SA&quot;),
+    &quot;com.au&quot;: (&quot;amazon.com.au&quot;, &quot;en-AU&quot;), &quot;in&quot;: (&quot;amazon.in&quot;, &quot;en-IN&quot;),
+    &quot;sg&quot;: (&quot;amazon.sg&quot;, &quot;en-SG&quot;),
+}
+FIELDS = [&quot;asin&quot;, &quot;rating&quot;, &quot;title&quot;, &quot;body&quot;, &quot;date&quot;, &quot;verified&quot;, &quot;helpful&quot;]
+SITE_FIELDS = [&quot;asin&quot;, &quot;title&quot;, &quot;price&quot;, &quot;rating&quot;, &quot;reviews&quot;, &quot;sponsored&quot;, &quot;url&quot;]
+BLOCK_KEYS = (&quot;Enter the characters you see below&quot;, &quot;api-services-support@amazon.com&quot;,
+              &quot;Type the characters you see in this image&quot;, &quot;Robot Check&quot;,
+              &quot;Sorry, we just need to make sure you&quot;, &quot;automated access to Amazon data&quot;,
+              &quot;Service Unavailable&quot;)
+
+
+# ---------------------------------------------------------------- 迷你 DOM
+VOID = {&quot;br&quot;, &quot;img&quot;, &quot;input&quot;, &quot;meta&quot;, &quot;link&quot;, &quot;hr&quot;, &quot;source&quot;, &quot;col&quot;, &quot;area&quot;, &quot;base&quot;, &quot;wbr&quot;}
+
+
+class Node:
+    __slots__ = (&quot;tag&quot;, &quot;attrs&quot;, &quot;kids&quot;)
+
+    def __init__(self, tag, attrs):
+        self.tag, self.attrs, self.kids = tag, attrs, []
+
+
+class Dom(HTMLParser):
+    &quot;&quot;&quot;够用的 DOM：只为了按 data-hook 取节点，不追求规范兼容。&quot;&quot;&quot;
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.root = Node(&quot;#root&quot;, {})
+        self.stack = [self.root]
+
+    def handle_starttag(self, tag, attrs):
+        n = Node(tag, dict(attrs))
+        self.stack[-1].kids.append(n)
+        if tag not in VOID:
+            self.stack.append(n)
+
+    def handle_startendtag(self, tag, attrs):
+        self.stack[-1].kids.append(Node(tag, dict(attrs)))
+
+    def handle_endtag(self, tag):
+        for i in range(len(self.stack) - 1, 0, -1):
+            if self.stack[i].tag == tag:
+                del self.stack[i:]
+                return
+
+    def handle_data(self, data):
+        if data.strip():
+            self.stack[-1].kids.append(data)
+
+
+def tree(html):
+    d = Dom()
+    d.feed(html or &quot;&quot;)
+    d.close()
+    return d.root
+
+
+def kids_of(n):
+    return [k for k in n.kids if isinstance(k, Node)]
+
+
+def text(n):
+    &quot;&quot;&quot;按文档顺序取纯文本（BFS 会把嵌套片段拼错，必须用 DFS）&quot;&quot;&quot;
+    if n is None:
+        return &quot;&quot;
+    out, stack = [], [n]
+    while stack:
+        x = stack.pop()
+        if isinstance(x, str):
+            out.append(x)
+        elif x.tag in (&quot;script&quot;, &quot;style&quot;):
+            continue
+        elif x.tag == &quot;br&quot;:
+            out.append(&quot; &quot;)
+        else:
+            stack.extend(reversed(x.kids))
+    return &quot; &quot;.join(&quot;&quot;.join(out).split())
+
+
+def pick(root, want):
+    &quot;&quot;&quot;返回第一个属性全部匹配的节点&quot;&quot;&quot;
+    stack = [root]
+    while stack:
+        n = stack.pop()
+        if isinstance(n, Node):
+            if all(n.attrs.get(k) == v for k, v in want.items()):
+                return n
+            stack.extend(reversed(n.kids))
+    return None
+
+
+def picks(root, want):
+    out, stack = [], [root]
+    while stack:
+        n = stack.pop()
+        if isinstance(n, Node):
+            if all(n.attrs.get(k) == v for k, v in want.items()):
+                out.append(n)
+            stack.extend(reversed(n.kids))
+    return out
+
+
+def first_tag(root, tag):
+    stack = [root]
+    while stack:
+        n = stack.pop()
+        if isinstance(n, Node):
+            if n.tag == tag:
+                return n
+            stack.extend(reversed(n.kids))
+    return None
+
+
+def has_class(root, cls):
+    stack = [root]
+    while stack:
+        n = stack.pop()
+        if isinstance(n, Node):
+            if cls in (n.attrs.get(&quot;class&quot;) or &quot;&quot;):
+                return True
+            stack.extend(reversed(n.kids))
+    return False
+
+
+def num(s, d=0.0):
+    m = re.search(r&quot;\d[\d,]*\.?\d*&quot;, str(s or &quot;&quot;).replace(&quot;,&quot;, &quot;&quot;))
+    return float(m.group()) if m else d
+
+
+# ---------------------------------------------------------------- 解析
+def parse_search(html, site):
+    rows, seen = [], set()
+    for card in picks(tree(html), {&quot;data-component-type&quot;: &quot;s-search-result&quot;}):
+        asin = (card.attrs.get(&quot;data-asin&quot;) or &quot;&quot;).strip()
+        if not asin or asin in seen:
+            continue
+        seen.add(asin)
+        h2 = first_tag(card, &quot;h2&quot;)
+        price = stars = 0.0
+        cnt = 0
+        stack = [card]
+        while stack:
+            n = stack.pop(0)
+            if not isinstance(n, Node):
+                continue
+            cls = n.attrs.get(&quot;class&quot;) or &quot;&quot;
+            if not price and &quot;a-offscreen&quot; in cls:
+                price = num(text(n))
+            if not stars and &quot;a-icon-alt&quot; in cls:
+                stars = num(text(n))
+            if not cnt and n.tag == &quot;a&quot; and &quot;customerReviews&quot; in (n.attrs.get(&quot;href&quot;) or &quot;&quot;):
+                cnt = int(num(text(n), 0))
+            stack = n.kids + stack
+        rows.append({
+            &quot;asin&quot;: asin, &quot;title&quot;: text(h2), &quot;price&quot;: price, &quot;rating&quot;: stars,
+            &quot;reviews&quot;: cnt, &quot;sponsored&quot;: &quot;Yes&quot; if has_class(card, &quot;puis-sponsored-label-text&quot;) else &quot;No&quot;,
+            &quot;url&quot;: f&quot;{site}/dp/{asin}&quot;,
+        })
+    return rows
+
+
+MONTHS = {}
+for _names in (
+    &quot;january february march april may june july august september october november december&quot;,
+    &quot;januar februar märz april mai juni juli august september oktober november dezember&quot;,
+    &quot;janvier février mars avril mai juin juillet août septembre octobre novembre décembre&quot;,
+    &quot;gennaio febbraio marzo aprile maggio giugno luglio agosto settembre ottobre novembre dicembre&quot;,
+    &quot;enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre&quot;,
+    &quot;janeiro fevereiro março abril maio junho julho agosto setembro outubro novembro dezembro&quot;,
+    &quot;januari februari maart april mei juni juli augustus september oktober november december&quot;,
+    &quot;januari februari mars april maj juni juli augusti september oktober november december&quot;,
+    &quot;styczeń luty marzec kwiecień maj czerwiec lipiec sierpień wrzesień październik listopad grudzień&quot;,
+):
+    for _i, _m in enumerate(_names.split(), 1):
+        MONTHS[_m] = _i
+for _m, _i in ((&quot;jan&quot;, 1), (&quot;feb&quot;, 2), (&quot;mar&quot;, 3), (&quot;apr&quot;, 4), (&quot;jun&quot;, 6), (&quot;jul&quot;, 7),
+               (&quot;aug&quot;, 8), (&quot;sep&quot;, 9), (&quot;sept&quot;, 9), (&quot;oct&quot;, 10), (&quot;nov&quot;, 11), (&quot;dec&quot;, 12),
+               (&quot;mai&quot;, 5), (&quot;okt&quot;, 10), (&quot;dez&quot;, 12), (&quot;aoû&quot;, 8), (&quot;mär&quot;, 3), (&quot;fév&quot;, 2)):
+    MONTHS.setdefault(_m, _i)
+
+
+def norm_date(raw):
+    &quot;&quot;&quot;&quot;Reviewed in the United States on August 14, 2026&quot; → 2026-08-14
+    兼容 DD Month YYYY / Month DD, YYYY，月份名覆盖英德法意西葡荷瑞波 9 种语言。&quot;&quot;&quot;
+    s = (raw or &quot;&quot;).strip()
+    if not s:
+        return &quot;&quot;
+    m = re.search(r&quot;(\d{1,2})\.?\s+([^\W\d_]{3,})\.?,?\s+(\d{4})&quot;, s)
+    if m:
+        d, mon, y = int(m.group(1)), m.group(2), int(m.group(3))
+    else:
+        m = re.search(r&quot;([^\W\d_]{3,})\.?\s+(\d{1,2}),?\s+(\d{4})&quot;, s)
+        if m:
+            mon, d, y = m.group(1), int(m.group(2)), int(m.group(3))
+        else:
+            m2 = re.search(r&quot;\d{4}-\d{2}-\d{2}&quot;, s)
+            return m2.group() if m2 else s[-24:]
+    mo = MONTHS.get(mon.lower().strip(&quot;.&quot;))
+    if not mo or not (1 &lt;= d &lt;= 31):
+        m2 = re.search(r&quot;\d{4}-\d{2}-\d{2}&quot;, s)
+        return m2.group() if m2 else s[-24:]
+    return f&quot;{y:04d}-{mo:02d}-{d:02d}&quot;
+
+
+def parse_reviews(html, asin):
+    out = []
+    for el in picks(tree(html), {&quot;data-hook&quot;: &quot;review&quot;}):
+        body = pick(el, {&quot;data-hook&quot;: &quot;review-body&quot;})
+        star = (pick(el, {&quot;data-hook&quot;: &quot;review-star-rating&quot;})
+                or pick(el, {&quot;data-hook&quot;: &quot;cmps-review-star-rating&quot;}))
+        title = pick(el, {&quot;data-hook&quot;: &quot;review-title&quot;})
+        date = pick(el, {&quot;data-hook&quot;: &quot;review-date&quot;})
+        help_ = pick(el, {&quot;data-hook&quot;: &quot;helpful-vote-statement&quot;})
+        b = re.sub(r&quot;\s*(Read more|Read less|Mehr anzeigen)\s*$&quot;, &quot;&quot;, text(body)).strip()
+        raw_title = text(title)
+        t = re.sub(r&quot;^[\d.]+\s+out of 5 stars\s*&quot;, &quot;&quot;, raw_title).strip()
+        # 评分有两种落点：独立的 star 节点，或塞在标题里的 a-icon-alt
+        s = re.search(r&quot;([1-5](?:\.\d)?)\s+out of 5&quot;, text(star) or raw_title)
+        out.append({
+            &quot;asin&quot;: asin,
+            &quot;rating&quot;: s.group(1) if s else &quot;&quot;,
+            &quot;title&quot;: t,
+            &quot;body&quot;: b,
+            &quot;date&quot;: norm_date(text(date)),
+            &quot;verified&quot;: &quot;Yes&quot; if pick(el, {&quot;data-hook&quot;: &quot;avp-badge&quot;}) else &quot;No&quot;,
+            &quot;helpful&quot;: int(num(text(help_), 0)),
+            &quot;_rid&quot;: el.attrs.get(&quot;id&quot;) or &quot;&quot;,
+        })
+    return out
+
+
+# ---------------------------------------------------------------- 抓取引擎
+class Getter:
+    def __init__(self, market=&quot;com&quot;, engine=&quot;auto&quot;, timeout=30):
+        base = os.environ.get(&quot;AMAZON_BASE&quot;, &quot;&quot;).rstrip(&quot;/&quot;)
+        self.site = base or &quot;https://www.&quot; + MARKETS.get(market, MARKETS[&quot;com&quot;])[0]
+        self.lang = MARKETS.get(market, MARKETS[&quot;com&quot;])[1]
+        self.timeout = timeout
+        self.used = &quot;urllib&quot;
+        self.engines = []
+        self._pw = None
+        order = []
+        if engine in (&quot;auto&quot;, &quot;scrapling&quot;):
+            try:
+                import scrapling.fetchers  # noqa: F401
+                order.append((&quot;scrapling&quot;, self._scrapling))
+            except ImportError:
+                if engine == &quot;scrapling&quot;:
+                    sys.exit('没装 Scrapling：pip install &quot;scrapling[fetchers]&quot;')
+        if engine in (&quot;auto&quot;, &quot;urllib&quot;):
+            order.append((&quot;urllib&quot;, self._urllib))
+        if engine in (&quot;auto&quot;, &quot;playwright&quot;):
+            try:
+                import playwright.sync_api  # noqa: F401
+                order.append((&quot;playwright&quot;, self._playwright))
+            except ImportError:
+                if engine == &quot;playwright&quot;:
+                    sys.exit(&quot;没装 Playwright：pip install playwright &amp;&amp; playwright install chromium&quot;)
+        self.engines = order or [(&quot;urllib&quot;, self._urllib)]
+
+    def get(self, url, need=None):
+        &quot;&quot;&quot;need：页面里必须出现的关键片段。亚马逊现在会给非浏览器请求返回 JS 空壳，
+        只判断「没被 503」不够，得确认目标区块真的在，否则升级到下一个引擎。&quot;&quot;&quot;
+        last = &quot;&quot;
+        for name, fn in self.engines:
+            try:
+                html = fn(url)
+            except Exception as e:
+                last = f&quot;{name}: {e or type(e).__name__}&quot;
+                continue
+            if not html or any(k in html for k in BLOCK_KEYS):
+                last = f&quot;{name}: 拿到的是反爬页（验证码 / 503）&quot;
+                continue
+            if need and need not in html:
+                last = f&quot;{name}: 页面里没有目标区块（被拦，或这一页真的是空的）&quot;
+                continue
+            self.used = name
+            return html
+        raise RuntimeError(last or &quot;抓取失败&quot;)
+
+    def _scrapling(self, url):
+        from scrapling.fetchers import Fetcher
+        r = Fetcher.get(url, impersonate=&quot;chrome&quot;, stealthy_headers=True, timeout=self.timeout)
+        return r.body.decode(r.encoding or &quot;utf-8&quot;, &quot;ignore&quot;)
+
+    def _urllib(self, url):
+        req = Request(url, headers={
+            &quot;User-Agent&quot;: UA, &quot;Accept-Language&quot;: f&quot;{self.lang},en;q=0.8&quot;,
+            &quot;Accept&quot;: &quot;text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&quot;,
+            &quot;Upgrade-Insecure-Requests&quot;: &quot;1&quot;,
+        })
+        with urlopen(req, timeout=self.timeout) as r:
+            return r.read().decode(r.headers.get_content_charset() or &quot;utf-8&quot;, &quot;ignore&quot;)
+
+    def _playwright(self, url):
+        from playwright.sync_api import sync_playwright
+        if self._pw is None:
+            self._ctx = sync_playwright().start()
+            self._br = self._ctx.chromium.launch(headless=True)
+            self._pg = self._br.new_context(locale=self.lang).new_page()
+            self._pg.set_extra_http_headers({&quot;Accept-Language&quot;: f&quot;{self.lang},en;q=0.8&quot;})
+        self._pg.goto(url, wait_until=&quot;domcontentloaded&quot;, timeout=60000)
+        time.sleep(random.uniform(1.2, 2.2))
+        return self._pg.content()
+
+    def close(self):
+        try:
+            if self._pw:
+                self._br.close()
+                self._pw.stop()
+        except Exception:
+            pass
+
+
+# ---------------------------------------------------------------- 主流程
+def crawl(kw=None, asins=None, market=&quot;com&quot;, pages=1, limit=6, review_pages=2,
+          sort=&quot;recent&quot;, min_reviews=0, engine=&quot;auto&quot;, log=print):
+    g = Getter(market, engine)
+    comps, rows, seen = [], [], set()
+    try:
+        if asins:
+            log(f&quot;指定 ASIN：{len(asins)} 个&quot;)
+            comps = [{&quot;asin&quot;: a, &quot;title&quot;: &quot;&quot;, &quot;price&quot;: 0, &quot;rating&quot;: 0, &quot;reviews&quot;: 0,
+                      &quot;sponsored&quot;: &quot;No&quot;, &quot;url&quot;: f&quot;{g.site}/dp/{a}&quot;} for a in asins]
+        else:
+            for p in range(1, pages + 1):
+                log(f&quot;搜索第 {p}/{pages} 页…&quot;)
+                got = parse_search(g.get(f&quot;{g.site}/s?k={quote_plus(kw)}&amp;page={p}&quot;,
+                                          need='data-component-type=&quot;s-search-result&quot;'), g.site)
+                have = {c[&quot;asin&quot;] for c in comps}
+                comps += [r for r in got if r[&quot;asin&quot;] not in have]
+                if not got:
+                    break
+                time.sleep(random.uniform(1.5, 3.0))
+            comps.sort(key=lambda r: r[&quot;reviews&quot;], reverse=True)
+            if not comps:
+                raise RuntimeError(&quot;搜索页能打开但解析不出商品，可能被反爬页挡住。&quot;
+                                   '装 Scrapling 更稳：pip install &quot;scrapling[fetchers]&quot;')
+            log(f&quot;找到 {len(comps)} 个竞品&quot;)
+            comps = [c for c in comps if c[&quot;reviews&quot;] &gt;= min_reviews][:limit]
+
+        if review_pages &lt;= 0:
+            log(f&quot;只取商品信息：{len(comps)} 个 · 引擎 {g.used}&quot;)
+            return comps, []
+
+        last_err = &quot;&quot;
+        for i, c in enumerate(comps, 1):
+            asin = c[&quot;asin&quot;]
+            log(f&quot;抓评论 {i}/{len(comps)} · {asin} {(c['title'] or '')[:28]}&quot;)
+            for p in range(1, review_pages + 1):
+                url = (f&quot;{g.site}/product-reviews/{asin}/?reviewerType=all_reviews&quot;
+                       f&quot;&amp;sortBy={sort}&amp;pageNumber={p}&quot;)
+                try:
+                    items = parse_reviews(g.get(url, need='data-hook=&quot;review&quot;'), asin)
+                except RuntimeError as e:
+                    last_err = str(e)
+                    log(f&quot;  {asin} 停在第 {p} 页：{e}&quot;)
+                    break
+                if not items:
+                    break
+                new = 0
+                for it in items:
+                    rid = asin + &quot;|&quot; + (it.pop(&quot;_rid&quot;) or it[&quot;body&quot;][:40])
+                    if rid in seen:
+                        continue
+                    seen.add(rid)
+                    rows.append(it)
+                    new += 1
+                if new == 0:
+                    break
+                time.sleep(random.uniform(1.5, 3.0))
+    finally:
+        g.close()
+    if not rows:
+        raise RuntimeError(f&quot;一条都没抓到。{last_err}\n&quot;
+                           &quot;亚马逊会给非浏览器请求回一个 JS 空壳，评论区渲染不出来。装真浏览器再跑：\n&quot;
+                           &quot;    pip install playwright &amp;&amp; playwright install chromium\n&quot;
+                           '  或者装 Scrapling：pip install &quot;scrapling[fetchers]&quot;')
+    log(f&quot;完成：{len(rows)} 条评论 · 引擎 {g.used}&quot;)
+    return comps, rows
+
+
+def fail_tip(msg):
+    &quot;&quot;&quot;把常见失败翻译成能照做的下一步&quot;&quot;&quot;
+    s = str(msg)
+    if any(k in s for k in (&quot;503&quot;, &quot;反爬&quot;, &quot;目标区块&quot;, &quot;空壳&quot;, &quot;HTTP Error&quot;)):
+        return (s + &quot;\n出口 IP 多半被亚马逊限流了（机房 IP 很常见）。按顺序试：\n&quot;
+                &quot;  1. pip install playwright &amp;&amp; playwright install chromium   ← 真浏览器，成功率最高\n&quot;
+                '  2. pip install &quot;scrapling[fetchers]&quot;                       ← TLS 指纹伪装\n'
+                &quot;  3. 换家用宽带 / 换 --market 站点再试&quot;)
+    return s
+
+
+# ---------------------------------------------------------------- 服务模式
+JOBS = {}
+LOCK = threading.Lock()
+
+
+def job_worker(jid, p):
+    def log(m):
+        with LOCK:
+            J = JOBS.get(jid)
+            if J:
+                J[&quot;log&quot;].append(m)
+                J[&quot;log&quot;] = J[&quot;log&quot;][-6:]
+
+    try:
+        comps, rows = crawl(kw=p.get(&quot;kw&quot;) or None, asins=p.get(&quot;asins&quot;) or None,
+                            market=p.get(&quot;market&quot;, &quot;com&quot;), pages=int(p.get(&quot;pages&quot;, 1)),
+                            limit=int(p.get(&quot;limit&quot;, 6)),
+                            review_pages=int(p.get(&quot;review_pages&quot;, 2)), log=log)
+        with LOCK:
+            if not rows and int(p.get(&quot;review_pages&quot;, 2)) &gt; 0:
+                JOBS[jid].update(state=&quot;empty&quot;, msg=&quot;抓完了但一条评论都没有：换 --engine playwright 或增大 --review-pages&quot;)
+            elif not rows:
+                JOBS[jid].update(state=&quot;done&quot;, rows=[],
+                                 products=[{k: c.get(k, 0 if k != &quot;title&quot; else &quot;&quot;) for k in
+                                            (&quot;asin&quot;, &quot;title&quot;, &quot;price&quot;, &quot;rating&quot;, &quot;reviews&quot;, &quot;sponsored&quot;)}
+                                           for c in comps])
+            else:
+                keep = (&quot;asin&quot;, &quot;title&quot;, &quot;price&quot;, &quot;rating&quot;, &quot;reviews&quot;, &quot;sponsored&quot;)
+                JOBS[jid].update(state=&quot;done&quot;, rows=rows[:1000],
+                                 products=[{k: c.get(k, 0 if k != &quot;title&quot; else &quot;&quot;) for k in keep}
+                                           for c in comps])
+    except Exception as e:
+        with LOCK:
+            JOBS[jid].update(state=&quot;error&quot;, msg=fail_tip(e))
+
+
+class Handler(BaseHTTPRequestHandler):
+    protocol_version = &quot;HTTP/1.1&quot;
+
+    def log_message(self, *a):
+        pass
+
+    def cors(self):
+        self.send_header(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;)
+        self.send_header(&quot;Access-Control-Allow-Headers&quot;, &quot;*&quot;)
+        self.send_header(&quot;Access-Control-Allow-Methods&quot;, &quot;GET,OPTIONS&quot;)
+        self.send_header(&quot;Cache-Control&quot;, &quot;no-store&quot;)
+
+    def reply(self, obj, code=200):
+        body = json.dumps(obj, ensure_ascii=False).encode()
+        self.send_response(code)
+        self.send_header(&quot;Content-Type&quot;, &quot;application/json; charset=utf-8&quot;)
+        self.send_header(&quot;Content-Length&quot;, str(len(body)))
+        self.cors()
+        self.end_headers()
+        self.wfile.write(body)
+
+    def do_OPTIONS(self):
+        self.send_response(204)
+        self.cors()
+        self.send_header(&quot;Content-Length&quot;, &quot;0&quot;)
+        self.end_headers()
+
+    def do_GET(self):
+        u = urlparse(self.path)
+        q = {k: v[0] for k, v in parse_qs(u.query).items()}
+        if u.path == &quot;/health&quot;:
+            return self.reply({&quot;ok&quot;: True, &quot;app&quot;: &quot;amazon_bridge&quot;, &quot;markets&quot;: sorted(MARKETS)})
+        if u.path == &quot;/start&quot;:
+            if not q.get(&quot;kw&quot;) and not q.get(&quot;asin&quot;):
+                return self.reply({&quot;ok&quot;: False, &quot;msg&quot;: &quot;缺关键词或 ASIN&quot;}, 400)
+            jid = uuid.uuid4().hex[:10]
+            p = {&quot;kw&quot;: q.get(&quot;kw&quot;, &quot;&quot;), &quot;market&quot;: q.get(&quot;market&quot;, &quot;com&quot;),
+                 &quot;pages&quot;: q.get(&quot;pages&quot;, 1), &quot;limit&quot;: q.get(&quot;limit&quot;, 6),
+                 &quot;review_pages&quot;: q.get(&quot;review_pages&quot;, 2),
+                 &quot;asins&quot;: [a.strip() for a in q.get(&quot;asin&quot;, &quot;&quot;).split(&quot;,&quot;) if a.strip()]}
+            if p[&quot;asins&quot;]:
+                p[&quot;limit&quot;] = str(len(p[&quot;asins&quot;]))
+            with LOCK:
+                JOBS[jid] = {&quot;state&quot;: &quot;running&quot;, &quot;log&quot;: [&quot;已排入队列&quot;], &quot;rows&quot;: []}
+            threading.Thread(target=job_worker, args=(jid, p), daemon=True).start()
+            return self.reply({&quot;ok&quot;: True, &quot;id&quot;: jid})
+        if u.path == &quot;/poll&quot;:
+            J = JOBS.get(q.get(&quot;id&quot;, &quot;&quot;))
+            if not J:
+                return self.reply({&quot;ok&quot;: False, &quot;msg&quot;: &quot;任务不存在&quot;}, 404)
+            return self.reply({&quot;ok&quot;: True, &quot;state&quot;: J[&quot;state&quot;], &quot;log&quot;: J[&quot;log&quot;][-3:],
+                               &quot;n&quot;: len(J.get(&quot;rows&quot;) or []),
+                               &quot;msg&quot;: J.get(&quot;msg&quot;, &quot;&quot;), &quot;rows&quot;: J.get(&quot;rows&quot;) if J[&quot;state&quot;] == &quot;done&quot; else [],
+                               &quot;products&quot;: J.get(&quot;products&quot;, [])})
+        self.reply({&quot;ok&quot;: False, &quot;msg&quot;: &quot;unknown path&quot;}, 404)
+
+
+def serve(port):
+    srv = ThreadingHTTPServer((&quot;127.0.0.1&quot;, port), Handler)
+    print(f&quot;\n  抓取桥已启动 ·  http://127.0.0.1:{port}/health&quot;)
+    print(&quot;  回到页面，在「评论数据源 → 联网抓取」里点开始。Ctrl+C 结束。\n&quot;)
+    try:
+        srv.serve_forever()
+    except KeyboardInterrupt:
+        print(&quot;已停止&quot;)
+
+
+def main():
+    ap = argparse.ArgumentParser(description=&quot;Amazon 竞品 / 评论抓取桥&quot;)
+    ap.add_argument(&quot;keyword&quot;, nargs=&quot;?&quot;)
+    ap.add_argument(&quot;--asin&quot;, default=&quot;&quot;, help=&quot;逗号分隔的 ASIN，跳过搜索&quot;)
+    ap.add_argument(&quot;--market&quot;, default=&quot;com&quot;, choices=sorted(MARKETS))
+    ap.add_argument(&quot;--pages&quot;, type=int, default=1, help=&quot;搜索结果页数&quot;)
+    ap.add_argument(&quot;--limit&quot;, type=int, default=6, help=&quot;抓评论的商品数&quot;)
+    ap.add_argument(&quot;--review-pages&quot;, type=int, default=2, help=&quot;每个商品抓几页评论（每页 10 条）&quot;)
+    ap.add_argument(&quot;--min-reviews&quot;, type=int, default=0)
+    ap.add_argument(&quot;--engine&quot;, default=&quot;auto&quot;, choices=[&quot;auto&quot;, &quot;scrapling&quot;, &quot;urllib&quot;, &quot;playwright&quot;])
+    ap.add_argument(&quot;--out-dir&quot;, default=&quot;.&quot;)
+    ap.add_argument(&quot;--serve&quot;, action=&quot;store_true&quot;, help=&quot;起本地服务给网页用&quot;)
+    ap.add_argument(&quot;--port&quot;, type=int, default=8765)
+    a = ap.parse_args()
+
+    if a.serve:
+        return serve(a.port)
+    if not a.keyword and not a.asin:
+        ap.print_help()
+        return
+
+    asins = [x.strip() for x in a.asin.split(&quot;,&quot;) if x.strip()]
+    t0 = time.time()
+    try:
+        comps, rows = crawl(a.keyword, asins, a.market, a.pages, a.limit,
+                            a.review_pages, min_reviews=a.min_reviews, engine=a.engine)
+    except RuntimeError as e:
+        sys.exit(&quot;\n抓取失败：&quot; + fail_tip(e))
+    os.makedirs(a.out_dir, exist_ok=True)
+    if not asins:
+        with open(os.path.join(a.out_dir, &quot;competitors.csv&quot;), &quot;w&quot;, newline=&quot;&quot;, encoding=&quot;utf-8-sig&quot;) as f:
+            w = csv.DictWriter(f, fieldnames=SITE_FIELDS)
+            w.writeheader()
+            w.writerows(comps)
+    with open(os.path.join(a.out_dir, &quot;reviews.csv&quot;), &quot;w&quot;, newline=&quot;&quot;, encoding=&quot;utf-8-sig&quot;) as f:
+        w = csv.DictWriter(f, fieldnames=FIELDS)
+        w.writeheader()
+        w.writerows(rows)
+    print(f&quot;\n{len(rows)} 条 → reviews.csv　耗时 {time.time() - t0:.0f}s&quot;)
+    print(&quot;把 reviews.csv 拖回网页，或下次直接用 --serve 让页面自己抓。&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</pre>
+    </details>
+  </div>
+
+    <h3>③ 不想用页面？命令行出 CSV 也一样</h3>
+    <p class="plead">抓完把 CSV 拖回「上传 CSV」即可，列名完全对齐；也可以只抓指定 ASIN。</p>
+    <pre class="pcode py">python amazon_bridge.py "portable blender" --limit 6 --review-pages 3
+python amazon_bridge.py --asin B0C1234567,B0C7654321 --review-pages 5
+python amazon_bridge.py "portable blender" --market co.uk --engine playwright</pre>
+
+    <div class="warn">
+      <b>合规先说清楚</b>
+      <p>亚马逊《服务条款》禁止未经许可的自动化抓取。这套东西只适合<b>个人研究、小样本、低频次</b>，或者抓你自己店铺的商品。<b>不要</b>大规模采集、不要绕过验证码、不要转卖数据。商用请走官方 SP-API，或卖家精灵 / Helium 10 / Keepa 的授权导出——它们出的 CSV 同样能直接导进本页。</p>
+    </div>
+  </section>
+
+    <footer class="pfoot">
+      <b>数据口径</b>
+      竞品为按类目归纳的头部产品画像与公开可见量级；评论为基于真实差评语义重写的样本（24 条），用于跑通分析链路，不等同于平台实时数据。
+      落地前请用真实样品与实时数据验证。报告生成于 2026年11月19日。
+    </footer>
+  </article>
+</div>
+</div></body></html>

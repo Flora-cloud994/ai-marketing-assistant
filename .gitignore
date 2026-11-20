@@ -1,0 +1,17 @@
+# 测试产物 / 临时打包中间件（不入库）
+work/
+.tmp_*.js
+.tmp_*
+*.log
+
+# 导入用的临时 CSV
+competitors.csv
+reviews.csv
+
+# 系统与依赖
+node_modules/
+.DS_Store
+Thumbs.db
+desktop.ini
+__pycache__/
+*.pyc

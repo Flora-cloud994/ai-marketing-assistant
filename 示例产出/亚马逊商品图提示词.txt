@@ -1,0 +1,43 @@
+亚马逊商品图提示词 · 便携榨汁杯
+品类：厨房小家电　风格：纯白棚拍　市场：北美
+============================================================
+
+[MAIN 主图 · 1:1 · 2000x2000 · 纯白底]
+Professional e-commerce product photograph of a portable USB-C rechargeable blender, matte cream-white ABS body, clear tritan jar, brushed stainless steel blade base, entire product fully inside the frame, front three-quarter view, product fills 85% of the frame, perfectly centred with even white margins, seamless pure white background (RGB 255 255 255), large softbox key light from the upper left with an even fill from the right, one soft contact shadow directly under the base only, no props, no packaging, no hands, no mannequin, no text, no logo, no watermark, no border, no inset, no reflection of the light stands, tack sharp edge to edge, true-to-life colour, 100 mm macro lens at f/11, 1:1 square, 2000 x 2000 px, commercial catalogue quality
+
+[PT01 场景图]
+Lifestyle photograph of the portable USB-C rechargeable blender on location — a bright modern kitchen counter with fresh strawberries, half a banana and a glass of berry smoothie. A North American woman in her early 30s in a casual linen shirt, hands and forearms only in frame, caught in the middle of using it. Large softbox key light from the upper left with an even fill from the right, bright clean interior, natural colour balance, product tack sharp and clearly recognisable, true real-world scale, background softly out of focus, no text, no logo, no watermark, no other brand visible, 1:1, 2000 x 2000 px
+
+[PT02 细节特写]
+Extreme close-up of the six-blade stainless steel base and the locking lid thread on the portable USB-C rechargeable blender, matte cream-white ABS body, clear tritan jar, brushed stainless steel blade base, raking side light to reveal surface texture and material quality, shallow depth of field, clean neutral background, the detail fills 70% of the frame, macro lens, no text, no logo, no watermark, 1:1, 2000 x 2000 px
+
+[PT03 尺寸比例]
+The portable USB-C rechargeable blender held in one adult hand for scale, plain light grey seamless background, natural relaxed hand, whole product visible and unobstructed, soft even light, no measuring tape, no numbers, no text, no logo, 1:1, 2000 x 2000 px
+
+[PT04 包装与清单]
+Top-down flat lay of everything included in the box: the blender, a short USB-C charging cable and a spare travel lid, spaced evenly on a light neutral backdrop, soft even lighting, each item fully visible and not overlapping, no text on the packaging, no logos, no price tags, 1:1, 2000 x 2000 px
+
+[PT05 使用步骤]
+Three-panel step sequence shot from the same camera angle and lighting: panel 1 fresh fruit and liquid go in up to the fill line, panel 2 one press on the single button, blending for 30 seconds, panel 3 the jar rinsed under the tap without removing the blade base, hands only, consistent framing, clean bright background, no text, no arrows, no numbers, 1:1, 2000 x 2000 px
+
+[PT06 痛点对比]
+Side-by-side comparison inside one square frame: left half shows a bulky countertop blender with a messy clean-up, right half shows the portable USB-C rechargeable blender solving it, identical camera angle, lens and lighting on both sides, no brand names, no text, no logos, 1:1, 2000 x 2000 px
+
+[A+ 970×600 标准图文模块]
+Wide lifestyle banner of the portable USB-C rechargeable blender on location — a bright modern kitchen counter with fresh strawberries, half a banana and a glass of berry smoothie — composition weighted to the right with clean empty space on the left third for a headline, large softbox key light from the upper left with an even fill from the right, bright clean interior, natural colour balance, no text, no logo, generous negative space, 970 x 600 px, high resolution
+
+[A+ 1464×600 全宽横幅]
+Full-width brand banner of the portable USB-C rechargeable blender placed on a styled surface with the blender, a short USB-C charging cable and a spare travel lid, cinematic deep focus, large softbox key light from the upper left with an even fill from the right, bright clean interior, natural colour balance, generous margin at the top and bottom for safe cropping on mobile, no text, no logo, 1464 x 600 px, high resolution
+
+[A+ 300×300 四宫格单图]
+Square detail tile, close crop of the six-blade stainless steel base and the locking lid thread on a soft neutral background, lighting matched to a set of four tiles, subject centred, no text, no logo, 300 x 300 px, high resolution
+
+============================================================
+[通用负向提示词 / Negative prompt]
+text, letters, numbers, watermark, logo, brand name, packaging label, border, frame, colour block, inset image, collage, grey background, off-white background, gradient background, checkerboard transparency grid, floor line, horizon line, props, extra accessories, hands, model, mannequin, duplicate product, multiple angles, back view in the same frame, cropped product, cut-off edges, hard cast shadow, light stand reflection, vignette, oversaturated colour, plastic CGI look, 3d render, illustration, cartoon, blurry, low resolution, jpeg artifacts
+
+============================================================
+参数：Midjourney --ar 1:1 --style raw --s 50 --q 2
+Flux / 即梦 / Seedream：2048x2048，steps 30，guidance 3.5
+导出：JPEG · sRGB · 最长边 1600px 以上 · 单张 ≤10MB
+命名：B0XXXXXXXX.MAIN.jpg / .PT01.jpg … .PT06.jpg

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>便携榨汁杯 — VITAFRESH</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--shot:none}
+body{font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;color:#16181d;background:#fff;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px}
+.bar{background:#101418;color:#fff;font-size:13px;text-align:center;padding:9px 12px;letter-spacing:.3px}
+.bar b{color:#ffd166}
+header{padding:16px 0;border-bottom:1px solid #eceff3}
+.hd{display:flex;align-items:center;justify-content:space-between;max-width:980px;margin:0 auto;padding:0 24px}
+.logo{font-weight:800;letter-spacing:2px;font-size:15px}
+.hd span{font-size:13px;color:#6b7280}
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:44px;align-items:center;padding:48px 0 40px}
+.pill{display:inline-block;background:#eef4ff;color:#1e4fd8;font-size:12px;font-weight:700;padding:5px 11px;border-radius:999px;letter-spacing:.4px;margin-bottom:16px}
+h1{font-size:40px;line-height:1.18;letter-spacing:-.8px;font-weight:800}
+h1 em{font-style:normal;color:#1e4fd8}
+.rate{display:flex;align-items:center;gap:8px;margin:16px 0 14px;font-size:14px;color:#4b5563}
+.stars{color:#f59e0b;letter-spacing:1px}
+.price{font-size:30px;font-weight:800;letter-spacing:-.5px}
+.price s{font-size:16px;color:#9ca3af;font-weight:500;margin-left:8px}
+.cta{display:inline-flex;align-items:center;justify-content:center;background:#111827;color:#fff;font-weight:700;font-size:16px;padding:15px 30px;border-radius:10px;margin-top:18px;text-decoration:none}
+.cta:hover{background:#1e4fd8}
+.trust{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px;font-size:13px;color:#4b5563}
+.trust b{color:#111827}
+.visual{background:linear-gradient(150deg,#eef3fb,#dfe8f7);border-radius:20px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.visual .ph{text-align:center;color:#8496b3;font-size:13px;line-height:1.8}
+.visual .ph b{display:block;font-size:15px;color:#41506b;margin-bottom:4px}
+.shot{background-image:var(--shot);background-repeat:no-repeat;background-position:center;mix-blend-mode:multiply}
+.visual .shot{width:86%;height:86%;background-size:contain}
+.feat-row .img{overflow:hidden}
+.feat-row .img .shot{width:100%;height:100%;background-size:cover}
+.feat-row .img .shot.zoom{background-size:155%}
+.visual .tag{position:absolute;top:16px;left:16px;background:#111827;color:#fff;font-size:11px;font-weight:700;padding:5px 10px;border-radius:6px;letter-spacing:.6px}
+.pains{background:#f8fafc;border-top:1px solid #eceff3;border-bottom:1px solid #eceff3;padding:34px 0}
+.pains h2{font-size:22px;font-weight:800;text-align:center;letter-spacing:-.3px}
+.pains p.sub{text-align:center;color:#6b7280;font-size:14px;margin-top:6px}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.pcard{background:#fff;border:1px solid #e6ebf2;border-radius:12px;padding:18px}
+.pcard .x{color:#dc2626;font-weight:800;font-size:13px;letter-spacing:.5px}
+.pcard p{font-size:14px;color:#4b5563;margin-top:6px}
+section.feat{padding:52px 0;border-bottom:1px solid #f1f4f8}
+.feat-row{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.feat-row.flip .txt{order:2}
+.feat-row .img{background:linear-gradient(150deg,#f2f6fc,#e4ecf8);border-radius:16px;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;color:#93a4bd;font-size:12px;text-align:center}
+.feat .n{font-size:12px;font-weight:800;color:#1e4fd8;letter-spacing:1.4px}
+.feat h3{font-size:26px;line-height:1.25;font-weight:800;letter-spacing:-.4px;margin:8px 0 12px}
+.feat p{color:#4b5563;font-size:15px}
+.steps{padding:52px 0;background:#101418;color:#fff}
+.steps h2{font-size:26px;font-weight:800;letter-spacing:-.4px;text-align:center}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:30px}
+.snum{width:32px;height:32px;border-radius:50%;background:#1e4fd8;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
+.sgrid h4{font-size:17px;margin:12px 0 6px}
+.sgrid p{font-size:14px;color:#b7c0cc}
+table{width:100%;border-collapse:collapse;font-size:14px}
+.spec td{padding:11px 4px;border-bottom:1px solid #eef1f5;color:#374151}
+.spec td:first-child{color:#6b7280;width:44%}
+.cmp th,.cmp td{padding:12px 10px;border-bottom:1px solid #eef1f5;text-align:left}
+.cmp th{font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:#6b7280;font-weight:700}
+.cmp td.y{color:#0e9f6e;font-weight:700}
+.cmp td.n{color:#9ca3af}
+.rev{padding:48px 0;background:#f8fafc;border-top:1px solid #eceff3;border-bottom:1px solid #eceff3}
+.rev h2{font-size:24px;font-weight:800;text-align:center;letter-spacing:-.3px}
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+.rcard{background:#fff;border:1px solid #e6ebf2;border-radius:12px;padding:18px;font-size:14px;color:#374151}
+.rcard .s{color:#f59e0b;margin-bottom:6px;letter-spacing:1px}
+.rcard .who{font-size:12px;color:#9ca3af;margin-top:10px}
+.faq{padding:52px 0}
+.faq h2{font-size:26px;font-weight:800;letter-spacing:-.4px;margin-bottom:18px}
+details{border-bottom:1px solid #eef1f5;padding:14px 0}
+summary{font-weight:700;font-size:15px;cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+ ";color:#1e4fd8;font-weight:800}
+details[open] summary::before{content:"– "}
+details p{color:#4b5563;font-size:14px;margin-top:8px;padding-left:16px}
+.fin{background:linear-gradient(150deg,#111c33,#1e4fd8);color:#fff;padding:56px 0;text-align:center}
+.fin h2{font-size:30px;font-weight:800;letter-spacing:-.5px}
+.fin p{color:#c3d3f0;margin-top:10px;font-size:15px}
+.fin .cta{background:#fff;color:#111827;margin-top:22px}
+.fin .cta:hover{background:#ffd166;color:#111827}
+footer{padding:26px 0;font-size:12px;color:#8b95a5;text-align:center;line-height:1.9}
+@media(max-width:820px){
+  .hero,.feat-row{grid-template-columns:1fr;gap:24px}
+  .feat-row.flip .txt{order:0}
+  h1{font-size:30px}
+  .pgrid,.sgrid,.rgrid{grid-template-columns:1fr}
+}
+</style></head><body>
+<div class="bar">Free shipping over $45 &nbsp;·&nbsp; 30-day returns &nbsp;·&nbsp; 12-month warranty</div>
+<header><div class="hd"><div class="logo">VITAFRESH</div><span>Shop &nbsp;·&nbsp; About &nbsp;·&nbsp; Support</span></div></header>
+<div class="wrap">
+  <div class="hero">
+    <div>
+      <div class="pill">BEST SELLER IN PORTABLE BLENDERS</div>
+      <h1>Portable Blender — Rinse it out. Done in 10 seconds.</h1>
+      <div class="rate"><span class="stars">★★★★★</span><span>4.6 &nbsp;·&nbsp; 2,318 reviews</span></div>
+      <div class="price">$32 <s>$50</s></div>
+      <a class="cta" href="#buy">Add to cart — ships in 24h</a>
+      <div class="trust"><span><b>Free</b> shipping</span><span><b>30-day</b> returns</span><span><b>12-month</b> warranty</span></div>
+    </div>
+    <div class="visual"><div class="tag">OVER 1M SOLD</div>
+      <div class="ph"><b>MAIN IMAGE</b>2000 × 2000 · 1:1 · pure white background RGB 255 255 255<br>product fills 85% of the frame, no text or props</div>
+    </div>
+  </div>
+</div>
+
+<div class="pains"><div class="wrap">
+  <h2>Three reasons blenders end up in a cabinet</h2>
+  <p class="sub">Every one of them is solved below.</p>
+  <div class="pgrid">
+    <div class="pcard"><div class="x">✕ THE CLEANUP</div><p>Unscrew the blades, soak the jar, dig out the pulp. Ten minutes of work for a ten-second drink.</p></div>
+    <div class="pcard"><div class="x">✕ THE POWER</div><p>Portable blenders that spin instead of blend. Frozen fruit stays frozen, ice stays cubed.</p></div>
+    <div class="pcard"><div class="x">✕ THE BATTERY</div><p>Half a smoothie per charge, then a dead brick in your bag until you get home.</p></div>
+  </div>
+</div></div>
+
+<section class="feat"><div class="wrap">
+  <div class="feat-row " style="margin-bottom:48px">
+    <div class="txt"><div class="n">01 — FEATURE</div><h3>Rinse it out. Done in 10 seconds.</h3><p>No blades to unscrew, no jar to soak. Add water, press once, pour it out — the jar cleans itself while you put your shoes on. The reason most blenders end up in a cabinet is the cleanup. This one removes that step.</p></div>
+    <div class="img">detail photo<br>2000 × 2000</div>
+  </div><div class="feat-row flip" style="margin-bottom:48px">
+    <div class="txt"><div class="n">02 — FEATURE</div><h3>Six blades that actually take ice.</h3><p>Cheap portable blenders stall on frozen fruit. Six staggered stainless blades pull the mixture down instead of spinning on top of it, so frozen berries, ice and nuts break down in one pass — not three.</p></div>
+    <div class="img">detail photo<br>2000 × 2000</div>
+  </div><div class="feat-row " style="margin-bottom:0">
+    <div class="txt"><div class="n">03 — FEATURE</div><h3>Charge once. Use all week.</h3><p>USB-C, the same cable as your phone. A full charge covers roughly 12–15 blends, so a week of smoothies on one plug. No proprietary dock to lose, no battery anxiety before the gym.</p></div>
+    <div class="img">detail photo<br>2000 × 2000</div>
+  </div>
+</div></section>
+
+<div class="steps"><div class="wrap">
+  <h2>Three steps. No instructions needed.</h2>
+  <div class="sgrid">
+    <div><div class="snum">1</div><h4>Load it</h4><p>Fruit, ice, protein, coffee — fill to the line and lock the lid.</p></div>
+    <div><div class="snum">2</div><h4>Press once</h4><p>One button, 30 seconds. It stops on its own when the texture is right.</p></div>
+    <div><div class="snum">3</div><h4>Rinse it</h4><p>Water in, one pulse, pour out. Cap it and go.</p></div>
+  </div>
+</div></div>
+
+<div class="wrap" style="padding:52px 0">
+  <h2 style="font-size:26px;font-weight:800;letter-spacing:-.4px;margin-bottom:18px">Specs</h2>
+  <table class="spec"><tr><td>Capacity</td><td>350 ml / 12 oz</td></tr><tr><td>Weight</td><td>384 g / 13.5 oz</td></tr><tr><td>Blades</td><td>6 × stainless steel</td></tr><tr><td>Battery</td><td>4000 mAh, USB-C</td></tr><tr><td>Blends per charge</td><td>12–15</td></tr><tr><td>Jar material</td><td>BPA-free Tritan</td></tr><tr><td>Noise</td><td>≤ 62 dB</td></tr><tr><td>In the box</td><td>Blender, USB-C cable, guide</td></tr></table>
+</div>
+
+<div class="wrap" style="padding:0 0 52px">
+  <h2 style="font-size:26px;font-weight:800;letter-spacing:-.4px;margin-bottom:18px">VITAFRESH vs. typical portable blenders</h2>
+  <table class="cmp">
+    <thead><tr><th></th><th>VITAFRESH</th><th>Typical model</th></tr></thead>
+    <tbody>
+      <tr><td>Cleaning</td><td class="y">Self-cleaning, 10 seconds</td><td class="n">Disassemble and soak</td></tr>
+      <tr><td>Ice &amp; frozen fruit</td><td class="y">6 blades, one pass</td><td class="n">Stalls, needs shaking</td></tr>
+      <tr><td>Charging</td><td class="y">USB-C, same as your phone</td><td class="n">Proprietary dock</td></tr>
+      <tr><td>Blends per charge</td><td class="y">12–15</td><td class="n">3–5</td></tr>
+      <tr><td>Warranty</td><td class="y">12 months</td><td class="n">90 days</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="rev"><div class="wrap">
+  <h2>What buyers actually say</h2>
+  <div class="rgrid">
+    <div class="rcard"><div class="s">★★★★★</div>“I stopped buying $9 smoothies. The rinse-and-go part is the whole thing — I use it every single morning now.”<div class="who">Marisa T. · verified purchase</div></div>
+    <div class="rcard"><div class="s">★★★★★</div>“Frozen berries and ice, no chunks. I had two other portables before this and both gave up on ice.”<div class="who">Devon K. · verified purchase</div></div>
+    <div class="rcard"><div class="s">★★★★☆</div>“Lives in my gym bag. Charges off the same cable as my phone, so I never think about it.”<div class="who">Priya R. · verified purchase</div></div>
+  </div>
+</div></div>
+
+<div class="wrap faq">
+  <h2>Questions, answered</h2>
+  <details open><summary>Can it really crush ice?</summary><p>Yes — cubed ice and frozen fruit, up to half the jar. Add a splash of liquid first so the blades have something to pull the ice into.</p></details>
+  <details><summary>How long does a charge last?</summary><p>Roughly 12–15 blends. A full charge from empty takes about 2 hours over USB-C.</p></details>
+  <details><summary>Is it dishwasher safe?</summary><p>The jar and lid are top-rack safe. The motor base wipes clean — never submerge it.</p></details>
+  <details><summary>What if I don't like it?</summary><p>30 days, no questions, prepaid return label. Warranty runs 12 months from delivery.</p></details>
+  <details><summary>What's in the box?</summary><p>Blender, USB-C charging cable, quick-start guide, and a recipe card with 12 blends.</p></details>
+</div>
+
+<div class="fin" id="buy"><div class="wrap">
+  <h2>Tomorrow morning, 30 seconds.</h2>
+  <p>Charge it once, keep it in your bag, and stop paying $9 for something you can make at home.</p>
+  <a class="cta" href="#">Add to cart — $32</a>
+</div></div>
+
+<footer>VITAFRESH · support@yourbrand.com · Ships from US warehouse<br>
+This page was generated by AI 营销助手. Product images are samples — swap them for your own before publishing.</footer>
+</body></html>
