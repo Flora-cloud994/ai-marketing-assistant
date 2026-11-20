@@ -4,6 +4,9 @@
 
 **纯前端单文件，双击即用。** 不需要账号、后端、构建环境。
 
+> 在线试用：**https://flora-cloud994.github.io/ai-marketing-assistant/**
+> （本地版功能相同；线上版因浏览器限制只能用云中转，见下文「联网」一节）
+
 ---
 
 ## 为什么做这个
@@ -30,8 +33,20 @@
 **改源码**：编辑根目录的 `*.js`，然后重新打包——
 
 ```bash
-node build.js          # 生成 dist/AI营销助手.html（把 16 个脚本内联成单文件）
+node build.js          # 生成 dist/AI营销助手.html 与 docs/index.html（把 16 个脚本内联成单文件）
 ```
+
+## 部署到 GitHub Pages
+
+`docs/` 是构建产物目录，`node build.js` 会同时写 `dist/` 和 `docs/index.html`，两边永远一致 —— 不要手改 `docs/`。
+
+开启方式：仓库 `Settings` → `Pages` → Source 选 **Deploy from a branch** → Branch `main`、目录 `/docs` → Save。一两分钟后访问：
+
+```
+https://<你的用户名>.github.io/ai-marketing-assistant/
+```
+
+> 线上版（https）访问不了 `http://127.0.0.1` 上的本机桥 —— 浏览器会按混合内容拦截。所以网页版只能用「云中转」或「公开源」两档，本机桥只在本地双击打开时用得上。
 
 ## 联网（可选）
 
@@ -83,6 +98,7 @@ app.js              应用外壳：状态、路由、联网交互
 build.js            打包成单文件
 sync-worker.js      从 net.js 生成中转源码
 dist/               成品单文件 HTML
+docs/               GitHub Pages 站点（构建产物，由 build.js 生成，别手改）
 scripts/            本地桥 + 云中转源码
 示例产出/           PDF / HTML 报告、提示词、详情页样例
 ```

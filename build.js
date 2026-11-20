@@ -29,6 +29,16 @@ if (/<script src=/.test(html) || /<link rel="stylesheet"/.test(html)) throw new 
 
 fs.mkdirSync('dist', { recursive: true });
 fs.writeFileSync('dist/AI营销助手.html', html);
+
+/* GitHub Pages 的站点根目录：文件名必须是 index.html，
+   不然线上地址会带一串 %E8%90%A5... 的中文编码，分享出去很难看 */
+fs.mkdirSync('docs', { recursive: true });
+fs.writeFileSync('docs/index.html', html);
+/* 让 Pages 跳过 Jekyll 处理（单文件用不上，但能省掉一次构建失败的风险） */
+const nojekyll = 'docs/.nojekyll';
+if (!fs.existsSync(nojekyll)) fs.writeFileSync(nojekyll, '');
+
 console.log('打包完成', (html.length / 1024).toFixed(1) + 'KB',
   '| 脚本块', (html.match(/<script>/g) || []).length,
-  '| 外链', (html.match(/https?:\/\/[^"']+\.(js|css)/g) || []).length);
+  '| 外链', (html.match(/https?:\/\/[^"']+\.(js|css)/g) || []).length,
+  '| docs/index.html 已同步');

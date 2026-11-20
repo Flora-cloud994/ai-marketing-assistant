@@ -94,10 +94,15 @@ const NETX = (function () {
 
       /* 1) 自建中转（云端 Worker 或本地桥），优先级最高：稳定、不限流 */
       const bases = [];
-      if (cfg.base) bases.push(cfg.base);
-      if (cfg.local) bases.push(cfg.local);
-      /* 8787 是 relay_node.js 的默认口：本机跑过它就自动接上，不用手填 */
-      if (bases.indexOf('http://127.0.0.1:8787') < 0) bases.push('http://127.0.0.1:8787');
+      /* https 页面（GitHub Pages）访问 http://127.0.0.1 会被浏览器当混合内容拦掉，
+         探它只会白等一段超时，所以本地口只在 file:// 或 http:// 下才探 */
+      const localOk = location.protocol !== 'https:';
+      if (cfg.base && (localOk || /^https:/i.test(cfg.base))) bases.push(cfg.base);
+      if (localOk) {
+        if (cfg.local) bases.push(cfg.local);
+        /* 8787 是 relay_node.js 的默认口：本机跑过它就自动接上，不用手填 */
+        if (bases.indexOf('http://127.0.0.1:8787') < 0) bases.push('http://127.0.0.1:8787');
+      }
       for (const b of bases) {
         const j = await health(b);
         if (j && j.ok) {
