@@ -282,6 +282,19 @@ const NETX = (function () {
      认出来才好给准确提示 —— 说「没解析出商品」等于没说。 */
   const BLOCKED = /bm-verify|api-services-support|Enter the characters you see|Robot Check|captcha|To discuss automated access/i;
 
+  /* 搜索结果总数 = 「在售卖家数」的真实来源（供需账的分母）。
+     页头写法：1-16 of over 2,000 results for "xxx" ，
+     也见过 1-16 of 2,000 results / 5.000 Ergebnisse（欧式千分位点）。 */
+  function resultCount(html) {
+    const t = String(html || '');
+    let m = t.match(/of\s+(?:over\s+)?([\d.,\u00a0\s]+)\s*results?/i);
+    if (!m) m = t.match(/([\d.,\u00a0\s]+)\s*results?\s+for/i);
+    if (!m) return 0;
+    const digits = (m[1] || '').replace(/[^\d]/g, '');
+    const n = parseInt(digits, 10);
+    return isFinite(n) && n > 0 ? n : 0;
+  }
+
   async function amazon(kw, market, limit) {
     const mk = market || 'com';
     const u = 'https://www.amazon.' + mk + '/s?k=' + encodeURIComponent(kw) + '&language=en_US';
@@ -298,7 +311,7 @@ const NETX = (function () {
       const blocked = BLOCKED.test(html);
       return { ok: false, msg: blocked ? '亚马逊要人机验证（出口 IP 被抽查，过一会儿再来或改用本机桥）' : '页面打开了但没解析出商品' };
     }
-    return { ok: true, products: rows, src: st.mode === 'relay' ? '中转' : '公开代理' };
+    return { ok: true, products: rows, results: resultCount(html), src: st.mode === 'relay' ? '中转' : '公开代理' };
   }
 
   function parseReviews(html, asin) {

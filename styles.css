@@ -1198,3 +1198,56 @@ pre.mail{
 .ltab th:nth-child(n+2),.ltab td:nth-child(n+2){text-align:right;white-space:nowrap}
 .livebox-f{font-size:10.5px;color:#5c8f78;margin-top:6px;line-height:1.7}
 @media print{.livebox{break-inside:avoid}}
+
+/* ---------- 供需账（第六章） ---------- */
+.sflow{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:12px 0 14px}
+.sf{
+  border:1px solid var(--line2);border-radius:10px;padding:10px 12px;background:#fbfcfe;
+  display:flex;flex-direction:column;gap:3px;
+}
+.sf em{
+  font-style:normal;font-size:10px;font-weight:800;letter-spacing:.06em;color:#8896ad;
+  text-transform:uppercase;
+}
+.sf b{font-size:12px;font-weight:800;color:var(--txt)}
+.sf span{font-size:11px;color:var(--txt3);line-height:1.72}
+.sf:nth-child(1){border-left:3px solid #9db6dd}
+.sf:nth-child(2){border-left:3px solid #1e4fd8;background:#f7f9ff}
+.sf:nth-child(3){border-left:3px solid #22b573}
+
+.stab table{font-size:11px}
+.stab th{white-space:nowrap}
+.stab td{padding-top:6px;padding-bottom:6px}
+.kwx{font-size:10px;color:#9aa7bd;margin-top:1px;font-family:ui-monospace,Menlo,Consolas,monospace}
+.sr{font-size:13px;font-weight:800;letter-spacing:-.01em}
+.sr-good{color:#0b7a55}
+.sr-mid{color:#a25f07}
+.sr-bad{color:#b42318}
+.sg{
+  display:inline-block;font-style:normal;font-size:9px;font-weight:800;padding:0 4px;
+  border-radius:4px;margin-left:3px;vertical-align:1px;
+}
+.sg-net{background:#e9f8f1;color:#0b7a55}
+.sg-user{background:#eef3fe;color:#1e4fd8}
+.sg-est{background:#f1f4f9;color:#7d8ca6}
+.tr-need{font-size:10px;color:#9aa7bd;white-space:nowrap}
+
+.stopbox.ok{background:#f3fbf7;border-color:#c9ecd6}
+.stopbox.ok b{color:#0b7a55}
+.stopbox.ok span{color:#3f6b58}
+.stopbox.warn{background:#fdf1f1;border-color:#f3cfcf}
+.stopbox.warn b{color:#b42318}
+.stopbox.warn span{color:#7e3d39}
+
+/* 640 而不是 760：A4 打印宽度约 735px，断点设 760 会让打印版三卡竖排、白占半页 */
+@media(max-width:640px){
+  .sflow{grid-template-columns:1fr}
+  .stab{overflow-x:auto}
+}
+@media print{
+  .sflow{grid-template-columns:repeat(3,1fr);break-inside:avoid}
+  .stab{break-inside:avoid}
+  .stab table{font-size:8.4px}
+  .stab th,.stab td{padding-left:3px;padding-right:3px}
+}
+.sr-est{color:#93a0b5;font-weight:700}

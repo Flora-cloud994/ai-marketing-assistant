@@ -54,8 +54,10 @@ function save() {
       live: S.auto.live ? {
         at: S.auto.live.at, kw: S.auto.live.kw, mk: S.auto.live.mk, g: S.auto.live.g,
         sug: (S.auto.live.sug || []).slice(0, 12),
-        products: (S.auto.live.products || []).slice(0, 6)
+        products: (S.auto.live.products || []).slice(0, 6),
+        results: S.auto.live.results || {}, vol: S.auto.live.vol || {}
       } : null,
+      hist: (S.auto.hist || []).slice(-36),
       netCat: S.auto.netCat ? { forName: S.auto.netCat.forName, cat: S.auto.netCat.cat, id: S.auto.netCat.id, n: S.auto.netCat.n, of: S.auto.netCat.of, src: S.auto.netCat.src } : null
     };
   }
@@ -266,7 +268,7 @@ async function autoNet(silent) {
       const q = new URLSearchParams({ kw, market: mk === 'co.jp' ? 'com' : mk, pages: '1', limit: '6', review_pages: '0' });
       const k = await netFetch(NETX.base + '/start?' + q.toString(), 15000);
       if (!k || !k.ok) throw new Error((k && k.msg) || '启动失败');
-      autoPoll(k.id, p, 0, silent);
+      autoPoll(k.id, p, 0, silent, kw);
       return;
     } catch (e) {
       say('本地桥这次没跑通（' + (e.message || '无响应') + '）—— 改走公开源');
@@ -280,7 +282,7 @@ async function autoNet(silent) {
     useBaseline(p, say, true);
     return;
   }
-  autoNetApply(p, r.products, silent);
+  autoNetApply(p, r.products, silent, r.results, kw);
 }
 
 /* 亚马逊的真实下拉建议词 = 当前这批买家正在搜的说法，比任何词表都新。
@@ -349,22 +351,22 @@ function useBaseline(p, say, keepNet) {
   toast('内置基线：' + cat + ' · 6 款头部');
 }
 
-function autoPoll(id, prof, n, silent) {
+function autoPoll(id, prof, n, silent, kw) {
   const st = $('#autoSt');
   if (n > 30) { if (st && !silent) st.textContent = '任务超时，稍后再试'; return; }
   netFetch(NETX.base + '/poll?id=' + id, 12000).then(j => {
     if (!j || !j.ok) throw new Error((j && j.msg) || '查询失败');
     if (j.state === 'running') {
       if (st && !silent && j.log && j.log.length) st.textContent = j.log[j.log.length - 1];
-      setTimeout(() => autoPoll(id, prof, n + 1, silent), 1200);
+      setTimeout(() => autoPoll(id, prof, n + 1, silent, kw), 1200);
       return;
     }
-    if (j.state === 'done' && j.products && j.products.length) return autoNetApply(prof, j.products, silent);
+    if (j.state === 'done' && j.products && j.products.length) return autoNetApply(prof, j.products, silent, j.results, kw);
     if (st) st.textContent = j.msg || '搜到了，但没解析出商品';
   }).catch(e => { if (st) st.textContent = '联网收集中断：' + (e.message || ''); });
 }
 
-function autoNetApply(prof, products, silent) {
+function autoNetApply(prof, products, silent, results, kw) {
   const r = refineByProfile(prof, products);
   const st = $('#autoSt');
   if (!r) { if (st) st.textContent = '搜到了商品，但标题解析为空'; return; }
@@ -386,6 +388,18 @@ function autoNetApply(prof, products, silent) {
       r: Number(x.rating) || 0, c: Number(x.reviews) || 0
     }))
   });
+  /* 供需账：把这次抓到的「搜索结果总数」记下来当分母（它就是这批词下的全部在售），
+     并按月留一条记录 —— 趋势只能这样攒，没有捷径 */
+  if (kw && results > 0) {
+    const L = S.auto.live;
+    L.results = Object.assign({}, L.results, { [kw]: results });
+    const d = new Date().toISOString().slice(0, 10);
+    const mon = d.slice(0, 7);
+    const vol = num(S.project.volume, 0);
+    const hist = (S.auto.hist = S.auto.hist || []).filter(x => !(x && x.kw === kw && String(x.d || '').slice(0, 7) === mon));
+    hist.push({ d, kw, n: results, v: vol });
+    while (hist.length > 48) hist.shift();
+  }
   renderNetPill();
   syncProjInputs();
   save(); renderAuto(); renderMain();

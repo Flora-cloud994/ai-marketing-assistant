@@ -1206,6 +1206,59 @@ pre.mail{
 .livebox-f{font-size:10.5px;color:#5c8f78;margin-top:6px;line-height:1.7}
 @media print{.livebox{break-inside:avoid}}
 
+/* ---------- 供需账（第六章） ---------- */
+.sflow{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:12px 0 14px}
+.sf{
+  border:1px solid var(--line2);border-radius:10px;padding:10px 12px;background:#fbfcfe;
+  display:flex;flex-direction:column;gap:3px;
+}
+.sf em{
+  font-style:normal;font-size:10px;font-weight:800;letter-spacing:.06em;color:#8896ad;
+  text-transform:uppercase;
+}
+.sf b{font-size:12px;font-weight:800;color:var(--txt)}
+.sf span{font-size:11px;color:var(--txt3);line-height:1.72}
+.sf:nth-child(1){border-left:3px solid #9db6dd}
+.sf:nth-child(2){border-left:3px solid #1e4fd8;background:#f7f9ff}
+.sf:nth-child(3){border-left:3px solid #22b573}
+
+.stab table{font-size:11px}
+.stab th{white-space:nowrap}
+.stab td{padding-top:6px;padding-bottom:6px}
+.kwx{font-size:10px;color:#9aa7bd;margin-top:1px;font-family:ui-monospace,Menlo,Consolas,monospace}
+.sr{font-size:13px;font-weight:800;letter-spacing:-.01em}
+.sr-good{color:#0b7a55}
+.sr-mid{color:#a25f07}
+.sr-bad{color:#b42318}
+.sg{
+  display:inline-block;font-style:normal;font-size:9px;font-weight:800;padding:0 4px;
+  border-radius:4px;margin-left:3px;vertical-align:1px;
+}
+.sg-net{background:#e9f8f1;color:#0b7a55}
+.sg-user{background:#eef3fe;color:#1e4fd8}
+.sg-est{background:#f1f4f9;color:#7d8ca6}
+.tr-need{font-size:10px;color:#9aa7bd;white-space:nowrap}
+
+.stopbox.ok{background:#f3fbf7;border-color:#c9ecd6}
+.stopbox.ok b{color:#0b7a55}
+.stopbox.ok span{color:#3f6b58}
+.stopbox.warn{background:#fdf1f1;border-color:#f3cfcf}
+.stopbox.warn b{color:#b42318}
+.stopbox.warn span{color:#7e3d39}
+
+/* 640 而不是 760：A4 打印宽度约 735px，断点设 760 会让打印版三卡竖排、白占半页 */
+@media(max-width:640px){
+  .sflow{grid-template-columns:1fr}
+  .stab{overflow-x:auto}
+}
+@media print{
+  .sflow{grid-template-columns:repeat(3,1fr);break-inside:avoid}
+  .stab{break-inside:avoid}
+  .stab table{font-size:8.4px}
+  .stab th,.stab td{padding-left:3px;padding-right:3px}
+}
+.sr-est{color:#93a0b5;font-weight:700}
+
 </style>
 </head>
 <body>
@@ -1251,6 +1304,7 @@ pre.mail{
         <label>品类 <input data-pk="category" list="catList" placeholder="自动"></label>
         <datalist id="catList"></datalist>
         <label>价格 <input data-pk="price" placeholder="自动"></label>
+        <label>月搜索量 <input data-pk="volume" placeholder="选填 · 卖家精灵的数字" inputmode="numeric"></label>
         <label class="wide">人群 <input data-pk="audience" placeholder="自动"></label>
       </div>
       <label class="pg-full pg-edit" id="autoEditPts" hidden>核心卖点 <i>一行一条</i>
@@ -1930,6 +1984,19 @@ const NETX = (function () {
      认出来才好给准确提示 —— 说「没解析出商品」等于没说。 */
   const BLOCKED = /bm-verify|api-services-support|Enter the characters you see|Robot Check|captcha|To discuss automated access/i;
 
+  /* 搜索结果总数 = 「在售卖家数」的真实来源（供需账的分母）。
+     页头写法：1-16 of over 2,000 results for "xxx" ，
+     也见过 1-16 of 2,000 results / 5.000 Ergebnisse（欧式千分位点）。 */
+  function resultCount(html) {
+    const t = String(html || '');
+    let m = t.match(/of\s+(?:over\s+)?([\d.,\u00a0\s]+)\s*results?/i);
+    if (!m) m = t.match(/([\d.,\u00a0\s]+)\s*results?\s+for/i);
+    if (!m) return 0;
+    const digits = (m[1] || '').replace(/[^\d]/g, '');
+    const n = parseInt(digits, 10);
+    return isFinite(n) && n > 0 ? n : 0;
+  }
+
   async function amazon(kw, market, limit) {
     const mk = market || 'com';
     const u = 'https://www.amazon.' + mk + '/s?k=' + encodeURIComponent(kw) + '&language=en_US';
@@ -1946,7 +2013,7 @@ const NETX = (function () {
       const blocked = BLOCKED.test(html);
       return { ok: false, msg: blocked ? '亚马逊要人机验证（出口 IP 被抽查，过一会儿再来或改用本机桥）' : '页面打开了但没解析出商品' };
     }
-    return { ok: true, products: rows, src: st.mode === 'relay' ? '中转' : '公开代理' };
+    return { ok: true, products: rows, results: resultCount(html), src: st.mode === 'relay' ? '中转' : '公开代理' };
   }
 
   function parseReviews(html, asin) {
@@ -5272,6 +5339,266 @@ function gateBarHtml(G) {
 </script>
 <script>
 /* =========================================================
+   supply.js — 供需账
+   ---------------------------------------------------------
+   月搜索量 ÷ 在售卖家数 = 每个卖家能分到的自然流量
+
+   ≥ 1.0   基础曝光不错，进得去
+   0.8–1.0 可进，但要有差异化（用户方法的优先线）
+   0.3–0.8 偏挤，得靠长尾词和广告
+   < 0.3   红海，自然流量分不到，很难出单
+
+   分子来自关键词月搜索量，分母取亚马逊搜索结果总数
+   （比逐款数链接更准，因为它就是这一批词下的全部在售）。
+   两个数都能被真实值替换：分母联网即真值，分子填一次就行。
+   ========================================================= */
+
+/* 类目核心词的月搜索量基准（次/月）—— 这是估算，不是抓来的。
+   换真值的方法写在表格下面：卖家精灵 / Helium10 的「月搜索量」抄一个进来。 */
+const CAT_VOL = {
+  '厨房小家电': [22000, 85000],
+  '家用电器': [18000, 70000],
+  '3C 数码': [35000, 140000],
+  '服饰配饰': [30000, 120000],
+  '美妆个护': [28000, 110000],
+  '宠物用品': [14000, 58000],
+  '母婴用品': [16000, 62000],
+  '家居收纳': [15000, 52000],
+  '家居清洁': [12000, 46000],
+  '户外运动': [16000, 65000],
+  '汽车用品': [13000, 50000],
+  '玩具益智': [17000, 68000],
+  '办公文具': [8000, 32000],
+  '灯具照明': [9000, 38000],
+  '园艺工具': [7000, 28000]
+};
+
+/* 亚马逊搜索结果总数基准（≈ 在售链接数）。
+   实测校准：womens overalls 返回「over 50,000 results」，所以量级是万级不是千级 ——
+   早先按几千条给基准，估出来的比值会普遍虚高两三倍。 */
+const CAT_SELLERS = {
+  '3C 数码': [12000, 90000], '服饰配饰': [20000, 150000], '美妆个护': [15000, 80000],
+  '厨房小家电': [8000, 45000], '家用电器': [9000, 55000], '宠物用品': [6000, 30000],
+  '母婴用品': [7000, 40000], '家居收纳': [6000, 35000], '家居清洁': [5000, 28000],
+  '户外运动': [8000, 45000], '汽车用品': [6000, 32000], '玩具益智': [8000, 50000],
+  '办公文具': [4000, 20000], '灯具照明': [5000, 25000], '园艺工具': [3000, 18000]
+};
+
+/* 细分款在形态内部的相对搜索权重：第一行是主流款，往后是长尾。
+   只用于「没联网也没填数」时的兜底估算，联网后整列换成真值。 */
+const SUB_W = [1, 0.58, 0.46, 0.36, 0.29, 0.23, 0.18, 0.14];
+
+const bandOf = r =>
+  r >= 1.0 ? { k: 'good', t: '供不应求', s: '基础曝光不错，进去就有自然流量' } :
+  r >= 0.8 ? { k: 'good', t: '可进', s: '过了优先线，但要有一个明确差异点' } :
+  r >= 0.3 ? { k: 'mid', t: '偏挤', s: '自然流量薄，得靠长尾词和广告撑' } :
+             { k: 'bad', t: '红海', s: '每个卖家分不到几分流量，很难出单' };
+
+/* 分子是估的时候，比值只能用来排序 —— 不能套绝对阈值。
+   否则一个 3 倍误差的估算会告诉你「这个类目供不应求」，那是害人。 */
+const relBand = (r, all) => {
+  const s = all.slice().sort((a, b) => b.r - a.r);
+  const i = s.findIndex(x => x.r === r);
+  const q = s.length ? i / s.length : 0;
+  if (q < 0.3) return { k: 'good', t: '相对松', s: '同组里最松的一档，先看这几款' };
+  if (q < 0.7) return { k: 'mid', t: '居中', s: '组内居中，要靠差异点才进得去' };
+  return { k: 'bad', t: '相对紧', s: '同组里最挤的一档，别当主攻' };
+};
+
+const numFmt = n => (n >= 10000 ? (n / 10000).toFixed(n >= 100000 ? 0 : 1) + '万' : String(n));
+
+function catRange(tbl, cat, dflt) {
+  const k = String(cat || '').trim();
+  return tbl[k] || dflt;
+}
+
+/* 一行：搜索量 S / 卖家数 N / 比值 r / 数据来源 */
+function supplyRows(ctx) {
+  const S = subRows(ctx);
+  if (!S) return null;
+  const A = ctx.__auto || {};
+  const live = A.live || {};
+  const resMap = live.results || {};        /* { 英文词: 搜索结果数 } */
+  const volMap = live.vol || {};            /* { 英文词: 月搜索量 } */
+  const [vLo, vHi] = catRange(CAT_VOL, ctx.category, [12000, 45000]);
+  const [sLo, sHi] = catRange(CAT_SELLERS, ctx.category, [1800, 9000]);
+  const userVol = num(ctx.volume, 0);       /* 侧栏手填的月搜索量，优先于一切估算 */
+
+  const rows = S.rows.map((r, i) => {
+    const w = SUB_W[i] || 0.14;
+    const kw = r.kw || '';
+
+    /* 分子：手填 > 抓到的实时词量 > 类目基准 × 细分权重 */
+    let v = 0, vsrc = 'est', vlo = Math.round(vLo * w), vhi = Math.round(vHi * w);
+    if (i === 0 && userVol > 0) { v = userVol; vsrc = 'user'; vlo = vhi = v; }
+    else if (volMap[kw] > 0) { v = volMap[kw]; vsrc = 'net'; vlo = vhi = v; }
+    else { v = Math.round(((vlo + vhi) / 2)); }
+
+    /* 分母：抓到的真实结果数 > 类目基准 × 细分修正（长尾款卖家少） */
+    let n = 0, nsrc = 'est';
+    if (resMap[kw] > 0) { n = resMap[kw]; nsrc = 'net'; }
+    else { n = Math.round(((sLo + sHi) / 2) * (0.62 + i * 0.07)); }
+
+    const rr = n > 0 ? v / n : 0;
+    return {
+      zh: r.zh, kw, isCur: r.isCur, v, n, r: rr,
+      vsrc, nsrc, w, lo: vlo, hi: vhi,
+      real: vsrc !== 'est'          /* 分子真实，比值才能套绝对阈值 */
+    };
+  });
+
+  /* 分档：分子实测/手填 → 套绝对阈值；分子是估的 → 只做同组内相对排序 */
+  const pool = rows.map(x => ({ r: x.r }));
+  rows.forEach(x => { x.band = x.real ? bandOf(x.r) : relBand(x.r, pool); });
+
+  return {
+    rows, cur: rows.find(x => x.isCur) || rows[0], n: rows.length,
+    anyNet: rows.some(x => x.nsrc === 'net'),
+    anyReal: rows.some(x => x.real)
+  };
+}
+
+/* 趋势：只看「同一个月在不同日期记的同一组数」没意义，
+   所以按月份归并，取最近三个月比较。不足三个月就老实说不够。 */
+function trendOf(ctx, kw) {
+  const h = (ctx.__auto && ctx.__auto.hist) || [];
+  const mine = h.filter(x => x && x.kw === kw);
+  const byMon = {};
+  mine.forEach(x => { const m = String(x.d || '').slice(0, 7); if (m) byMon[m] = x; });
+  const ms = Object.keys(byMon).sort();
+  if (ms.length < 2) {
+    return { ok: false, need: 2 - ms.length, mon: ms.length, pts: ms.map(m => byMon[m].v) };
+  }
+  const last = ms.slice(-3);
+  const pts = last.map(m => byMon[m].v);
+  const chg = [];
+  for (let i = 1; i < pts.length; i++) {
+    if (pts[i - 1] > 0) chg.push((pts[i] - pts[i - 1]) / pts[i - 1]);
+  }
+  const up = chg.length && chg.every(c => c > 0);
+  const flat = chg.length && chg.every(c => Math.abs(c) < 0.05);
+  const avg = chg.length ? chg.reduce((a, b) => a + b, 0) / chg.length : 0;
+  return {
+    ok: true, mon: ms.length, pts, chg, avg, last,
+    state: up ? 'up' : (flat ? 'flat' : (avg < 0 ? 'down' : 'mix'))
+  };
+}
+
+function supplySection(ctx, n) {
+  const A = ctx.__auto || {};
+  const D = supplyRows(ctx);
+  if (!D) {
+    return `<h3>供需账：这个细分挤不挤</h3>
+      <p class="plead">算这张账要两个数：<b>月搜索量</b>和<b>在售卖家数</b>。目前产品名只到形态一级、还没落到具体款式，
+        账就无从算起 —— 在产品名里补一个款式词（「工装」「阔腿」「大码」），这一节会自动出现。</p>`;
+  }
+
+  const cur = D.cur;
+  /* 每行的档位在 supplyRows 里已经按各自的数据源判过：
+     分子真实的套绝对阈值，分子是估的只给组内相对位。这里只汇总，不重判。 */
+  const curReal = !!(cur && cur.real);
+  const realMode = curReal;
+  const estRows = D.rows.filter(x => !x.real).length;
+  /* 过线/红线只认真实的行：拿估值去凑「有 3 款过 0.8」是骗人的 */
+  const pass = realMode
+    ? D.rows.filter(x => x.real && x.r >= 0.8).sort((a, b) => b.r - a.r)
+    : D.rows.filter(x => x.band.k === 'good');
+  const dead = realMode
+    ? D.rows.filter(x => x.real && x.r < 0.3)
+    : D.rows.filter(x => x.band.k === 'bad');
+  const tr = cur ? trendOf(ctx, cur.kw) : { ok: false, need: 2, mon: 0 };
+  const live = A.live || {};
+  const hasNet = D.anyNet;
+  const srcTag = x => x === 'net' ? '<i class="sg sg-net">实测</i>'
+    : (x === 'user' ? '<i class="sg sg-user">手填</i>' : '<i class="sg sg-est">估</i>');
+
+  const trCell = () => {
+    if (!tr.ok) {
+      return `<span class="tr-need">需 ${tr.need} 次月度记录</span>`;
+    }
+    const arrow = tr.state === 'up' ? '↑' : (tr.state === 'down' ? '↓' : '→');
+    const tone = tr.state === 'up' ? 'good' : (tr.state === 'down' ? 'bad' : 'mid');
+    const pct = (tr.avg * 100).toFixed(1).replace('-', '');
+    return `<i class="tg tg-${tone}">${arrow} ${tr.state === 'up' ? '+ ' : (tr.state === 'down' ? '- ' : '± ')}${pct}%/月</i>`;
+  };
+
+  return `
+    <h3>供需账：先算每个卖家能分到多少流量</h3>
+    <p class="plead">选品不是「这个类目大不大」，是<b>这块饼分给多少人</b>。用<b>月搜索量 ÷ 在售卖家数</b>，
+      得到的是每个卖家能分到的自然流量份额。这一步做完，才知道后面四关值不值得过。</p>
+
+    <div class="sflow">
+      <div class="sf">
+        <em>① 定范围</em>
+        <b>锁到细分款，不是大类</b>
+        <span>「${esc(String((ctx.category || '品类')).split(' › ')[0])}」里的不同款式不做同一批词，混在一起算等于没算。这一节锁在<b>${esc(cur ? cur.zh : '本品细分')}</b>这一类 ${D.n} 款上。</span>
+      </div>
+      <div class="sf">
+        <em>② 算比值</em>
+        <b>月搜索量 ÷ 卖家数</b>
+        <span>分母取亚马逊搜索结果总数（这一批词下的全部在售），比逐款数链接更准。优先挑 <b>≥ 0.8</b> 的款，<b>&lt; 0.3</b> 直接放弃。</span>
+      </div>
+      <div class="sf">
+        <em>③ 看趋势</em>
+        <b>连续三个月往上就够</b>
+        <span>哪怕每月只涨 5%，说明需求在长；连续跌的款，比值再高也是接盘。趋势靠本页按月累计，第一次打开时为基准月。</span>
+      </div>
+    </div>
+
+    <div class="ptable stab">
+      <table>
+        <thead><tr>
+          <th>细分款</th>
+          <th class="c">月搜索量</th>
+          <th class="c">在售卖家</th>
+          <th class="c">供需比</th>
+          <th class="c">档位</th>          <th>怎么读</th>
+          <th class="c">近三月趋势</th>
+        </tr></thead>
+        <tbody>
+          ${D.rows.map((x, i) => `<tr${x.isCur ? ' class="trcur"' : ''}>
+            <td><b>${esc(x.zh)}</b>${x.isCur ? '<i class="tg tg-good">本品</i>' : ''}
+              ${x.kw ? `<div class="sub2 kwx">${esc(x.kw)}</div>` : ''}</td>
+            <td class="c nw">${numFmt(x.v)} ${srcTag(x.vsrc)}</td>
+            <td class="c nw">${numFmt(x.n)} ${srcTag(x.nsrc)}</td>
+            <td class="c"><b class="sr ${x.real ? 'sr-' + x.band.k : 'sr-est'}">${x.real ? '' : '≈'}${x.r.toFixed(2)}</b></td>
+            <td class="c"><i class="tg tg-${x.band.k}">${x.band.t}</i></td>
+            <td class="sub2">${esc(x.band.s)}</td>
+            <td class="c">${i === (D.rows.findIndex(y => y.isCur)) ? trCell() : '<span class="tr-need">—</span>'}</td>
+          </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="stopbox ${realMode ? (cur && cur.band.k === 'bad' ? 'warn' : 'ok') : ''}">
+      <b>${!realMode
+        ? `先排序，别急着定生死：最松的是 ${esc(pass[0] ? pass[0].zh : (D.rows[0] || {}).zh || '—')}（比值 ${(pass[0] || D.rows[0] || {}).r ? (pass[0] || D.rows[0]).r.toFixed(2) : '—'}）`
+        : (cur ? (cur.band.k === 'good' ? `这个细分能进：供需比 ${cur.r.toFixed(2)}` : cur.band.k === 'mid' ? `偏挤但能做：供需比 ${cur.r.toFixed(2)}` : `不建议硬进：供需比 ${cur.r.toFixed(2)}，低于 0.3 的红线`) : '数据不足')}</b>
+      <span>${!realMode
+        ? `分子（月搜索量）是估算的，误差可能有几倍，所以这一档只做<b>同组横向排序</b>，不套绝对阈值——估值算出来的「供不应求」不作数。
+           把真实的月搜索量填进侧栏「手动修改 › 月搜索量」，或联网补上卖家数，这张表立刻改成按 <b>≥1.0 / 0.8 / 0.3</b> 判档。`
+        : (pass.length
+          ? `这 ${D.n} 款里比值 ≥ 0.8 的有 <b>${pass.length}</b> 款（${pass.slice(0, 3).map(x => esc(x.zh)).join('、')}${pass.length > 3 ? ' 等' : ''}），优先从这里面挑。`
+          : `这 ${D.n} 款里<b>没有一款过 0.8</b> —— 要么换形态，要么换类目，在这个细分里拼价格没有出路。`)
+          + (estRows ? ` 其余 ${estRows} 款的数据还没换成真值，不能用这条线判，只做组内排序。` : '')
+          + (dead.length ? ` 另有 <b>${dead.length}</b> 款已跌破 0.3（${dead.slice(0, 2).map(x => esc(x.zh)).join('、')}${dead.length > 2 ? ' 等' : ''}），别碰。` : '')}</span>
+    </div>
+
+    <p class="pnote">${hasNet
+      ? `卖家数那一列标「实测」的，是<b>刚从亚马逊搜索页抓到的原值</b>；标「估」的是类目基准推算。`
+      : `这张表的两个数<b>目前都是估算</b>：卖家数按类目基准推、搜索量按核心词基准 × 细分权重推。量级和相对高低可以参考，<b>绝对值不要当真</b>。`}
+      ${!realMode ? '<b>所以这一档只排序、不判档</b>：真正的「供不应求 / 红海」必须分子分母都真才成立，估值套阈值只会给出过度乐观的结论。'
+        : (estRows ? `本品那两个数已经真实，所以按 <b>≥1.0 / 0.8 / 0.3</b> 判档；另外 ${estRows} 行标「估」的分子还是推算的，只给<b>组内相对位</b>，不套阈值。` : '')}
+      换真值的办法：卖家精灵 / Helium10 里搜同一个词，把「月搜索量」抄进侧栏「手动修改」；亚马逊搜索结果数联网即真值。
+      两个数都换成真实的，这张表才有决策价值。</p>
+
+    <p class="pnote"><b>为什么用搜索结果总数当分母：</b>逐款抓前 100 名再数链接，既慢又会漏掉广告位和变体；
+      搜索页那一行「1-16 of over N results」本身就是这个细分下的在售总量，误差更小，也更快。</p>`;
+}
+
+</script>
+<script>
+/* =========================================================
    crawler.js — 附录：联网抓评论
    页面不能自己跨域抓亚马逊，所以给一个本地抓取桥：
      scripts/amazon_bridge.py  （同时是 HTTP 服务 与 命令行工具）
@@ -6300,7 +6627,9 @@ function buildReport(ctx) {
       <h2><i>第六章</i>值不值得做</h2>
       ${cat === '（未填品类）'
         ? `<p class="plead">品类还没定，这一章先不下判断：四关里的竞争与利润是拿跨类目通用样本算的，算出来也是假数。<b>先在侧栏把品类定下来</b>，这一章会立刻重算 —— 定品类这一步，比后面任何一个分数都重要。</p>`
-        : `<p class="plead">前面五章都是材料，这一章才下判断。<b>四关放行条</b>：需求真实、竞争可插、利润够撑、风险可解。前三关是硬约束 —— 任何一关掉到 4 分以下直接否；竞争不参与否决，只决定「怎么进」。</p>`}
+        : `<p class="plead">前面五章都是材料，这一章才下判断。<b>先算供需账</b>，再过四关放行条 ——
+          供需账看这块饼分给多少人，四关看你能不能吃到嘴。<b>四关放行条</b>：需求真实、竞争可插、利润够撑、风险可解。前三关是硬约束 —— 任何一关掉到 4 分以下直接否；竞争不参与否决，只决定「怎么进」。</p>`}
+      ${cat === '（未填品类）' ? '' : supplySection(CX, 6)}
       <div class="verdict2 ${tone}">
         <div class="verdict2-g">${vizGauge(sc.total, { label: cat === '（未填品类）' ? '数据不足' : '机会分', note: verdict, tone })}</div>
         <div class="verdict2-t">
@@ -9625,8 +9954,10 @@ function save() {
       live: S.auto.live ? {
         at: S.auto.live.at, kw: S.auto.live.kw, mk: S.auto.live.mk, g: S.auto.live.g,
         sug: (S.auto.live.sug || []).slice(0, 12),
-        products: (S.auto.live.products || []).slice(0, 6)
+        products: (S.auto.live.products || []).slice(0, 6),
+        results: S.auto.live.results || {}, vol: S.auto.live.vol || {}
       } : null,
+      hist: (S.auto.hist || []).slice(-36),
       netCat: S.auto.netCat ? { forName: S.auto.netCat.forName, cat: S.auto.netCat.cat, id: S.auto.netCat.id, n: S.auto.netCat.n, of: S.auto.netCat.of, src: S.auto.netCat.src } : null
     };
   }
@@ -9837,7 +10168,7 @@ async function autoNet(silent) {
       const q = new URLSearchParams({ kw, market: mk === 'co.jp' ? 'com' : mk, pages: '1', limit: '6', review_pages: '0' });
       const k = await netFetch(NETX.base + '/start?' + q.toString(), 15000);
       if (!k || !k.ok) throw new Error((k && k.msg) || '启动失败');
-      autoPoll(k.id, p, 0, silent);
+      autoPoll(k.id, p, 0, silent, kw);
       return;
     } catch (e) {
       say('本地桥这次没跑通（' + (e.message || '无响应') + '）—— 改走公开源');
@@ -9851,7 +10182,7 @@ async function autoNet(silent) {
     useBaseline(p, say, true);
     return;
   }
-  autoNetApply(p, r.products, silent);
+  autoNetApply(p, r.products, silent, r.results, kw);
 }
 
 /* 亚马逊的真实下拉建议词 = 当前这批买家正在搜的说法，比任何词表都新。
@@ -9920,22 +10251,22 @@ function useBaseline(p, say, keepNet) {
   toast('内置基线：' + cat + ' · 6 款头部');
 }
 
-function autoPoll(id, prof, n, silent) {
+function autoPoll(id, prof, n, silent, kw) {
   const st = $('#autoSt');
   if (n > 30) { if (st && !silent) st.textContent = '任务超时，稍后再试'; return; }
   netFetch(NETX.base + '/poll?id=' + id, 12000).then(j => {
     if (!j || !j.ok) throw new Error((j && j.msg) || '查询失败');
     if (j.state === 'running') {
       if (st && !silent && j.log && j.log.length) st.textContent = j.log[j.log.length - 1];
-      setTimeout(() => autoPoll(id, prof, n + 1, silent), 1200);
+      setTimeout(() => autoPoll(id, prof, n + 1, silent, kw), 1200);
       return;
     }
-    if (j.state === 'done' && j.products && j.products.length) return autoNetApply(prof, j.products, silent);
+    if (j.state === 'done' && j.products && j.products.length) return autoNetApply(prof, j.products, silent, j.results, kw);
     if (st) st.textContent = j.msg || '搜到了，但没解析出商品';
   }).catch(e => { if (st) st.textContent = '联网收集中断：' + (e.message || ''); });
 }
 
-function autoNetApply(prof, products, silent) {
+function autoNetApply(prof, products, silent, results, kw) {
   const r = refineByProfile(prof, products);
   const st = $('#autoSt');
   if (!r) { if (st) st.textContent = '搜到了商品，但标题解析为空'; return; }
@@ -9957,6 +10288,18 @@ function autoNetApply(prof, products, silent) {
       r: Number(x.rating) || 0, c: Number(x.reviews) || 0
     }))
   });
+  /* 供需账：把这次抓到的「搜索结果总数」记下来当分母（它就是这批词下的全部在售），
+     并按月留一条记录 —— 趋势只能这样攒，没有捷径 */
+  if (kw && results > 0) {
+    const L = S.auto.live;
+    L.results = Object.assign({}, L.results, { [kw]: results });
+    const d = new Date().toISOString().slice(0, 10);
+    const mon = d.slice(0, 7);
+    const vol = num(S.project.volume, 0);
+    const hist = (S.auto.hist = S.auto.hist || []).filter(x => !(x && x.kw === kw && String(x.d || '').slice(0, 7) === mon));
+    hist.push({ d, kw, n: results, v: vol });
+    while (hist.length > 48) hist.shift();
+  }
   renderNetPill();
   syncProjInputs();
   save(); renderAuto(); renderMain();
