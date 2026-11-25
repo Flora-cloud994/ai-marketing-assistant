@@ -1251,3 +1251,60 @@ pre.mail{
   .stab th,.stab td{padding-left:3px;padding-right:3px}
 }
 .sr-est{color:#93a0b5;font-weight:700}
+
+/* ---------- 上架体检（第五章后） ---------- */
+.audit-top{
+  display:grid;grid-template-columns:172px 1fr;gap:14px;align-items:center;
+  border:1px solid var(--line2);border-left:3px solid var(--blue);border-radius:10px;
+  background:#f7f9ff;padding:12px 14px;margin:12px 0 14px;
+}
+.audit-top.good{border-left-color:#22b573;background:#f4fbf7}
+.audit-top.bad{border-left-color:#dc2626;background:#fdf5f5}
+.audit-num{display:flex;align-items:baseline;flex-wrap:wrap;gap:1px;border-right:1px solid var(--line);padding-right:12px}
+.audit-num b{font-size:34px;font-weight:800;letter-spacing:-.03em;color:var(--blue);line-height:1}
+.audit-num em{font-style:normal;font-size:13px;font-weight:700;color:#8b9ab3}
+.audit-num span{flex:0 0 100%;font-size:10px;color:var(--txt3);margin-top:4px}
+.audit-top.good .audit-num b{color:#0b7a55}
+.audit-top.bad .audit-num b{color:#b42318}
+.audit-t b{display:block;font-size:14px;font-weight:800;color:var(--txt);margin-bottom:3px}
+.audit-t span{font-size:10.5px;line-height:1.72;color:var(--txt2)}
+.audit-s{white-space:nowrap;text-align:right}
+.audit-s b{font-size:14px;font-weight:800;color:var(--txt)}
+.audit-s em{font-style:normal;font-size:10px;color:#9aa7bd}
+
+.draft{border:1px solid var(--line2);border-radius:8px;background:#fbfcfe;padding:9px 11px;margin:6px 0 14px}
+.draft-t{font-size:12.5px;line-height:1.75;color:var(--txt);word-break:break-word}
+.draft-m{font-size:10px;color:var(--txt3);margin-top:4px}
+
+.amat td.ok{color:#0b7a55;font-weight:800;text-align:center}
+.amat td.no{color:#c3ccdb;text-align:center}
+.amat th:nth-child(n+3):nth-child(-n+5){text-align:center}
+.amat td:first-child{max-width:230px;word-break:break-word}
+
+.afixs{display:grid;gap:8px;margin:10px 0 12px}
+.afix{display:grid;grid-template-columns:20px 1fr;gap:9px;align-items:start;border:1px solid var(--line2);border-radius:9px;padding:9px 11px;background:#fbfcfe}
+.afix-n{
+  width:20px;height:20px;border-radius:50%;background:var(--blue-l);color:var(--blue);
+  font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px;
+}
+.afix-b b{display:block;font-size:11.5px;color:var(--txt);margin-bottom:2px}
+.afix-b span{font-size:11px;line-height:1.72;color:var(--txt2)}
+
+@media print{
+  .audit-top{break-inside:avoid}
+  .draft,.afix{break-inside:avoid}
+  .amat td:first-child{max-width:none}
+}
+
+.atab{table-layout:fixed}
+.atab td:nth-child(2){text-align:center;color:#8b9ab3}
+.atab td:first-child{white-space:nowrap}
+.atab td:first-child b{font-weight:700}
+.amat{table-layout:fixed}
+.amat col:nth-child(1){width:34%}
+
+@media(max-width:640px){
+  .audit-top{grid-template-columns:1fr;gap:8px}
+  .audit-num{border-right:0;border-bottom:1px solid var(--line);padding:0 0 8px}
+  .atab{min-width:560px}
+}

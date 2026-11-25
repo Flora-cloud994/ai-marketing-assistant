@@ -517,7 +517,7 @@ function renderDoc(step) {
       <div class="stepbar-l">
         <div class="crumb">第 ${step.n} 步 · ${step.name}</div>
         <h2>选品调研报告</h2>
-        <p class="desc">6 章 · 10 张图 · 四关放行。竞品按品类自动匹配，评论可粘贴或上传 CSV，导入后整篇图表重算。</p>
+        <p class="desc">6 章 · 10 张图 · 上架体检 · 四关放行。竞品按品类自动匹配，评论可粘贴或上传 CSV，导入后整篇图表重算。</p>
       </div>
       <div class="stepbar-r">
         <button class="btn sm" id="btnDocWord">导出 Word</button>

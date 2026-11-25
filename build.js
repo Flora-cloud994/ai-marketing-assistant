@@ -2,7 +2,7 @@
 const fs = require('fs');
 const rd = f => fs.readFileSync(f, 'utf8').replace(/\r\n/g, '\n');
 
-const ORDER = ['core.js', 'net.js', 'infer.js', 'subs.js', 'viz.js', 'reviews-data.js', 'review.js', 'compete.js', 'select.js', 'supply.js', 'crawler.js', 'media.js', 'aprompt.js', 'doc.js', 'tools.js', 'emotion.js', 'app.js'];
+const ORDER = ['core.js', 'net.js', 'infer.js', 'subs.js', 'viz.js', 'reviews-data.js', 'review.js', 'compete.js', 'select.js', 'supply.js', 'audit.js', 'crawler.js', 'media.js', 'aprompt.js', 'doc.js', 'tools.js', 'emotion.js', 'app.js'];
 
 let html = rd('index.html');
 const css = rd('styles.css');

@@ -359,7 +359,7 @@ function buildReport(ctx) {
     </div>
     <div class="rvdock" id="rvdock" hidden></div>
 
-    <p class="pguide"><b>怎么读这份报告</b>：① 抓关键词 → ② 定品类（大类 › 款式 › 功能）→ ③ 看竞品 → ④ 抓评论 → ⑤ 判断值不值得做。前四章是材料，结论在第六章；急着看结果可以直接跳到 <a class="lk" href="#ch6" data-anchor="ch6">第六章</a>，但不建议——先看材料再看判断，才知道这个分数是怎么来的。</p>
+    <p class="pguide"><b>怎么读这份报告</b>：① 抓关键词 → ② 定品类（大类 › 款式 › 功能）→ ③ 看竞品 → ④ 抓评论 → ⑤ 定价与情绪 → ⑥ 上架体检 → ⑦ 判断值不值得做。前七节都是材料，结论在第六章；急着看结果可以直接跳到 <a class="lk" href="#ch6" data-anchor="ch6">第六章</a>，但不建议——先看材料再看判断，才知道这个分数是怎么来的。</p>
 
     <section class="ch" id="ch1">
       <h2><i>第一章</i>关键词簇 · 先抓词</h2>
@@ -376,12 +376,18 @@ function buildReport(ctx) {
         </div>`).join('')}
       </div>
       <p class="pconcl">标题公式：<b>核心词 + 卖点词 + 场景词 + 规格</b>。Amazon 只收录前 200 字符，堆词不加权，重复词只会浪费位置。下一步：拿这些词反推品类 —— 词把人带到哪一格，货就得站进哪一格。</p>
+      ${(() => {
+        const n = t => kw.rows.filter(r => r.type === t).length;
+        const core2 = n('核心词') + n('精准词'), mid = n('属性词') + n('场景词'), tail2 = n('长尾词') + n('实时词'), cp = n('竞品词');
+        return `<p class="ksrc">投放分三层开：<b>手动精准</b>先上核心词与精准词（${core2} 个）拿转化 → <b>词组匹配</b>放属性词与场景词（${mid} 个）拿曝光 → <b>自动 / 广泛</b>跑长尾（${tail2} 个）来捞真实搜索词，捞到再提精准${cp ? `；竞品词单独建组（${cp} 个），预算别超过 10%` : ''}。一次全开等于把钱撒在没验证的词上。</p>`;
+      })()}
     </section>
 
     ${catSection(ctx, 2, vsegHtml)}
     ${compSection(ctx, list, st, 3, (genSample ? `<div class="stopbox"><b>竞品来源要说清楚</b><span>${genWhy}</span></div>` : '') + liveBox)}
     ${reviewSection(ctx, RVA, RVI, 4)}
     ${emotionSection(ctx, 5)}
+    ${auditSection(CX)}
 
     <section class="ch" id="ch6">
       <h2><i>第六章</i>值不值得做</h2>
